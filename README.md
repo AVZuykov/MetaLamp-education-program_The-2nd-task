@@ -1,1 +1,1 @@
-# MetaLamp-education-program.-The-2nd-task
+The-2nd-task
