@@ -1,0 +1,81 @@
+.header-ui
+  padding: 30px
+
+.section-ui
+  margin-bottom: 30px
+
+// Colors & Type 
+
+.colors-fonts
+  display: flex
+  justify-content: space-evenly
+  +media-breakpoint-down(md)
+    flex-direction: column
+
+.colors-block-ui, .type-block-ui
+  margin: 0
+  padding: 0
+
+.colors-block-ui
+  li
+    display: flex
+    align-items: center
+    margin-bottom: 20px
+    &:last-child
+      margin: 0
+  +media-breakpoint-down(md)
+    margin-bottom: 50px
+
+.colors-block-ui__square
+  height: 70px
+  width: 70px
+  border-radius: 6px
+  margin-right: 40px
+  &_darkshade
+    background-color: $darkShade
+  &_darkshade75
+    background-color: $darkShade75
+  &_darkshade50
+    background-color: $darkShade50
+  &_darkshade25
+    background-color: $darkShade25
+  &_darkshade5
+    background-color: $darkShade5
+  &_purple
+    background-color: $purple
+  &_green
+    background-color: $green
+
+.colors-block-ui__title
+  display: flex
+  flex-flow: column
+  font-size: 19px
+  span:first-child
+    font-weight: 700
+
+.type-block-ui
+  max-width: 430px
+  li
+    display: flex
+    margin-bottom: 30px
+    &:last-child
+      margin-bottom: 0
+  span
+    margin-right: 30px
+
+.type-block-ui__h1,
+.type-block-ui__h2,
+.type-block-ui__h3,
+.type-block-ui__t-text
+  color: $darkShade25
+  text-align: right
+  line-height: 1
+  width: 40px
+  flex-shrink: 0
+
+.type-block-ui__h1
+  font-size: 24px
+.type-block-ui__h2
+  font-size: 19px
+.type-block-ui__h3
+  font-size: 12px

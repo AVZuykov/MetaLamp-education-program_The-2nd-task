@@ -74,7 +74,7 @@ function styles() {
 		.pipe(eval(`${preprocessor}glob`)())
 		.pipe(eval(preprocessor)())
 		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
-		.pipe(cleancss({ level: { 1: { specialComments: 0 } }, format: 'beautify' }))
+		.pipe(cleancss({ level: { 1: { specialComments: 0 } }, /*format: 'beautify'*/ }))
 		.pipe(rename({ suffix: ".min" }))
 		.pipe(dest('app/css'))
 		.pipe(browserSync.stream())

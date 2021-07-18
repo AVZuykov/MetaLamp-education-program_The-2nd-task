@@ -1,13 +1,91 @@
-include ./parts/header
+include ./parts/head
 include ./parts/footer
 
-+header() 
++head() 
 
 body 
 
-  h1 Start catalog 
+  header.header-ui.container
+    img(src="images/svg/toxin.svg" alt="toxin поиск номеров в отелях")
 
-  p Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Имени его но запятой пояс предупреждал, пустился буквоград правилами меня текста снова грустный раз. Обеспечивает ты живет буквенных, инициал подзаголовок собрал эта подпоясал первую. Раз текст, которое собрал проектах даже рукописи, правилами осталось снова живет решила рыбными послушавшись запятых взгляд.
-  
+  main.container
+
+    //- Intro
+    section.section-ui 
+
+      h1
+        | UI-Kit Макет
+
+      p.t-text
+        | UI-Kit — это единый макет дизайна и единая страница верстки, с которой берут типовые блоки и используют в конечных страницах.
+
+    //- Colors & Type
+    section.section-ui 
+
+      h2
+        | Colors & Type 
+
+      .colors-fonts 
+
+        ul.colors-block-ui
+          li 
+            .colors-block-ui__square.colors-block-ui__square_darkshade  
+            .colors-block-ui__title 
+              span Dark Shade 100%
+              span #1F2041
+          li 
+            .colors-block-ui__square.colors-block-ui__square_darkshade75 
+            .colors-block-ui__title 
+              span Dark Shade 75%
+              span #1F2041
+          li 
+            .colors-block-ui__square.colors-block-ui__square_darkshade50  
+            .colors-block-ui__title 
+              span Dark Shade 50%
+              span #1F2041
+          li 
+            .colors-block-ui__square.colors-block-ui__square_darkshade25  
+            .colors-block-ui__title 
+              span Dark Shade 25%
+              span #1F2041
+          li 
+            .colors-block-ui__square.colors-block-ui__square_darkshade5  
+            .colors-block-ui__title 
+              span Dark Shade 5%
+              span #1F2041
+          li 
+            .colors-block-ui__square.colors-block-ui__square_purple  
+            .colors-block-ui__title 
+              span Purple
+              span #BC9CFF
+          li 
+            .colors-block-ui__square.colors-block-ui__square_green  
+            .colors-block-ui__title 
+              span Green
+              span #6FCF97
+
+
+        ul.type-block-ui
+          li
+            span.type-block-ui__h1 H1
+            h1 This one is the sub-section or widget title
+          li
+            span.type-block-ui__h2 H2
+            h2 Next one is the item title inside widgets
+          li
+            span.type-block-ui__h3 H3
+            h3 This is a label or CTA text
+          li
+            span.type-block-ui__t-text Body
+            p.t-text This is the body text which is used for most of the design, like paragraphs, lists, etc.
+
+    //- Form Elements
+    section.section-ui 
+
+
+
+
+
+
   +footer
 
