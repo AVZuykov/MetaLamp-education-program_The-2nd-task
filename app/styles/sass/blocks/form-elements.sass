@@ -1,0 +1,131 @@
+.t-form
+  position: relative
+  
+.t-form__element
+  display: flex
+  flex-flow: column
+  margin-bottom: 20px
+  &:hover
+    cursor: pointer
+  &:last-of-type
+    margin-bottom: 0
+
+// Базовый инпут
+
+.input-wrapper
+  &:hover .input-wrapper__select
+    transform: scaleY(1)
+    opacity: 1
+
+.input-wrapper__title
+  font-size: 12px
+  font-weight: 700
+  line-height: 1
+  color: $darkShade
+  text-transform: uppercase
+  margin-bottom: 5px
+  
+
+.input-wrapper__field
+  position: relative
+  height: 44px
+  padding: 13px 15px
+  border: solid $darkShade25 1px
+  border-radius: 4px
+  color: $darkShade75
+  line-height: 18px
+  transition: all .25s ease-in-out
+  &::placeholder
+    color: $darkShade25
+  &:focus, &:hover
+    border-color: $darkShade50
+
+.input-wrapper__field_drop-down
+  position: relative
+  border-radius: 4px 4px 0 0 
+  &::after
+    content: ''
+    position: absolute
+    background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
+    border: none
+    bottom: 0
+    right: 0
+    height: 44px
+    width: 44px
+
+// dropdown
+
+.input-wrapper__select
+  position: absolute
+  z-index: 100
+  display: block
+  top: 100%
+  left: 0
+  right: 0
+  transform: scaleY(0)
+  opacity: 0
+  transition: opacity .25s ease-in-out
+
+
+// Кнопка подписаться
+
+.t-form__subscribe
+  position: absolute
+  background: url(../images/svg/subscribe-arrow.svg) no-repeat center center
+  border: none
+  bottom: 0
+  right: 0
+  height: 44px
+  width: 44px
+
+.dropdown-select
+  list-style-type: none
+  margin: 0
+  padding: 0
+  border: solid 1px $darkShade50
+  border-top: none
+  border-radius: 0 0 4px 4px
+  padding: 15px
+  background-color: #fff
+
+.dropdown-select__option
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 7px
+  &:hover
+    cursor: default
+  &:last-child
+    margin-bottom: 0
+
+.dropdown-select__counter
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.dropdown-select__minus, .dropdown-select__plus
+  height: 30px
+  width: 30px
+  box-sizing: border-box
+  border-radius: 50%
+  border: 1px solid $darkShade25
+  color: $darkShade50
+  background: none
+  transition: opacity .25s ease-in-out
+  &:first-child
+    margin-right: 12px
+  &:last-child
+    margin-left: 12px
+
+  &_disable
+    opacity: .38
+
+.dropdown-select__title, .dropdown-select__count
+  font-size: 12px
+  line-height: 0
+  font-weight: 700
+  text-transform: uppercase
+
+  
+
+

@@ -13,7 +13,7 @@ body
     //- Intro
     section.section-ui 
 
-      h1
+      h1#intro
         | UI-Kit Макет
 
       p.t-text
@@ -22,7 +22,7 @@ body
     //- Colors & Type
     section.section-ui 
 
-      h2
+      h2#colorsAndFonts
         | Colors & Type 
 
       .colors-fonts 
@@ -82,8 +82,74 @@ body
     //- Form Elements
     section.section-ui 
 
-
-
+      h2#formElements Form Elements
+      //- Basic elements
+      .form-elements-block-ui 
+        .form-elements-block-ui__column
+          //- Text form
+          form.t-form(type="get")
+            label.t-form__element.input-wrapper(for="textField") 
+              span.input-wrapper__title TEXT FIELD
+              input.input-wrapper__field(type="text" id="textField" name="someText" placeholder="Some text...")
+          //- Subscription form
+          form.t-form(type="get")
+            label.t-form__element.input-wrapper(for="maskedEmail") 
+              span.input-wrapper__title TEXT FIELD
+              input.input-wrapper__field(type="text" id="maskedEmail" name="maskedEmail" placeholder="Email")
+            input.t-form__subscribe(type="submit" value="")
+          //- Masked form
+          form.t-form(type="get")
+            label.t-form__element.input-wrapper(for="maskedDate") 
+              span.input-wrapper__title masked text field
+              input.input-wrapper__field(type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ")
+          //- Dropdown element
+          form.t-form(type="get")
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title dropdown
+              div.input-wrapper__field.input-wrapper__field_drop-down 2 спальни, 2 кровати
+              ul.input-wrapper__select.dropdown-select   
+                li.dropdown-select__option
+                  span.dropdown-select__title спальни
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus(type="button") +
+                li.dropdown-select__option
+                  span.dropdown-select__title Кровати
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus(type="button") +
+                li.dropdown-select__option
+                  span.dropdown-select__title Ванные комнаты
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus.dropdown-select__minus_disable(type="button") -
+                    b.dropdown-select__count 0
+                    button.dropdown-select__plus(type="button") +
+          //- Dropdown element
+          form.t-form(type="get")
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title dropdown
+              div.input-wrapper__field.input-wrapper__field_drop-down 2 спальни, 2 кровати
+              ul.input-wrapper__select.dropdown-select   
+                li.dropdown-select__option
+                  span.dropdown-select__title спальни
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus(type="button") +
+                li.dropdown-select__option
+                  span.dropdown-select__title Кровати
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus(type="button") +
+                li.dropdown-select__option
+                  span.dropdown-select__title Ванные комнаты
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus.dropdown-select__minus_disable(type="button") -
+                    b.dropdown-select__count 0
+                    button.dropdown-select__plus(type="button") +
 
 
 

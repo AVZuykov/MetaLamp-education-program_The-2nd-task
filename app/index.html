@@ -13,11 +13,11 @@
   <header class="header-ui container"><img src="images/svg/toxin.svg" alt="toxin поиск номеров в отелях"></header>
   <main class="container">
     <section class="section-ui"> 
-      <h1>UI-Kit Макет</h1>
+      <h1 id="intro">UI-Kit Макет</h1>
       <p class="t-text">UI-Kit — это единый макет дизайна и единая страница верстки, с которой берут типовые блоки и используют в конечных страницах.</p>
     </section>
     <section class="section-ui"> 
-      <h2>Colors & Type </h2>
+      <h2 id="colorsAndFonts">Colors & Type </h2>
       <div class="colors-fonts"> 
         <ul class="colors-block-ui">
           <li> 
@@ -65,7 +65,79 @@
         </ul>
       </div>
     </section>
-    <section class="section-ui"> </section>
+    <section class="section-ui"> 
+      <h2 id="formElements">Form Elements</h2>
+      <div class="form-elements-block-ui"> 
+        <div class="form-elements-block-ui__column">
+          <form class="t-form" type="get">
+            <label class="t-form__element input-wrapper" for="textField"> <span class="input-wrapper__title">TEXT FIELD</span>
+              <input class="input-wrapper__field" type="text" id="textField" name="someText" placeholder="Some text...">
+            </label>
+          </form>
+          <form class="t-form" type="get">
+            <label class="t-form__element input-wrapper" for="maskedEmail"> <span class="input-wrapper__title">TEXT FIELD</span>
+              <input class="input-wrapper__field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email">
+            </label>
+            <input class="t-form__subscribe" type="submit" value="">
+          </form>
+          <form class="t-form" type="get">
+            <label class="t-form__element input-wrapper" for="maskedDate"> <span class="input-wrapper__title">masked text field</span>
+              <input class="input-wrapper__field" type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ">
+            </label>
+          </form>
+          <form class="t-form" type="get">
+            <div class="t-form__element input-wrapper"><span class="input-wrapper__title">dropdown</span>
+              <div class="input-wrapper__field input-wrapper__field_drop-down">2 спальни, 2 кровати</div>
+              <ul class="input-wrapper__select dropdown-select">  
+                <li class="dropdown-select__option"><span class="dropdown-select__title">спальни</span>
+                  <div class="dropdown-select__counter">
+                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
+                    <button class="dropdown-select__plus" type="button">+</button>
+                  </div>
+                </li>
+                <li class="dropdown-select__option"><span class="dropdown-select__title">Кровати</span>
+                  <div class="dropdown-select__counter">
+                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
+                    <button class="dropdown-select__plus" type="button">+</button>
+                  </div>
+                </li>
+                <li class="dropdown-select__option"><span class="dropdown-select__title">Ванные комнаты</span>
+                  <div class="dropdown-select__counter">
+                    <button class="dropdown-select__minus dropdown-select__minus_disable" type="button">-</button><b class="dropdown-select__count">0</b>
+                    <button class="dropdown-select__plus" type="button">+</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </form>
+          <form class="t-form" type="get">
+            <div class="t-form__element input-wrapper"><span class="input-wrapper__title">dropdown</span>
+              <div class="input-wrapper__field input-wrapper__field_drop-down">2 спальни, 2 кровати</div>
+              <ul class="input-wrapper__select dropdown-select">  
+                <li class="dropdown-select__option"><span class="dropdown-select__title">спальни</span>
+                  <div class="dropdown-select__counter">
+                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
+                    <button class="dropdown-select__plus" type="button">+</button>
+                  </div>
+                </li>
+                <li class="dropdown-select__option"><span class="dropdown-select__title">Кровати</span>
+                  <div class="dropdown-select__counter">
+                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
+                    <button class="dropdown-select__plus" type="button">+</button>
+                  </div>
+                </li>
+                <li class="dropdown-select__option"><span class="dropdown-select__title">Ванные комнаты</span>
+                  <div class="dropdown-select__counter">
+                    <button class="dropdown-select__minus dropdown-select__minus_disable" type="button">-</button><b class="dropdown-select__count">0</b>
+                    <button class="dropdown-select__plus" type="button">+</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
   <script src="js/app.min.js"></script>
 </body>
