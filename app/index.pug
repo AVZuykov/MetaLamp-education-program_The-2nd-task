@@ -85,71 +85,167 @@ body
       h2#formElements Form Elements
       //- Basic elements
       .form-elements-block-ui 
-        .form-elements-block-ui__column
+        .form-elements-block-ui__column320
           //- Text form
           form.t-form(type="get")
-            label.t-form__element.input-wrapper(for="textField") 
-              span.input-wrapper__title TEXT FIELD
+            div.t-form__element.input-wrapper
+              label.input-wrapper__title(for="textField")  TEXT FIELD
               input.input-wrapper__field(type="text" id="textField" name="someText" placeholder="Some text...")
-          //- Subscription form
-          form.t-form(type="get")
-            label.t-form__element.input-wrapper(for="maskedEmail") 
-              span.input-wrapper__title TEXT FIELD
+
+            //- Subscription form
+            div.t-form__element.input-wrapper
+              label.t-form__element.input-wrapper__title(for="maskedEmail") TEXT FIELD
               input.input-wrapper__field(type="text" id="maskedEmail" name="maskedEmail" placeholder="Email")
-            input.t-form__subscribe(type="submit" value="")
-          //- Masked form
-          form.t-form(type="get")
-            label.t-form__element.input-wrapper(for="maskedDate") 
-              span.input-wrapper__title masked text field
+              input.input-wrapper__subscribe(type="submit" value="")
+
+            //- Masked form
+            div.t-form__element.input-wrapper
+              label.input-wrapper__title(for="maskedDate") masked text field
               input.input-wrapper__field(type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ")
-          //- Dropdown element
-          form.t-form(type="get")
+
+            //- Dropdown element
             div.t-form__element.input-wrapper
-              span.input-wrapper__title dropdown
-              div.input-wrapper__field.input-wrapper__field_drop-down 2 спальни, 2 кровати
+              span.input-wrapper__title(for="dropdown") dropdown
+              div.input-wrapper__field.input-wrapper__field_drop-down 2 спальни, 2 кровати, 2 ванные комнаты
               ul.input-wrapper__select.dropdown-select   
                 li.dropdown-select__option
+                  input(type="number" hidden name="sleepingrooms" value="count")
                   span.dropdown-select__title спальни
                   div.dropdown-select__counter
                     button.dropdown-select__minus(type="button") -
                     b.dropdown-select__count 2
-                    button.dropdown-select__plus(type="button") +
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
                 li.dropdown-select__option
-                  span.dropdown-select__title Кровати
+                  input(type="number" hidden name="beds" value="count")
+                  span.dropdown-select__title кровати
                   div.dropdown-select__counter
                     button.dropdown-select__minus(type="button") -
                     b.dropdown-select__count 2
-                    button.dropdown-select__plus(type="button") +
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
                 li.dropdown-select__option
+                  input(type="number" hidden name="bathrooms" value="count")
                   span.dropdown-select__title Ванные комнаты
                   div.dropdown-select__counter
-                    button.dropdown-select__minus.dropdown-select__minus_disable(type="button") -
-                    b.dropdown-select__count 0
-                    button.dropdown-select__plus(type="button") +
-          //- Dropdown element
-          form.t-form(type="get")
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+
+            //- dropdown with accept button
             div.t-form__element.input-wrapper
-              span.input-wrapper__title dropdown
-              div.input-wrapper__field.input-wrapper__field_drop-down 2 спальни, 2 кровати
+              span.input-wrapper__title(for="dropdown") dropdown with accept button
+              div.input-wrapper__field.input-wrapper__field_drop-down Сколько гостей
               ul.input-wrapper__select.dropdown-select   
                 li.dropdown-select__option
-                  span.dropdown-select__title спальни
+                  input(type="number" hidden name="adults" value="count")
+                  span.dropdown-select__title Взрослые
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+                li.dropdown-select__option
+                  input(type="number" hidden name="children" value="count")
+                  span.dropdown-select__title Дети
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+                li.dropdown-select__option
+                  input(type="number" hidden name="baby" value="count")
+                  span.dropdown-select__title Младенцы
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+                li.dropdown-select__buttons 
+                  button.dropdown-select__accept Применить
+
+            //- dropdown with accept and clear buttons 
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title(for="dropdown") dropdown with accept and clear buttons
+              div.input-wrapper__field.input-wrapper__field_drop-down 3 гостя
+              ul.input-wrapper__select.dropdown-select   
+                li.dropdown-select__option
+                  input(type="number" hidden name="adults" value="count")
+                  span.dropdown-select__title Взрослые
                   div.dropdown-select__counter
                     button.dropdown-select__minus(type="button") -
                     b.dropdown-select__count 2
                     button.dropdown-select__plus(type="button") +
                 li.dropdown-select__option
-                  span.dropdown-select__title Кровати
+                  input(type="number" hidden name="children" value="count")
+                  span.dropdown-select__title Дети
                   div.dropdown-select__counter
                     button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
+                    b.dropdown-select__count 1
                     button.dropdown-select__plus(type="button") +
                 li.dropdown-select__option
-                  span.dropdown-select__title Ванные комнаты
+                  input(type="number" hidden name="baby" value="count")
+                  span.dropdown-select__title Младенцы
                   div.dropdown-select__counter
-                    button.dropdown-select__minus.dropdown-select__minus_disable(type="button") -
+                    button.dropdown-select__minus.dropdown-select__plus_disable(type="button") -
                     b.dropdown-select__count 0
                     button.dropdown-select__plus(type="button") +
+                li.dropdown-select__buttons 
+                  button.dropdown-select__clear Очистить
+                  button.dropdown-select__accept Применить
+
+        //- max width 260px
+        div.form-elements-block-ui__column260
+          form.t-form(type="get")
+
+            //- Checkbox buttons
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
+              ul.input-wrapper__check-list
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="smoke")
+                    div.input-wrapper__checkbox
+                    | Можно курить
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="pets")
+                    div.input-wrapper__checkbox
+                    | Можно с питомцами
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="party")
+                    div.input-wrapper__checkbox
+                    | Можно пригласить гостей (до 10 человек)
+
+            //- Radio buttons
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field Radio Buttons 
+              ul.input-wrapper__check-list
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label
+                    input(type="radio" name="sex")
+                    div.input-wrapper__radio
+                    | Мужчина
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label
+                    input(type="radio" name="sex")
+                    div.input-wrapper__radio
+                    | Женщина
+
+            //- Toggle
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field toggle
+              ul.input-wrapper__check-list
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label
+                    input(type="checkbox" name="privacy")
+                    div.input-wrapper__toggle
+                    | Можно курить
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label
+                    input(type="checkbox" name="subscribe")
+                    div.input-wrapper__toggle
+                    | Можно с питомцами
+ 
+
+
+
 
 
 

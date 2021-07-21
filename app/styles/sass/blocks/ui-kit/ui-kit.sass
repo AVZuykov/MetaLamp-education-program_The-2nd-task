@@ -3,6 +3,8 @@
 
 .section-ui
   margin-bottom: 50px
+  &:last-of-type
+    margin-bottom: 150px
 
 // Colors & Type 
 
@@ -84,9 +86,16 @@
 
 .form-elements-block-ui 
   display: flex
+  flex-flow: row
+  justify-content: space-between
   .t-form
     margin-bottom: 30px
+    &:last-of-type
+      margin-bottom: 0
 
-.form-elements-block-ui__column
+.form-elements-block-ui__column320
   min-width: 320px
+
+.form-elements-block-ui__column260
+  max-width: 260px
 

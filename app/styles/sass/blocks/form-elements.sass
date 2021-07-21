@@ -1,21 +1,19 @@
+// Form
+
 .t-form
   position: relative
-  
+
 .t-form__element
   display: flex
   flex-flow: column
   margin-bottom: 20px
-  &:hover
-    cursor: pointer
   &:last-of-type
     margin-bottom: 0
 
-// Базовый инпут
+// Input base
 
 .input-wrapper
-  &:hover .input-wrapper__select
-    transform: scaleY(1)
-    opacity: 1
+  position: relative
 
 .input-wrapper__title
   font-size: 12px
@@ -24,7 +22,9 @@
   color: $darkShade
   text-transform: uppercase
   margin-bottom: 5px
-  
+
+  &_no-field
+    margin-bottom: 16px
 
 .input-wrapper__field
   position: relative
@@ -42,7 +42,7 @@
 
 .input-wrapper__field_drop-down
   position: relative
-  border-radius: 4px 4px 0 0 
+  border-radius: 4px 4px 0 0
   &::after
     content: ''
     position: absolute
@@ -53,23 +53,9 @@
     height: 44px
     width: 44px
 
-// dropdown
+// Subscribe button
 
-.input-wrapper__select
-  position: absolute
-  z-index: 100
-  display: block
-  top: 100%
-  left: 0
-  right: 0
-  transform: scaleY(0)
-  opacity: 0
-  transition: opacity .25s ease-in-out
-
-
-// Кнопка подписаться
-
-.t-form__subscribe
+.input-wrapper__subscribe
   position: absolute
   background: url(../images/svg/subscribe-arrow.svg) no-repeat center center
   border: none
@@ -78,10 +64,29 @@
   height: 44px
   width: 44px
 
+// Dropdown element
+
+.input-wrapper:hover
+  .input-wrapper__select
+    transform: scaleY(1)
+    opacity: 1
+
+.input-wrapper__select
+  position: absolute
+  transform-origin: top
+  display: block
+  overflow: hidden
+  z-index: 100
+  top: 100%
+  left: 0
+  right: 0
+  transform: scaleY(0)
+  opacity: 0
+  transition: all .25s ease-in-out
+
 .dropdown-select
   list-style-type: none
   margin: 0
-  padding: 0
   border: solid 1px $darkShade50
   border-top: none
   border-radius: 0 0 4px 4px
@@ -126,6 +131,166 @@
   font-weight: 700
   text-transform: uppercase
 
-  
+.dropdown-select__buttons
+  display: flex
+  margin-top: 20px
 
+.dropdown-select__clear
+  margin-rigth: auto
 
+.dropdown-select__accept
+  margin-left: auto
+
+.dropdown-select__clear, .dropdown-select__accept
+  border: none
+  color: $purple
+  font-size: 12px
+  font-weight: 700
+  background: none
+  text-transform: uppercase
+
+// Checkbox, radio, toggle buttons
+
+.input-wrapper__check-list
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+.input-wrapper__check-button
+  margin-bottom: 11px
+  &:last-of-type
+    margin-bottom: 0
+
+// checkbox, radio, toggle border
+
+.input-wrapper__checkbox,
+.input-wrapper__radio,
+.input-wrapper__toggle
+  height: 20px
+  width: 20px
+  border: 1px solid $darkShade25
+  flex-shrink: 0
+  margin-right: 10px
+  transition: border-color .25s ease-in-out
+
+.input-wrapper__checkbox
+  border-radius: 4px
+
+.input-wrapper__radio
+  border-radius: 50%
+
+.input-wrapper__toggle
+  width: 40px
+  border-radius: 10px
+
+// checkbox (check)
+
+.input-wrapper__checkbox
+  position: relative
+
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 0px
+    transition: all .25s ease-in-out
+
+  &::before
+    height: 6px
+    transform: translateX(-100%) translateY(-50%) rotate(315deg)
+    transform-origin: 3px 6px
+    background: linear-gradient(to right, rgba(139,164,249,1) 0%, rgba(151,162,251,1) 100%)
+
+  &::after
+    height: 8px
+    transform: translateX(-100%) translateY(-50%) rotate(45deg)
+    transform-origin: 2px 8px
+    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+
+// radio (check)
+
+.input-wrapper__radio
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    width: 0px
+    height: 0px
+    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+    border-radius: 50%
+    transition: all .25s ease-in-out
+
+// toggle (check)
+
+.input-wrapper__toggle
+  position: relative
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-125%) translateY(-50%)
+    width: 12px
+    height: 12px
+    border-radius: 50%
+    transition: all .25s ease-in-out
+
+  &::before
+    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+
+  &::after
+    background: #C7C7CF
+
+// Label checkbox radio toggle
+
+.input-wrapper__check-label
+  color: $darkShade50
+  display: flex
+  flex-flow: row nowrap
+
+  // dynamic 
+    
+  input[type='checkbox'],
+  input[type='radio']
+    position: absolute
+    z-index: -1
+    opacity: 0
+
+    &:checked + .input-wrapper_
+
+      // border color
+
+      &_checkbox,
+      &_radio,
+      &_toggle
+        border-color: $purple
+
+      // checkbox (check)
+
+      &_checkbox
+        &::before
+          width: 2px
+        &::after
+          width: 2px
+
+      // radio (check)
+
+      &_radio
+        &::before
+          width: 12px
+          height: 12px
+
+      // toggle (check)
+
+      &_toggle
+        &::before,
+        &::after
+          transform: translateX(30%) translateY(-50%)
+        &::after
+          opacity: 0

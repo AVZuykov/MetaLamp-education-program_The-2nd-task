@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       min: `${currentDay < 10 ? '0' + currentDay : currentDay}.${currentMonth < 10 ? '0' + currentMonth : currentMonth}.${currentYear}`,
       max: `31.12.${currentYear + 1}`,
       placeholder: '_',
+      prefillYear: false
     }).mask(el)
   })
 
