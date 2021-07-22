@@ -129,7 +129,7 @@
                 <li class="dropdown-select__option">
                   <input type="number" hidden name="baby" value="count"><span class="dropdown-select__title">Младенцы</span>
                   <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
+                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">5</b>
                     <button class="dropdown-select__plus dropdown-select__plus_disable" type="button">+</button>
                   </div>
                 </li>
@@ -177,19 +177,19 @@
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
                     <input type="checkbox" name="smoke">
-                    <div class="input-wrapper__checkbox"></div>Можно курить
+                    <div class="input-wrapper__checkbox"></div><span class="input-wrapper__text">Можно курить</span>
                   </label>
                 </li>
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
                     <input type="checkbox" name="pets">
-                    <div class="input-wrapper__checkbox"></div>Можно с питомцами
+                    <div class="input-wrapper__checkbox"></div><span class="input-wrapper__text">Можно с питомцами</span>
                   </label>
                 </li>
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
                     <input type="checkbox" name="party">
-                    <div class="input-wrapper__checkbox"></div>Можно пригласить гостей (до 10 человек)
+                    <div class="input-wrapper__checkbox"></div><span class="input-wrapper__text">Можно пригласить гостей (до 10 человек)</span>
                   </label>
                 </li>
               </ul>
@@ -199,13 +199,13 @@
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label">
                     <input type="radio" name="sex">
-                    <div class="input-wrapper__radio"></div>Мужчина
+                    <div class="input-wrapper__radio"></div><span class="input-wrapper__text">Мужчина</span>
                   </label>
                 </li>
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label">
                     <input type="radio" name="sex">
-                    <div class="input-wrapper__radio"></div>Женщина
+                    <div class="input-wrapper__radio"></div><span class="input-wrapper__text">Женщина</span>
                   </label>
                 </li>
               </ul>
@@ -215,16 +215,63 @@
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label">
                     <input type="checkbox" name="privacy">
-                    <div class="input-wrapper__toggle"></div>Можно курить
+                    <div class="input-wrapper__toggle"></div><span class="input-wrapper__text">Можно курить</span>
                   </label>
                 </li>
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label">
                     <input type="checkbox" name="subscribe">
-                    <div class="input-wrapper__toggle"></div>Можно с питомцами
+                    <div class="input-wrapper__toggle"></div><span class="input-wrapper__text">Можно с питомцами</span>
                   </label>
                 </li>
               </ul>
+            </div>
+            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">like button</span>
+              <div class="form-elements-block-ui__row">
+                <div class="input-wrapper__like-button"><span class="input-wrapper__like-counter">2</span></div>
+                <div class="input-wrapper__like-button input-wrapper__like-button_active"><span class="input-wrapper__like-counter">22</span></div>
+              </div>
+            </div>
+            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Rate button</span>
+              <div class="form-elements-block-ui__row">
+                <div class="input-wrapper__rate-button">
+                  <input type="number" hidden value="0">
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="1"></div>
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="2"></div>
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="3"></div>
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="4"></div>
+                  <div class="input-wrapper__rate-star" data-rate="5"></div>
+                </div>
+                <div class="input-wrapper__rate-button">
+                  <input type="number" hidden value="0">
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="1"></div>
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="2"></div>
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="3"></div>
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="4"></div>
+                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="5"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="form-elements-block-ui__column320">
+          <form class="t-form" type="get">
+            <div class="f-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Buttons </span>
+              <div class="form-elements-block-ui__row">
+                <button class="button-wrapper" type="button">Click me</button>
+                <button class="button-wrapper" type="button" disabled>Click me</button>
+              </div>
+              <div class="form-elements-block-ui__row">
+                <button class="button-wrapper button-wrapper_border" type="button">Click me</button>
+                <button class="button-wrapper button-wrapper_border" type="button" disabled>Click me</button>
+              </div>
+              <div class="form-elements-block-ui__row">
+                <button class="button-wrapper button-wrapper_only-text" type="button">Click me</button>
+                <button class="button-wrapper button-wrapper_only-text" type="button" disabled>Click me</button>
+              </div>
+              <div class="form-elements-block-ui__row">
+                <button class="button-wrapper button-wrapper_large" type="button">перейти к оплате</button>
+              </div>
             </div>
           </form>
         </div>

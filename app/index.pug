@@ -201,17 +201,17 @@ body
                   label.input-wrapper__check-label 
                     input(type="checkbox" name="smoke")
                     div.input-wrapper__checkbox
-                    span Можно курить
+                    span.input-wrapper__text Можно курить
                 li.input-wrapper__check-button
                   label.input-wrapper__check-label 
                     input(type="checkbox" name="pets")
                     div.input-wrapper__checkbox
-                    span Можно с питомцами
+                    span.input-wrapper__text Можно с питомцами
                 li.input-wrapper__check-button
                   label.input-wrapper__check-label 
                     input(type="checkbox" name="party")
                     div.input-wrapper__checkbox
-                    span Можно пригласить гостей (до 10 человек)
+                    span.input-wrapper__text Можно пригласить гостей (до 10 человек)
 
             //- Radio buttons
             div.t-form__element.input-wrapper
@@ -221,12 +221,12 @@ body
                   label.input-wrapper__check-label
                     input(type="radio" name="sex")
                     div.input-wrapper__radio
-                    span Мужчина
+                    span.input-wrapper__text Мужчина
                 li.input-wrapper__check-button
                   label.input-wrapper__check-label
                     input(type="radio" name="sex")
                     div.input-wrapper__radio
-                    span Женщина
+                    span.input-wrapper__text Женщина
 
             //- Toggle
             div.t-form__element.input-wrapper
@@ -236,19 +236,67 @@ body
                   label.input-wrapper__check-label
                     input(type="checkbox" name="privacy")
                     div.input-wrapper__toggle
-                    span Можно курить
+                    span.input-wrapper__text Можно курить
                 li.input-wrapper__check-button
                   label.input-wrapper__check-label
                     input(type="checkbox" name="subscribe")
                     div.input-wrapper__toggle
-                    span Можно с питомцами
- 
+                    span.input-wrapper__text Можно с питомцами
 
             //- Like button
             div.t-form__element.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field like button
+              div.form-elements-block-ui__row
+                div.input-wrapper__like-button
+                  span.input-wrapper__like-counter 2
+                div.input-wrapper__like-button.input-wrapper__like-button_active
+                  span.input-wrapper__like-counter 22
 
-        
+            //- Rate button
+            div.t-form__element.input-wrapper
+            
+              span.input-wrapper__title.input-wrapper__title_no-field Rate button
+              div.form-elements-block-ui__row
+                div.input-wrapper__rate-button
+                  input(type="number" hidden value="0")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="1")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="2")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="3")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="4")
+                  div.input-wrapper__rate-star(data-rate="5")
+                div.input-wrapper__rate-button
+                  input(type="number" hidden value="0")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="1")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="2")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="3")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="4")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="5")
+
+        //- other elements
+        div.form-elements-block-ui__column320
+          form.t-form(type="get")
+
+            div.f-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field Buttons 
+              div.form-elements-block-ui__row
+                button.button-wrapper(type="button")
+                  | Click me
+                button.button-wrapper(type="button" disabled)
+                  | Click me
+              div.form-elements-block-ui__row
+                button.button-wrapper.button-wrapper_border(type="button")
+                  | Click me
+                button.button-wrapper.button-wrapper_border(type="button" disabled)
+                  | Click me
+              div.form-elements-block-ui__row
+                button.button-wrapper.button-wrapper_only-text(type="button")
+                  | Click me
+                button.button-wrapper.button-wrapper_only-text(type="button" disabled)
+                  | Click me
+              div.form-elements-block-ui__row
+                button.button-wrapper.button-wrapper_large(type="button")
+                  | перейти к оплате
+              
 
 
 

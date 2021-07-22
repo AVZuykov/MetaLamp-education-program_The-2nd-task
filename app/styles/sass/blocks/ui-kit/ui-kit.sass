@@ -84,7 +84,7 @@
 
 // Form Elements
 
-.form-elements-block-ui 
+.form-elements-block-ui
   display: flex
   flex-flow: row
   justify-content: space-between
@@ -94,8 +94,19 @@
       margin-bottom: 0
 
 .form-elements-block-ui__column320
-  min-width: 320px
+  width: 320px
 
 .form-elements-block-ui__column260
   max-width: 260px
+
+.form-elements-block-ui__row
+  display: flex
+  flex-flow: row wrap
+  margin-bottom: 40px
+  &:last-child
+    margin-bottom: 0
+  &>div, &>button
+    margin-right: 10px
+    &:last-child
+      margin: 0
 

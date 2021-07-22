@@ -4,8 +4,6 @@
   position: relative
 
 .t-form__element
-  display: flex
-  flex-flow: column
   margin-bottom: 20px
   &:last-of-type
     margin-bottom: 0
@@ -14,6 +12,8 @@
 
 .input-wrapper
   position: relative
+  display: flex
+  flex-flow: column
 
 .input-wrapper__title
   font-size: 12px
@@ -171,7 +171,7 @@
   margin-right: 10px
   transition: border-color .25s ease-in-out
 
-  & ~ span
+  & ~ .input-wrapper__text
     transition: all .25s ease-in-out
 
 .input-wrapper__checkbox
@@ -271,7 +271,7 @@
       &_radio,
       &_toggle
         border-color: $purple
-        &  ~ span
+        &  ~ .input-wrapper__text
           color: $darkShade75
 
       // checkbox (check)
@@ -297,3 +297,128 @@
           transform: translateX(30%) translateY(-50%)
         &::after
           opacity: 0
+
+// Like button
+
+.input-wrapper__like-button
+  position: relative
+  height: 20px
+  width: 40px
+  border: 1px solid $darkShade25
+  flex-shrink: 0
+  transition: border-color .25s ease-in-out
+  border-radius: 10px
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: all .25s ease-in-out
+
+.input-wrapper__like-counter
+  font-size: 10px
+  line-height: 1
+  color: $darkShade25
+  transform: translateX(50%)
+  transition: all .25s ease-in-out
+  &::before
+    content: ''
+    position: absolute
+    background: url(../images/svg/like-border.svg) no-repeat center center
+    top: -5px
+    left: -20px
+    height: 20px
+    width: 20px
+    transition: all .25s ease-in-out
+
+// like mod
+
+.input-wrapper__like-button_active
+  border-color: $purple
+  .input-wrapper__like-counter
+    color: $purple
+    &::before
+      background: url(../images/svg/like.svg) no-repeat center center
+
+// Rate button
+
+.input-wrapper__rate-button
+  display: flex
+
+.input-wrapper__rate-star
+  height: 24px
+  width: 24px
+  background: url(../images/svg/star-border.svg) no-repeat center center
+  transition: all .25s ease-in-out
+
+  &_active
+    background: url(../images/svg/star.svg) no-repeat center center
+
+// Buttons
+
+.button-wrapper
+  display: inline-block
+  align-self: flex-start
+  padding: 15px 20px
+  height: 44px
+  border: none
+  border-radius: 22px
+  text-transform: uppercase
+  font-weight: 700
+  font-size: 12px
+  line-height: 0
+  color: #fff
+  background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+  &:disabled
+    opacity: .5
+
+// button border mod
+
+.button-wrapper_border
+  background: none
+  color: $purple
+  position: relative
+  border-radius: 22px
+  background-clip: padding-box
+  background: #fff
+  &::after
+    position: absolute
+    top: -2px 
+    bottom: -2px
+    left: -2px 
+    right: -2px
+    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+    content: ''
+    z-index: -1
+    border-radius: 24px
+  &:disabled
+    opacity: 1
+    &::after
+      opacity: .5
+    
+//  Button only text mod
+
+.button-wrapper_only-text
+  background: none
+  color: $purple
+  padding: 0
+  border-radius: none
+  height: auto
+  &:disabled
+    color: $darkShade50
+
+// Button large
+
+.button-wrapper_large
+  flex-basis: 100%
+  position: relative
+  max-width: 320px
+  &::before
+    content: ''
+    width: 44px
+    height: 44px
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    background: url(../images/svg/white-arrow.svg) no-repeat center center
+    
+
