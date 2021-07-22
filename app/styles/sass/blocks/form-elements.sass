@@ -117,10 +117,6 @@
   color: $darkShade50
   background: none
   transition: opacity .25s ease-in-out
-  &:first-child
-    margin-right: 12px
-  &:last-child
-    margin-left: 12px
 
   &_disable
     opacity: .38
@@ -130,6 +126,8 @@
   line-height: 0
   font-weight: 700
   text-transform: uppercase
+  min-width: 32px
+  text-align: center
 
 .dropdown-select__buttons
   display: flex
@@ -172,6 +170,9 @@
   flex-shrink: 0
   margin-right: 10px
   transition: border-color .25s ease-in-out
+
+  & ~ span
+    transition: all .25s ease-in-out
 
 .input-wrapper__checkbox
   border-radius: 4px
@@ -255,7 +256,7 @@
   flex-flow: row nowrap
 
   // dynamic 
-    
+
   input[type='checkbox'],
   input[type='radio']
     position: absolute
@@ -270,6 +271,8 @@
       &_radio,
       &_toggle
         border-color: $purple
+        &  ~ span
+          color: $darkShade75
 
       // checkbox (check)
 

@@ -154,7 +154,7 @@ body
                   span.dropdown-select__title Младенцы
                   div.dropdown-select__counter
                     button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
+                    b.dropdown-select__count 5
                     button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
                 li.dropdown-select__buttons 
                   button.dropdown-select__accept Применить
@@ -201,17 +201,17 @@ body
                   label.input-wrapper__check-label 
                     input(type="checkbox" name="smoke")
                     div.input-wrapper__checkbox
-                    | Можно курить
+                    span Можно курить
                 li.input-wrapper__check-button
                   label.input-wrapper__check-label 
                     input(type="checkbox" name="pets")
                     div.input-wrapper__checkbox
-                    | Можно с питомцами
+                    span Можно с питомцами
                 li.input-wrapper__check-button
                   label.input-wrapper__check-label 
                     input(type="checkbox" name="party")
                     div.input-wrapper__checkbox
-                    | Можно пригласить гостей (до 10 человек)
+                    span Можно пригласить гостей (до 10 человек)
 
             //- Radio buttons
             div.t-form__element.input-wrapper
@@ -221,12 +221,12 @@ body
                   label.input-wrapper__check-label
                     input(type="radio" name="sex")
                     div.input-wrapper__radio
-                    | Мужчина
+                    span Мужчина
                 li.input-wrapper__check-button
                   label.input-wrapper__check-label
                     input(type="radio" name="sex")
                     div.input-wrapper__radio
-                    | Женщина
+                    span Женщина
 
             //- Toggle
             div.t-form__element.input-wrapper
@@ -236,13 +236,19 @@ body
                   label.input-wrapper__check-label
                     input(type="checkbox" name="privacy")
                     div.input-wrapper__toggle
-                    | Можно курить
+                    span Можно курить
                 li.input-wrapper__check-button
                   label.input-wrapper__check-label
                     input(type="checkbox" name="subscribe")
                     div.input-wrapper__toggle
-                    | Можно с питомцами
+                    span Можно с питомцами
  
+
+            //- Like button
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field like button
+
+        
 
 
 
