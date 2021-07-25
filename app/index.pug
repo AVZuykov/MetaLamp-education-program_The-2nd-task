@@ -13,7 +13,7 @@ body
     //- Intro
     section.section-ui 
 
-      h1
+      h1#intro
         | UI-Kit Макет
 
       p.t-text
@@ -22,11 +22,12 @@ body
     //- Colors & Type
     section.section-ui 
 
-      h2
+      h2#colorsAndFonts
         | Colors & Type 
 
       .colors-fonts 
 
+        //- Colors
         ul.colors-block-ui
           li 
             .colors-block-ui__square.colors-block-ui__square_darkshade  
@@ -64,7 +65,7 @@ body
               span Green
               span #6FCF97
 
-
+        //- Text type
         ul.type-block-ui
           li
             span.type-block-ui__h1 H1
@@ -82,10 +83,324 @@ body
     //- Form Elements
     section.section-ui 
 
+      h2#formElements Form Elements
+      //- Basic elements
+      .form-elements-block-ui 
+        .form-elements-block-ui__column320
+          //- Text form
+          form.t-form(type="get")
+            div.t-form__element.input-wrapper
+              label.input-wrapper__title(for="textField")  TEXT FIELD
+              input.input-wrapper__field(type="text" id="textField" name="someText" placeholder="Some text...")
 
+            //- Subscription form
+            div.t-form__element.input-wrapper
+              label.t-form__element.input-wrapper__title(for="maskedEmail") TEXT FIELD
+              input.input-wrapper__field(type="text" id="maskedEmail" name="maskedEmail" placeholder="Email")
+              input.input-wrapper__subscribe(type="submit" value="")
 
+            //- Masked form
+            div.t-form__element.input-wrapper
+              label.input-wrapper__title(for="maskedDate") masked text field
+              input.input-wrapper__field(type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ")
 
+            //- Dropdown element
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title(for="dropdown") dropdown
+              div.input-wrapper__field.input-wrapper__field_dropdown 2 спальни, 2 кровати, 2 ванные комнаты
+              ul.input-wrapper__select.dropdown-select   
+                li.dropdown-select__option
+                  input(type="number" hidden name="sleepingrooms" value="")
+                  span.dropdown-select__title спальни
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+                li.dropdown-select__option
+                  input(type="number" hidden name="beds" value="")
+                  span.dropdown-select__title кровати
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+                li.dropdown-select__option
+                  input(type="number" hidden name="bathrooms" value="")
+                  span.dropdown-select__title Ванные комнаты
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
 
+            //- dropdown with accept button
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title(for="dropdown") dropdown with accept button
+              div.input-wrapper__field.input-wrapper__field_dropdown Сколько гостей
+              ul.input-wrapper__select.dropdown-select   
+                li.dropdown-select__option
+                  input(type="number" hidden name="adults" value="")
+                  span.dropdown-select__title Взрослые
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+                li.dropdown-select__option
+                  input(type="number" hidden name="children" value="")
+                  span.dropdown-select__title Дети
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+                li.dropdown-select__option
+                  input(type="number" hidden name="baby" value="")
+                  span.dropdown-select__title Младенцы
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 5
+                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+                li.dropdown-select__buttons 
+                  button.dropdown-select__accept Применить
+
+            //- dropdown with accept and clear buttons 
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title(for="dropdown") dropdown with accept and clear buttons
+              div.input-wrapper__field.input-wrapper__field_dropdown 3 гостя
+              ul.input-wrapper__select.dropdown-select   
+                li.dropdown-select__option
+                  input(type="number" hidden name="adults" value="")
+                  span.dropdown-select__title Взрослые
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 2
+                    button.dropdown-select__plus(type="button") +
+                li.dropdown-select__option
+                  input(type="number" hidden name="children" value="")
+                  span.dropdown-select__title Дети
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus(type="button") -
+                    b.dropdown-select__count 1
+                    button.dropdown-select__plus(type="button") +
+                li.dropdown-select__option
+                  input(type="number" hidden name="baby" value="")
+                  span.dropdown-select__title Младенцы
+                  div.dropdown-select__counter
+                    button.dropdown-select__minus.dropdown-select__plus_disable(type="button") -
+                    b.dropdown-select__count 0
+                    button.dropdown-select__plus(type="button") +
+                li.dropdown-select__buttons 
+                  button.dropdown-select__clear Очистить
+                  button.dropdown-select__accept Применить
+
+            //- Expandable Checkbox list
+            div.t-form__element.input-wrapper.input-wrapper_checklist-dropdown
+              span.input-wrapper__title.input-wrapper__title_no-field expandable checkbox list 
+              ul.input-wrapper__check-list
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="smoke")
+                    div.input-wrapper__checkbox
+                    span.input-wrapper__text Можно курить
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="pets")
+                    div.input-wrapper__checkbox
+                    span.input-wrapper__text Можно с питомцами
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="party")
+                    div.input-wrapper__checkbox
+                    span.input-wrapper__text Можно пригласить гостей (до 10 человек)
+
+        //- max width 260px
+        div.form-elements-block-ui__column260
+          form.t-form(type="get")
+
+            //- Checkbox buttons
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
+              ul.input-wrapper__check-list
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="smoke")
+                    div.input-wrapper__checkbox
+                    span.input-wrapper__text Можно курить
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="pets")
+                    div.input-wrapper__checkbox
+                    span.input-wrapper__text Можно с питомцами
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="party")
+                    div.input-wrapper__checkbox
+                    span.input-wrapper__text Можно пригласить гостей (до 10 человек)
+
+            //- Radio buttons
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field Radio Buttons 
+              ul.input-wrapper__check-list
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label
+                    input(type="radio" name="sex")
+                    div.input-wrapper__radio
+                    span.input-wrapper__text Мужчина
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label
+                    input(type="radio" name="sex")
+                    div.input-wrapper__radio
+                    span.input-wrapper__text Женщина
+
+            //- Toggle
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field toggle
+              ul.input-wrapper__check-list
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label
+                    input(type="checkbox" name="privacy")
+                    div.input-wrapper__toggle
+                    span.input-wrapper__text Можно курить
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label
+                    input(type="checkbox" name="subscribe")
+                    div.input-wrapper__toggle
+                    span.input-wrapper__text Можно с питомцами
+
+            //- Like button
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field like button
+              div.form-elements-block-ui__row
+                div.input-wrapper__like-button
+                  span.input-wrapper__like-counter 2
+                div.input-wrapper__like-button.input-wrapper__like-button_active
+                  span.input-wrapper__like-counter 22
+
+            //- Rate button
+            div.t-form__element.input-wrapper
+
+              span.input-wrapper__title.input-wrapper__title_no-field Rate button
+              div.form-elements-block-ui__row
+                div.input-wrapper__rate-button
+                  input(type="number" hidden value="0")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="1")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="2")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="3")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="4")
+                  div.input-wrapper__rate-star(data-rate="5")
+                div.input-wrapper__rate-button
+                  input(type="number" hidden value="0")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="1")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="2")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="3")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="4")
+                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="5")
+
+            //- Rich checkbox buttons
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
+              ul.input-wrapper__check-list
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="smoke")
+                    div.input-wrapper__checkbox
+                    div.input-wrapper__rich-wrapper
+                      span.input-wrapper__richt-label Широкий коридор
+                      span.input-wrapper__text Ширина коридоров в номере
+                        br
+                        | не менее 91 см.
+                li.input-wrapper__check-button
+                  label.input-wrapper__check-label 
+                    input(type="checkbox" name="smoke")
+                    div.input-wrapper__checkbox
+                    div.input-wrapper__rich-wrapper
+                      span.input-wrapper__richt-label Помощник для инвалидов
+                      span.input-wrapper__text На 1 этаже вас встретит специалист
+                        br
+                        | и проводит до номера.
+
+        //- other elements
+        div.form-elements-block-ui__column320
+          form.t-form(type="get")
+
+            //- Range slider
+            div.t-form__element.input-wrapper
+              div.input-wrapper__range-header
+                span.input-wrapper__title.input-wrapper__title_no-field Range slider
+                span.input-wrapper__range-counter 5 000₽ - 10 000₽
+              input.input-wrapper__range-slider(type="text" id="example_id" name="example_name" value="")
+
+            //- Buttons            
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field Buttons 
+              div.form-elements-block-ui__row
+                button.button-wrapper(type="button")
+                  | Click me
+                button.button-wrapper(type="button" disabled)
+                  | Click me
+              div.form-elements-block-ui__row
+                button.button-wrapper.button-wrapper_border(type="button")
+                  | Click me
+                button.button-wrapper.button-wrapper_border(type="button" disabled)
+                  | Click me
+              div.form-elements-block-ui__row
+                button.button-wrapper.button-wrapper_only-text(type="button")
+                  | Click me
+                button.button-wrapper.button-wrapper_only-text(type="button" disabled)
+                  | Click me
+              div.form-elements-block-ui__row
+                button.button-wrapper.button-wrapper_large(type="button")
+                  | перейти к оплате
+
+            //- Pagination
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field pagination
+              div.content
+              div.input-wrapper__pagination
+
+            //- Bullet list
+            div.t-form__element.input-wrapper
+              span.input-wrapper__title.input-wrapper__title_no-field Bullet list
+              ul.input-wrapper__bullet-list
+                li.input-wrapper__bullet-item Нельзя с питомцами
+                li.input-wrapper__bullet-item Без вечеринок и мероприятий
+                li.input-wrapper__bullet-item Время прибытия — после 13:00,
+                  br
+                  | а выезд до 12:00
+
+    //- Icon list and comment
+    section.section-ui 
+
+      div.icons-comments-block-ui
+
+        //- Icon list
+        ul.icon-list 
+          li.icon-list__item 
+            img.icon-list__icon(src="images/svg/smile.svg" alt="smile")
+            div.icon-list__label
+              span.icon-list__heading Комфорт
+              span.icon-list__text Шумопоглащающие стены
+          li.icon-list__item 
+            img.icon-list__icon(src="images/svg/city.svg" alt="smile")
+            div.icon-list__label
+              span.icon-list__heading Удобство
+              span.icon-list__text Окно в каждой из спален
+
+        //- Comment
+        ul.comment-list 
+          li.comment 
+            div.comment__header
+              img.comment__avatar(src="images/dist/comments/1.jpg" alt="Murad Sarafanov")
+              div.comment__author
+                span.comment__name Мурад Сарафанов
+                span.comment__date 5 дней назад
+            div.comment__content
+              div.comment__like.input-wrapper
+                div.form-elements-block-ui__row
+                  div.input-wrapper__like-button
+                    span.input-wrapper__like-counter 2
+              p.comment__text Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.
+                br
+                | И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто
+                br
+                | не жаловался из соседей.
 
   +footer
 

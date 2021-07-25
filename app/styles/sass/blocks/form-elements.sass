@@ -1,0 +1,582 @@
+// Form
+
+.t-form
+  position: relative
+
+.t-form__element
+  margin-bottom: 20px
+  &:last-of-type
+    margin-bottom: 0
+
+// Input base
+
+.input-wrapper
+  position: relative
+  display: flex
+  flex-flow: column
+
+.input-wrapper__title
+  font-size: 12px
+  font-weight: 700
+  line-height: 1
+  color: $darkShade
+  text-transform: uppercase
+  margin-bottom: 5px
+
+  // No-field mod
+
+  &_no-field
+    margin-bottom: 16px
+
+.input-wrapper__field
+  position: relative
+  height: 44px
+  padding: 13px 15px
+  border: solid $darkShade25 1px
+  border-radius: 4px
+  color: $darkShade75
+  line-height: 18px
+  transition: all .25s ease-in-out
+  &::placeholder
+    color: $darkShade25
+  &:focus, &:hover
+    border-color: $darkShade50
+
+// Subscribe button
+
+.input-wrapper__subscribe
+  position: absolute
+  background: url(../images/svg/subscribe-arrow.svg) no-repeat center center
+  border: none
+  bottom: 0
+  right: 0
+  height: 44px
+  width: 44px
+
+// Dropdown element
+
+.input-wrapper__field_dropdown
+  position: relative
+  border-radius: 4px 4px 0 0
+  &::after
+    content: ''
+    position: absolute
+    background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
+    border: none
+    bottom: 0
+    right: 0
+    height: 44px
+    width: 44px
+    transition: all .25s ease-in-out
+
+.input-wrapper:hover
+  .input-wrapper__field_dropdown
+    &::after
+      transform: scaleY(-1)
+  .input-wrapper__select
+    transform: scaleY(1)
+    opacity: 1
+
+.input-wrapper__select
+  position: absolute
+  transform-origin: top
+  display: block
+  overflow: hidden
+  z-index: 100
+  top: 100%
+  left: 0
+  right: 0
+  transform: scaleY(0)
+  opacity: 0
+  transition: all .25s ease-in-out
+
+.dropdown-select
+  list-style-type: none
+  margin: 0
+  border: solid 1px $darkShade50
+  border-top: none
+  border-radius: 0 0 4px 4px
+  padding: 15px
+  background-color: #fff
+
+.dropdown-select__option
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 7px
+  &:hover
+    cursor: default
+  &:last-child
+    margin-bottom: 0
+
+.dropdown-select__counter
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.dropdown-select__minus, .dropdown-select__plus
+  height: 30px
+  width: 30px
+  box-sizing: border-box
+  border-radius: 50%
+  border: 1px solid $darkShade25
+  color: $darkShade50
+  background: none
+  transition: opacity .25s ease-in-out
+
+  &_disable
+    opacity: .38
+
+.dropdown-select__title, .dropdown-select__count
+  font-size: 12px
+  line-height: 0
+  font-weight: 700
+  text-transform: uppercase
+  min-width: 32px
+  text-align: center
+
+.dropdown-select__buttons
+  display: flex
+  margin-top: 20px
+
+.dropdown-select__clear
+  margin-rigth: auto
+
+.dropdown-select__accept
+  margin-left: auto
+
+.dropdown-select__clear, .dropdown-select__accept
+  border: none
+  color: $purple
+  font-size: 12px
+  font-weight: 700
+  background: none
+  text-transform: uppercase
+
+// Checkbox, radio, toggle buttons
+
+.input-wrapper__check-list
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+// Check-list dropdown mod
+.input-wrapper_checklist-dropdown
+  .input-wrapper__title
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      height: 12px
+      width: 44px
+      top: 0
+      right: 0
+      bottom: 0
+      background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
+      transition: all .25s ease-in-out
+  .input-wrapper__check-list
+    transform-origin: top
+    transform: scaleY(0)
+    opacity: 0
+    transition: all .25s ease-in-out
+
+.input-wrapper_checklist-dropdown:hover
+  .input-wrapper__title
+    &::before
+      transform: scaleY(-1)
+  .input-wrapper__check-list
+    transform: scaleY(1)
+    opacity: 1
+
+.input-wrapper__check-button
+  margin-bottom: 11px
+  &:last-of-type
+    margin-bottom: 0
+
+// checkbox, radio, toggle border
+
+.input-wrapper__checkbox,
+.input-wrapper__radio,
+.input-wrapper__toggle
+  height: 20px
+  width: 20px
+  border: 1px solid $darkShade25
+  flex-shrink: 0
+  margin-right: 10px
+  transition: border-color .25s ease-in-out
+
+  & ~ .input-wrapper__text
+    transition: all .25s ease-in-out
+
+.input-wrapper__checkbox
+  border-radius: 4px
+
+.input-wrapper__radio
+  border-radius: 50%
+
+.input-wrapper__toggle
+  width: 40px
+  border-radius: 10px
+
+// checkbox rich type
+
+.input-wrapper__rich-wrapper
+  display: flex
+  flex-flow: column
+  .input-wrapper__text
+    font-size: 12px
+
+.input-wrapper__richt-label
+  font-size: 14px
+  font-weight: 700
+  color: $darkShade75
+
+// checkbox (check)
+
+.input-wrapper__checkbox
+  position: relative
+
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 0px
+    transition: all .25s ease-in-out
+
+  &::before
+    height: 6px
+    transform: translateX(-100%) translateY(-50%) rotate(315deg)
+    transform-origin: 3px 6px
+    background: linear-gradient(to right, rgba(139,164,249,1) 0%, rgba(151,162,251,1) 100%)
+
+  &::after
+    height: 8px
+    transform: translateX(-100%) translateY(-50%) rotate(45deg)
+    transform-origin: 2px 8px
+    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+
+// radio (check)
+
+.input-wrapper__radio
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    width: 0px
+    height: 0px
+    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+    border-radius: 50%
+    transition: all .25s ease-in-out
+
+// toggle (check)
+
+.input-wrapper__toggle
+  position: relative
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-125%) translateY(-50%)
+    width: 12px
+    height: 12px
+    border-radius: 50%
+    transition: all .25s ease-in-out
+
+  &::before
+    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+
+  &::after
+    background: #C7C7CF
+
+// Label checkbox radio toggle
+
+.input-wrapper__check-label
+  color: $darkShade50
+  display: flex
+  flex-flow: row nowrap
+
+  // dynamic 
+
+  input[type='checkbox'],
+  input[type='radio']
+    position: absolute
+    z-index: -1
+    opacity: 0
+
+    &:checked + .input-wrapper_
+
+      // border color
+
+      &_checkbox,
+      &_radio,
+      &_toggle
+        border-color: $purple
+        & ~ .input-wrapper__text
+          color: $darkShade75
+
+      // checkbox (check)
+
+      &_checkbox
+        &::before
+          width: 2px
+        &::after
+          width: 2px
+
+      // radio (check)
+
+      &_radio
+        &::before
+          width: 12px
+          height: 12px
+
+      // toggle (check)
+
+      &_toggle
+        &::before,
+        &::after
+          transform: translateX(30%) translateY(-50%)
+        &::after
+          opacity: 0
+
+// Like button
+
+.input-wrapper__like-button
+  position: relative
+  height: 20px
+  width: 40px
+  border: 1px solid $darkShade25
+  flex-shrink: 0
+  transition: border-color .25s ease-in-out
+  border-radius: 10px
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: all .25s ease-in-out
+
+.input-wrapper__like-counter
+  font-size: 10px
+  line-height: 1
+  color: $darkShade25
+  transform: translateX(50%)
+  transition: all .25s ease-in-out
+  &::before
+    content: ''
+    position: absolute
+    background: url(../images/svg/like-border.svg) no-repeat center center
+    top: -5px
+    left: -20px
+    height: 20px
+    width: 20px
+    transition: all .25s ease-in-out
+
+// like mod
+
+.input-wrapper__like-button_active
+  border-color: $purple
+  .input-wrapper__like-counter
+    color: $purple
+    &::before
+      background: url(../images/svg/like.svg) no-repeat center center
+
+// Rate button
+
+.input-wrapper__rate-button
+  display: flex
+
+.input-wrapper__rate-star
+  height: 24px
+  width: 24px
+  background: url(../images/svg/star-border.svg) no-repeat center center
+  transition: all .25s ease-in-out
+
+  &_active
+    background: url(../images/svg/star.svg) no-repeat center center
+
+// Buttons
+
+.button-wrapper
+  display: inline-block
+  align-self: flex-start
+  padding: 15px 20px
+  height: 44px
+  border: none
+  border-radius: 22px
+  text-transform: uppercase
+  font-weight: 700
+  font-size: 12px
+  line-height: 0
+  color: #fff
+  background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+  &:disabled
+    opacity: .5
+
+// button border mod
+
+.button-wrapper_border
+  background: none
+  color: $purple
+  position: relative
+  border-radius: 22px
+  background-clip: padding-box
+  background: #fff
+  &::after
+    position: absolute
+    top: -2px
+    bottom: -2px
+    left: -2px
+    right: -2px
+    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+    content: ''
+    z-index: -1
+    border-radius: 24px
+  &:disabled
+    opacity: 1
+    &::after
+      opacity: .5
+
+//  Button only text mod
+
+.button-wrapper_only-text
+  background: none
+  color: $purple
+  padding: 0
+  border-radius: none
+  height: auto
+  &:disabled
+    color: $darkShade50
+
+// Button large
+
+.button-wrapper_large
+  flex-basis: 100%
+  position: relative
+  max-width: 320px
+  &::before
+    content: ''
+    width: 44px
+    height: 44px
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    background: url(../images/svg/white-arrow.svg) no-repeat center center
+
+// Range slider
+
+.input-wrapper__range-header
+  display: flex
+  justify-content: space-between
+
+.irs--flat
+  & .irs-line,
+  & .irs-bar
+    top: 0
+
+  & .irs-line
+    height: 6px
+    background: none
+    border: 1px solid $darkShade25
+
+  & .irs-bar
+    height: 6px
+    background: linear-gradient(to bottom, rgba(#6FCF97, 1) 0%, rgba(#66D2EA,1) 100%)
+
+  & .irs-handle
+    top: -5px
+    height: 12px
+    width: 12px
+    box-sizing: content-box
+    border-radius: 50%
+    background: linear-gradient(to bottom, rgba(#6FCF97, 1) 0%, rgba(#66D2EA,1) 100%)
+    border: 2px solid #fff
+    & i
+      opacity: 0
+
+// Pagination
+
+.paginationjs .paginationjs-pages ul
+  display: flex
+  align-items: center
+  li
+    border: none
+    &:last-child
+      border: none
+
+.paginationjs .paginationjs-pages li a
+  height: 40px
+  width: 40px
+  font-family: montserrat
+  font-size: 12px
+  font-weight: 400
+  display: flex
+  align-items: center
+  justify-content: center
+  color: $darkShade50
+
+.paginationjs .paginationjs-pages li.active a
+  border-radius: 50%
+  height: 40px
+  font-weight: 700
+  display: flex
+  align-items: center
+  justify-content: center
+  background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+
+.paginationjs .paginationjs-pages li:not(.active, .paginationjs-next, .paginationjs-prev)>a:hover
+  background: none
+
+.paginationjs .paginationjs-pages ul li
+  &.paginationjs-next, &.paginationjs-prev
+    a
+      position: relative
+      color: rgba(#fff, 0)
+      border-radius: 50%
+      height: 40px
+      font-weight: 700
+      display: flex
+      align-items: center
+      justify-content: center
+      background: linear-gradient(to bottom, rgba(#6FCF97, 1) 0%, rgba(#66D2EA,1) 100%)
+      &::before
+        position: absolute
+        content: ''
+        background: url(../images/svg/white-arrow.svg) no-repeat center center
+        height: 40px
+        width: 40px
+        margin: auto
+
+  &.paginationjs-prev
+    a
+      &::before
+        transform-origin: center center
+        transform: rotate(180deg)
+
+// Bullet list
+
+.input-wrapper__bullet-list
+  margin: 0
+  list-style-type: none
+  padding: 0
+
+.input-wrapper__bullet-item
+  position: relative
+  padding-left: 20px
+  margin-bottom: 10px
+  &::before
+    content: ''
+    position: absolute
+    height: 10px
+    width: 10px
+    left: 0
+    top: 5px
+    background: $darkShade25
+    border-radius: 50%
+  &:last-child
+    margin-bottom: 0

@@ -3,15 +3,10 @@ let preprocessor = 'sass', // Preprocessor (sass, less, styl); 'sass' also work 
 
 const { src, dest, parallel, series, watch } = require('gulp')
 const browserSync  = require('browser-sync').create()
-const bssi         = require('browsersync-ssi')
 const webpack      = require('webpack-stream')
 const pug 				 = require('gulp-pug');
 const sass         = require('gulp-sass')(require('sass'))
 const sassglob     = require('gulp-sass-glob')
-const less         = require('gulp-less')
-const lessglob     = require('gulp-less-glob')
-const styl         = require('gulp-stylus')
-const stylglob     = require("gulp-noop")
 const cleancss     = require('gulp-clean-css')
 const autoprefixer = require('gulp-autoprefixer')
 const rename       = require('gulp-rename')
@@ -24,7 +19,6 @@ function browsersync() {
 	browserSync.init({
 		server: {
 			baseDir: 'app/',
-			middleware: bssi({ baseDir: 'app/', ext: '.html' })
 		},
 		ghostMode: false,
 		notify: false,
