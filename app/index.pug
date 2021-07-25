@@ -1,5 +1,7 @@
-include ./parts/head
-include ./parts/footer
+include ./components/head
+include ./components/footer
+include ./components/form-elements/input-field/text-input
+
 
 +head() 
 
@@ -77,8 +79,8 @@ body
             span.type-block-ui__h3 H3
             h3 This is a label or CTA text
           li
-            span.type-block-ui__t-text Body
-            p.t-text This is the body text which is used for most of the design, like paragraphs, lists, etc.
+            span.type-block-ui__text Body
+            p.text This is the body text which is used for most of the design, like paragraphs, lists, etc.
 
     //- Form Elements
     section.section-ui 
@@ -87,25 +89,20 @@ body
       //- Basic elements
       .form-elements-block-ui 
         .form-elements-block-ui__column320
-          //- Text form
-          form.t-form(type="get")
-            div.t-form__element.input-wrapper
-              label.input-wrapper__title(for="textField")  TEXT FIELD
-              input.input-wrapper__field(type="text" id="textField" name="someText" placeholder="Some text...")
+          //- Form
+          form.form-ui(type="get")
+
+            //- Text form
+            +text-input({title: "text field", id: "textField", name: "textField", placeholder: "Some text..."})
 
             //- Subscription form
-            div.t-form__element.input-wrapper
-              label.t-form__element.input-wrapper__title(for="maskedEmail") TEXT FIELD
-              input.input-wrapper__field(type="text" id="maskedEmail" name="maskedEmail" placeholder="Email")
-              input.input-wrapper__subscribe(type="submit" value="")
+            +text-input({type: "subscribe", title: "subscription text field", id: "maskedEmail", name: "maskedEmail", placeholder: "Email"})
 
             //- Masked form
-            div.t-form__element.input-wrapper
-              label.input-wrapper__title(for="maskedDate") masked text field
-              input.input-wrapper__field(type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ")
+            +text-input({title: "masked text field", id: "maskedDate", name: "maskedDate", placeholder: "ДД.ММ.ГГГГ"})
 
             //- Dropdown element
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title(for="dropdown") dropdown
               div.input-wrapper__field.input-wrapper__field_dropdown 2 спальни, 2 кровати, 2 ванные комнаты
               ul.input-wrapper__select.dropdown-select   
@@ -132,7 +129,7 @@ body
                     button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
 
             //- dropdown with accept button
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title(for="dropdown") dropdown with accept button
               div.input-wrapper__field.input-wrapper__field_dropdown Сколько гостей
               ul.input-wrapper__select.dropdown-select   
@@ -161,7 +158,7 @@ body
                   button.dropdown-select__accept Применить
 
             //- dropdown with accept and clear buttons 
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title(for="dropdown") dropdown with accept and clear buttons
               div.input-wrapper__field.input-wrapper__field_dropdown 3 гостя
               ul.input-wrapper__select.dropdown-select   
@@ -191,7 +188,7 @@ body
                   button.dropdown-select__accept Применить
 
             //- Expandable Checkbox list
-            div.t-form__element.input-wrapper.input-wrapper_checklist-dropdown
+            div.form__element-ui.input-wrapper.input-wrapper_checklist-dropdown
               span.input-wrapper__title.input-wrapper__title_no-field expandable checkbox list 
               ul.input-wrapper__check-list
                 li.input-wrapper__check-button
@@ -212,10 +209,10 @@ body
 
         //- max width 260px
         div.form-elements-block-ui__column260
-          form.t-form(type="get")
+          form.form-ui(type="get")
 
             //- Checkbox buttons
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
               ul.input-wrapper__check-list
                 li.input-wrapper__check-button
@@ -235,7 +232,7 @@ body
                     span.input-wrapper__text Можно пригласить гостей (до 10 человек)
 
             //- Radio buttons
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field Radio Buttons 
               ul.input-wrapper__check-list
                 li.input-wrapper__check-button
@@ -250,7 +247,7 @@ body
                     span.input-wrapper__text Женщина
 
             //- Toggle
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field toggle
               ul.input-wrapper__check-list
                 li.input-wrapper__check-button
@@ -265,7 +262,7 @@ body
                     span.input-wrapper__text Можно с питомцами
 
             //- Like button
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field like button
               div.form-elements-block-ui__row
                 div.input-wrapper__like-button
@@ -274,7 +271,7 @@ body
                   span.input-wrapper__like-counter 22
 
             //- Rate button
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
 
               span.input-wrapper__title.input-wrapper__title_no-field Rate button
               div.form-elements-block-ui__row
@@ -294,7 +291,7 @@ body
                   div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="5")
 
             //- Rich checkbox buttons
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
               ul.input-wrapper__check-list
                 li.input-wrapper__check-button
@@ -318,17 +315,17 @@ body
 
         //- other elements
         div.form-elements-block-ui__column320
-          form.t-form(type="get")
+          form.form-ui(type="get")
 
             //- Range slider
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               div.input-wrapper__range-header
                 span.input-wrapper__title.input-wrapper__title_no-field Range slider
                 span.input-wrapper__range-counter 5 000₽ - 10 000₽
               input.input-wrapper__range-slider(type="text" id="example_id" name="example_name" value="")
 
             //- Buttons            
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field Buttons 
               div.form-elements-block-ui__row
                 button.button-wrapper(type="button")
@@ -350,13 +347,13 @@ body
                   | перейти к оплате
 
             //- Pagination
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field pagination
               div.content
               div.input-wrapper__pagination
 
             //- Bullet list
-            div.t-form__element.input-wrapper
+            div.form__element-ui.input-wrapper
               span.input-wrapper__title.input-wrapper__title_no-field Bullet list
               ul.input-wrapper__bullet-list
                 li.input-wrapper__bullet-item Нельзя с питомцами

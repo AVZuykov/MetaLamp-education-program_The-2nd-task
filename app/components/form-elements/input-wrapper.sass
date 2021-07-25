@@ -1,0 +1,33 @@
+// Input wrapper
+
+.input-wrapper
+  position: relative
+  display: flex
+  flex-flow: column
+
+.input-wrapper__title
+  font-size: 12px
+  font-weight: 700
+  line-height: 1
+  color: $darkShade
+  text-transform: uppercase
+  margin-bottom: 5px
+
+  // No-field mod
+
+  &_no-field
+    margin-bottom: 16px
+
+.input-wrapper__field
+  position: relative
+  height: 44px
+  padding: 13px 15px
+  border: solid $darkShade25 1px
+  border-radius: 4px
+  color: $darkShade75
+  line-height: 18px
+  transition: all .25s ease-in-out
+  &::placeholder
+    color: $darkShade25
+  &:focus, &:hover
+    border-color: $darkShade50

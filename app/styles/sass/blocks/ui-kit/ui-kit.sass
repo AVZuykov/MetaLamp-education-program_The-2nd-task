@@ -68,7 +68,7 @@
 .type-block-ui__h1,
 .type-block-ui__h2,
 .type-block-ui__h3,
-.type-block-ui__t-text
+.type-block-ui__text
   color: $darkShade25
   text-align: right
   line-height: 1
@@ -83,6 +83,15 @@
   font-size: 12px
 
 // Form Elements
+
+.form-ui
+  position: relative
+
+  &>div
+    margin-bottom: 20px
+    &:last-of-type
+      margin-bottom: 0
+
 
 .form-elements-block-ui
   display: flex

@@ -59,8 +59,8 @@
           <li><span class="type-block-ui__h3">H3</span>
             <h3>This is a label or CTA text</h3>
           </li>
-          <li><span class="type-block-ui__t-text">Body</span>
-            <p class="t-text">This is the body text which is used for most of the design, like paragraphs, lists, etc.</p>
+          <li><span class="type-block-ui__text">Body</span>
+            <p class="text">This is the body text which is used for most of the design, like paragraphs, lists, etc.</p>
           </li>
         </ul>
       </div>
@@ -69,21 +69,21 @@
       <h2 id="formElements">Form Elements</h2>
       <div class="form-elements-block-ui"> 
         <div class="form-elements-block-ui__column320">
-          <form class="t-form" type="get">
-            <div class="t-form__element input-wrapper">
-              <label class="input-wrapper__title" for="textField"> TEXT FIELD</label>
-              <input class="input-wrapper__field" type="text" id="textField" name="someText" placeholder="Some text...">
+          <form class="form-ui" type="get">
+            <div class="input-wrapper">
+              <label class="input-wrapper__title" for="textField">text field</label>
+              <input class="input-wrapper__field" type="text" id="textField" name="textField" placeholder="Some text...">
             </div>
-            <div class="t-form__element input-wrapper">
-              <label class="t-form__element input-wrapper__title" for="maskedEmail">TEXT FIELD</label>
+            <div class="input-wrapper">
+              <label class="input-wrapper__title" for="maskedEmail">subscription text field</label>
               <input class="input-wrapper__field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email">
               <input class="input-wrapper__subscribe" type="submit" value="">
             </div>
-            <div class="t-form__element input-wrapper">
+            <div class="input-wrapper">
               <label class="input-wrapper__title" for="maskedDate">masked text field</label>
               <input class="input-wrapper__field" type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ">
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown</span>
               <div class="input-wrapper__field input-wrapper__field_dropdown">2 спальни, 2 кровати, 2 ванные комнаты</div>
               <ul class="input-wrapper__select dropdown-select">  
                 <li class="dropdown-select__option">
@@ -109,7 +109,7 @@
                 </li>
               </ul>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown with accept button</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown with accept button</span>
               <div class="input-wrapper__field input-wrapper__field_dropdown">Сколько гостей</div>
               <ul class="input-wrapper__select dropdown-select">  
                 <li class="dropdown-select__option">
@@ -138,7 +138,7 @@
                 </li>
               </ul>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown with accept and clear buttons</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown with accept and clear buttons</span>
               <div class="input-wrapper__field input-wrapper__field_dropdown">3 гостя</div>
               <ul class="input-wrapper__select dropdown-select">  
                 <li class="dropdown-select__option">
@@ -168,7 +168,7 @@
                 </li>
               </ul>
             </div>
-            <div class="t-form__element input-wrapper input-wrapper_checklist-dropdown"><span class="input-wrapper__title input-wrapper__title_no-field">expandable checkbox list </span>
+            <div class="form__element-ui input-wrapper input-wrapper_checklist-dropdown"><span class="input-wrapper__title input-wrapper__title_no-field">expandable checkbox list </span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
@@ -193,8 +193,8 @@
           </form>
         </div>
         <div class="form-elements-block-ui__column260">
-          <form class="t-form" type="get">
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Checkbox buttons </span>
+          <form class="form-ui" type="get">
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Checkbox buttons </span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
@@ -216,7 +216,7 @@
                 </li>
               </ul>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Radio Buttons </span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Radio Buttons </span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label">
@@ -232,7 +232,7 @@
                 </li>
               </ul>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">toggle</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">toggle</span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label">
@@ -248,13 +248,13 @@
                 </li>
               </ul>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">like button</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">like button</span>
               <div class="form-elements-block-ui__row">
                 <div class="input-wrapper__like-button"><span class="input-wrapper__like-counter">2</span></div>
                 <div class="input-wrapper__like-button input-wrapper__like-button_active"><span class="input-wrapper__like-counter">22</span></div>
               </div>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Rate button</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Rate button</span>
               <div class="form-elements-block-ui__row">
                 <div class="input-wrapper__rate-button">
                   <input type="number" hidden value="0">
@@ -274,7 +274,7 @@
                 </div>
               </div>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Checkbox buttons </span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Checkbox buttons </span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
@@ -295,12 +295,12 @@
           </form>
         </div>
         <div class="form-elements-block-ui__column320">
-          <form class="t-form" type="get">
-            <div class="t-form__element input-wrapper">
+          <form class="form-ui" type="get">
+            <div class="form__element-ui input-wrapper">
               <div class="input-wrapper__range-header"><span class="input-wrapper__title input-wrapper__title_no-field">Range slider</span><span class="input-wrapper__range-counter">5 000₽ - 10 000₽</span></div>
               <input class="input-wrapper__range-slider" type="text" id="example_id" name="example_name" value="">
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Buttons </span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Buttons </span>
               <div class="form-elements-block-ui__row">
                 <button class="button-wrapper" type="button">Click me</button>
                 <button class="button-wrapper" type="button" disabled>Click me</button>
@@ -317,11 +317,11 @@
                 <button class="button-wrapper button-wrapper_large" type="button">перейти к оплате</button>
               </div>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">pagination</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">pagination</span>
               <div class="content"></div>
               <div class="input-wrapper__pagination"></div>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Bullet list</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Bullet list</span>
               <ul class="input-wrapper__bullet-list">
                 <li class="input-wrapper__bullet-item">Нельзя с питомцами</li>
                 <li class="input-wrapper__bullet-item">Без вечеринок и мероприятий</li>
