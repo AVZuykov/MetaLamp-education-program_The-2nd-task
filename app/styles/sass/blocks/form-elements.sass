@@ -23,6 +23,8 @@
   text-transform: uppercase
   margin-bottom: 5px
 
+  // No-field mod
+
   &_no-field
     margin-bottom: 16px
 
@@ -40,19 +42,6 @@
   &:focus, &:hover
     border-color: $darkShade50
 
-.input-wrapper__field_drop-down
-  position: relative
-  border-radius: 4px 4px 0 0
-  &::after
-    content: ''
-    position: absolute
-    background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
-    border: none
-    bottom: 0
-    right: 0
-    height: 44px
-    width: 44px
-
 // Subscribe button
 
 .input-wrapper__subscribe
@@ -66,7 +55,24 @@
 
 // Dropdown element
 
+.input-wrapper__field_dropdown
+  position: relative
+  border-radius: 4px 4px 0 0
+  &::after
+    content: ''
+    position: absolute
+    background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
+    border: none
+    bottom: 0
+    right: 0
+    height: 44px
+    width: 44px
+    transition: all .25s ease-in-out
+
 .input-wrapper:hover
+  .input-wrapper__field_dropdown
+    &::after
+      transform: scaleY(-1)
   .input-wrapper__select
     transform: scaleY(1)
     opacity: 1
@@ -154,6 +160,34 @@
   margin: 0
   padding: 0
 
+// Check-list dropdown mod
+.input-wrapper_checklist-dropdown
+  .input-wrapper__title
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      height: 12px
+      width: 44px
+      top: 0
+      right: 0
+      bottom: 0
+      background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
+      transition: all .25s ease-in-out
+  .input-wrapper__check-list
+    transform-origin: top
+    transform: scaleY(0)
+    opacity: 0
+    transition: all .25s ease-in-out
+
+.input-wrapper_checklist-dropdown:hover
+  .input-wrapper__title
+    &::before
+      transform: scaleY(-1)
+  .input-wrapper__check-list
+    transform: scaleY(1)
+    opacity: 1
+
 .input-wrapper__check-button
   margin-bottom: 11px
   &:last-of-type
@@ -183,6 +217,19 @@
 .input-wrapper__toggle
   width: 40px
   border-radius: 10px
+
+// checkbox rich type
+
+.input-wrapper__rich-wrapper
+  display: flex
+  flex-flow: column
+  .input-wrapper__text
+    font-size: 12px
+
+.input-wrapper__richt-label
+  font-size: 14px
+  font-weight: 700
+  color: $darkShade75
 
 // checkbox (check)
 
@@ -271,7 +318,7 @@
       &_radio,
       &_toggle
         border-color: $purple
-        &  ~ .input-wrapper__text
+        & ~ .input-wrapper__text
           color: $darkShade75
 
       // checkbox (check)
@@ -381,9 +428,9 @@
   background: #fff
   &::after
     position: absolute
-    top: -2px 
+    top: -2px
     bottom: -2px
-    left: -2px 
+    left: -2px
     right: -2px
     background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
     content: ''
@@ -393,7 +440,7 @@
     opacity: 1
     &::after
       opacity: .5
-    
+
 //  Button only text mod
 
 .button-wrapper_only-text
@@ -420,5 +467,116 @@
     top: 0
     bottom: 0
     background: url(../images/svg/white-arrow.svg) no-repeat center center
-    
 
+// Range slider
+
+.input-wrapper__range-header
+  display: flex
+  justify-content: space-between
+
+.irs--flat
+  & .irs-line,
+  & .irs-bar
+    top: 0
+
+  & .irs-line
+    height: 6px
+    background: none
+    border: 1px solid $darkShade25
+
+  & .irs-bar
+    height: 6px
+    background: linear-gradient(to bottom, rgba(#6FCF97, 1) 0%, rgba(#66D2EA,1) 100%)
+
+  & .irs-handle
+    top: -5px
+    height: 12px
+    width: 12px
+    box-sizing: content-box
+    border-radius: 50%
+    background: linear-gradient(to bottom, rgba(#6FCF97, 1) 0%, rgba(#66D2EA,1) 100%)
+    border: 2px solid #fff
+    & i
+      opacity: 0
+
+// Pagination
+
+.paginationjs .paginationjs-pages ul
+  display: flex
+  align-items: center
+  li
+    border: none
+    &:last-child
+      border: none
+
+.paginationjs .paginationjs-pages li a
+  height: 40px
+  width: 40px
+  font-family: montserrat
+  font-size: 12px
+  font-weight: 400
+  display: flex
+  align-items: center
+  justify-content: center
+  color: $darkShade50
+
+.paginationjs .paginationjs-pages li.active a
+  border-radius: 50%
+  height: 40px
+  font-weight: 700
+  display: flex
+  align-items: center
+  justify-content: center
+  background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+
+.paginationjs .paginationjs-pages li:not(.active, .paginationjs-next, .paginationjs-prev)>a:hover
+  background: none
+
+.paginationjs .paginationjs-pages ul li
+  &.paginationjs-next, &.paginationjs-prev
+    a
+      position: relative
+      color: rgba(#fff, 0)
+      border-radius: 50%
+      height: 40px
+      font-weight: 700
+      display: flex
+      align-items: center
+      justify-content: center
+      background: linear-gradient(to bottom, rgba(#6FCF97, 1) 0%, rgba(#66D2EA,1) 100%)
+      &::before
+        position: absolute
+        content: ''
+        background: url(../images/svg/white-arrow.svg) no-repeat center center
+        height: 40px
+        width: 40px
+        margin: auto
+
+  &.paginationjs-prev
+    a
+      &::before
+        transform-origin: center center
+        transform: rotate(180deg)
+
+// Bullet list
+
+.input-wrapper__bullet-list
+  margin: 0
+  list-style-type: none
+  padding: 0
+
+.input-wrapper__bullet-item
+  position: relative
+  padding-left: 20px
+  margin-bottom: 10px
+  &::before
+    content: ''
+    position: absolute
+    height: 10px
+    width: 10px
+    left: 0
+    top: 5px
+    background: $darkShade25
+    border-radius: 50%
+  &:last-child
+    margin-bottom: 0
