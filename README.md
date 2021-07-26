@@ -4,7 +4,7 @@
 <h2>Ссылки на страницы</h2>
 
  <ul>
-    <li><a href="dist/index.html">UI-Kit</a></li>
+    <li><a href="https://avzuykov.github.io/MetaLamp-education-program_The-2nd-task/dist/index.html">UI-Kit</a></li>
     <li><a href="#">Landing page</a></li>
     <li><a href="#">Search room</a></li>
     <li><a href="#">Room details</a></li>
