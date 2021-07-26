@@ -1,6 +1,7 @@
 include ./components/head
 include ./components/footer
 include ./components/form-elements/input-field/text-input
+include ./components/form-elements/input-field/dropdown-input
 
 
 +head() 
@@ -93,99 +94,85 @@ body
           form.form-ui(type="get")
 
             //- Text form
-            +text-input({title: "text field", id: "textField", name: "textField", placeholder: "Some text..."})
+            -
+              var options = {
+                title: "text field", 
+                id: "textField", 
+                name: "textField", 
+                placeholder: "Some text..."
+              }
+
+            +text-input(options)
 
             //- Subscription form
-            +text-input({type: "subscribe", title: "subscription text field", id: "maskedEmail", name: "maskedEmail", placeholder: "Email"})
+            -
+              var options = {
+                type: "subscribe",
+                title: "subscription text field", 
+                id: "maskedEmail", 
+                name: "maskedEmail", 
+                placeholder: "Email"
+              }
+
+            +text-input(options)
 
             //- Masked form
-            +text-input({title: "masked text field", id: "maskedDate", name: "maskedDate", placeholder: "ДД.ММ.ГГГГ"})
+            -
+              var options = {
+                title: "masked text field", 
+                id: "maskedDate", 
+                name: "maskedDate", 
+                placeholder: "ДД.ММ.ГГГГ"
+              }
+
+            +text-input(options)
 
             //- Dropdown element
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title(for="dropdown") dropdown
-              div.input-wrapper__field.input-wrapper__field_dropdown 2 спальни, 2 кровати, 2 ванные комнаты
-              ul.input-wrapper__select.dropdown-select   
-                li.dropdown-select__option
-                  input(type="number" hidden name="sleepingrooms" value="")
-                  span.dropdown-select__title спальни
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="beds" value="")
-                  span.dropdown-select__title кровати
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="bathrooms" value="")
-                  span.dropdown-select__title Ванные комнаты
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+            -
+              var options = {
+                title: "dropdown",
+                placeholder: "Сколько гостей",
+                class: "showTotal",
+                items: [
+                  {
+                    title: "взрослые",
+                    "default-value": 2,
+                  },
+                  {
+                    title: "Дети",
+                    "default-value": 1,
+                  },
+                  {
+                    title: "Младенцы",
+                    "default-value": 0,
+                  }
+                ]
+              }
 
-            //- dropdown with accept button
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title(for="dropdown") dropdown with accept button
-              div.input-wrapper__field.input-wrapper__field_dropdown Сколько гостей
-              ul.input-wrapper__select.dropdown-select   
-                li.dropdown-select__option
-                  input(type="number" hidden name="adults" value="")
-                  span.dropdown-select__title Взрослые
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="children" value="")
-                  span.dropdown-select__title Дети
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="baby" value="")
-                  span.dropdown-select__title Младенцы
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 5
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__buttons 
-                  button.dropdown-select__accept Применить
+            +dropdown-input(options)
 
-            //- dropdown with accept and clear buttons 
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title(for="dropdown") dropdown with accept and clear buttons
-              div.input-wrapper__field.input-wrapper__field_dropdown 3 гостя
-              ul.input-wrapper__select.dropdown-select   
-                li.dropdown-select__option
-                  input(type="number" hidden name="adults" value="")
-                  span.dropdown-select__title Взрослые
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="children" value="")
-                  span.dropdown-select__title Дети
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 1
-                    button.dropdown-select__plus(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="baby" value="")
-                  span.dropdown-select__title Младенцы
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus.dropdown-select__plus_disable(type="button") -
-                    b.dropdown-select__count 0
-                    button.dropdown-select__plus(type="button") +
-                li.dropdown-select__buttons 
-                  button.dropdown-select__clear Очистить
-                  button.dropdown-select__accept Применить
+            -
+              var options = {
+                title: "dropdown",
+                placeholder: "Сколько комнат и кроватей",
+                class: "showTotal",
+                items: [
+                  {
+                    title: "спальни",
+                    "default-value": 2,
+                  },
+                  {
+                    title: "кровати",
+                    "default-value": 2,
+                  },
+                  {
+                    title: "ванные комнаты",
+                    "default-value": 0,
+                  }
+                ]
+              }
+
+            +dropdown-input(options)
 
             //- Expandable Checkbox list
             div.form__element-ui.input-wrapper.input-wrapper_checklist-dropdown

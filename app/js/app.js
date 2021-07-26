@@ -6,6 +6,7 @@ window.$ = $
 
 import Inputmask from 'inputmask'
 import ionRangeSlider from 'ion-rangeslider'
+import Dropdown from '~/app/libs/form-elements/dropdown.js'
 require('paginationjs')
 
 
@@ -22,58 +23,67 @@ const currentMonth = today.getMonth() + 1
 document.addEventListener('DOMContentLoaded', () => {
 
 
+  const dropdowns = document.querySelectorAll('.input-wrapper_dropdown')
 
-	// Range slider
+  const ddArr = []
 
-	$('#example_id').ionRangeSlider({
-		type: 'double',
-		step: 100,
-		min: 100,
-		max: 16000,
-		from: 5000,
-		to: 10000,
-		hide_min_max: true,
-		hide_from_to: true,
-	})
+  dropdowns.forEach(dropdown => {
+    const dd = new Dropdown(dropdown)
+    dd.init()
+    ddArr.push(dd)
+  })
 
-	// Pagination
+  // Range slider
 
-	$('.input-wrapper__pagination').pagination({
-		dataSource: function(done){
-			var result = [];
-			for (var i = 1; i < 110; i++) {
-					result.push(i);
-			}
-			done(result);
-	 },
-		pageSize: 5,
-		pageRange: 1,
-		autoHidePrevious: true,
-		autoHideNext: true,
-	})
+  $('#example_id').ionRangeSlider({
+    type: 'double',
+    step: 100,
+    min: 100,
+    max: 16000,
+    from: 5000,
+    to: 10000,
+    hide_min_max: true,
+    hide_from_to: true,
+  })
 
-	// Masks
+  // Pagination
 
-	const inputDate = document.querySelectorAll('input[name="maskedDate"]')
-	const inputEmail = document.querySelectorAll('input[name="maskedEmail"]')
+  $('.input-wrapper__pagination').pagination({
+    dataSource: function (done) {
+      var result = [];
+      for (var i = 1; i < 110; i++) {
+        result.push(i);
+      }
+      done(result);
+    },
+    pageSize: 5,
+    pageRange: 1,
+    autoHidePrevious: true,
+    autoHideNext: true,
+  })
 
-	inputDate.forEach(el => {
-		el.value = `${currentDay < 10 ? '0' + currentDay : currentDay}.${currentMonth < 10 ? '0' + currentMonth : currentMonth}.${currentYear}`
-		Inputmask({
-			alias: 'datetime',
-			inputFormat: 'dd.mm.yyyy',
-			min: `${currentDay < 10 ? '0' + currentDay : currentDay}.${currentMonth < 10 ? '0' + currentMonth : currentMonth}.${currentYear}`,
-			max: `31.12.${currentYear + 1}`,
-			placeholder: '_',
-			prefillYear: false
-		}).mask(el)
-	})
+  // Masks
 
-	inputEmail.forEach(el => {
-		Inputmask({
-			alias: 'email',
-		}).mask(el)
-	})
+  const inputDate = document.querySelectorAll('input[name="maskedDate"]')
+  const inputEmail = document.querySelectorAll('input[name="maskedEmail"]')
+
+  inputDate.forEach(el => {
+    el.value = `${currentDay < 10 ? '0' + currentDay : currentDay}.${currentMonth < 10 ? '0' + currentMonth : currentMonth}.${currentYear}`
+    Inputmask({
+      alias: 'datetime',
+      inputFormat: 'dd.mm.yyyy',
+      min: `${currentDay < 10 ? '0' + currentDay : currentDay}.${currentMonth < 10 ? '0' + currentMonth : currentMonth}.${currentYear}`,
+      max: `31.12.${currentYear + 1}`,
+      placeholder: '_',
+      prefillYear: false
+    }).mask(el)
+  })
+
+  inputEmail.forEach(el => {
+    Inputmask({
+      alias: 'email',
+    }).mask(el)
+  })
 
 
 

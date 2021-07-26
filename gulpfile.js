@@ -40,7 +40,7 @@ function html() {
 function scripts() {
 	return src(['app/js/*.js', '!app/js/*.min.js'])
 		.pipe(webpack({
-			mode: 'production',
+			mode: 'none',
 			performance: { hints: false },
 			module: {
 				rules: [
@@ -116,7 +116,7 @@ function deploy() {
 function startwatch() {
 	watch([`app/styles/${preprocessor}/**/*`, 'app/components/**/*.sass'], { usePolling: true }, styles)
 	watch(['app/*.pug', 'app/components/**/*.pug'], { usePolling: true }, html)
-	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
+	watch(['app/js/**/*.js', 'app/libs/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
 	watch('app/images/src/**/*.{jpg,jpeg,png,webp,svg,gif}', { usePolling: true }, images)
 	watch(`app/**/*.{${fileswatch}}`, { usePolling: true }).on('change', browserSync.reload)
 }
