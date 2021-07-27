@@ -1,38 +1,16 @@
 mixin text-input(options)
-  case options.type 
+  div.input-wrapper
 
-    //- Подписка
+    if options.title 
+      label.input-wrapper__title(for=options.id) #{options.title}
 
-    when "subscribe"
-
-      div.input-wrapper
-
-        if options.title 
-          label.input-wrapper__title(for=options.id) #{options.title}
-
-        input.input-wrapper__field(
-          class=options.class
-          type="text" 
-          id=options.id  
-          name=options.name 
-          placeholder=`${options.placeholder ? options.placeholder : "Some text"}`
-        )
-
-        input.input-wrapper__subscribe(type="submit" value="")
-
-    //- Стандартное текстовое поле
-
-    default 
-
-      div.input-wrapper
-
-        if options.title 
-          label.input-wrapper__title(for=options.id) #{options.title}
-
-        input.input-wrapper__field(
-          class=options.class
-          type="text" 
-          id=options.id  
-          name=options.name 
-          placeholder=`${options.placeholder ? options.placeholder : "Some text"}`
-        )
+    input.input-wrapper__field(
+      class=options.class
+      type="text" 
+      id=options.id  
+      name=options.name 
+      placeholder=`${options.placeholder ? options.placeholder : "Some text"}`
+      required=`${options.required ? true : false}`
+    )
+    if options.subscribe
+      input.input-wrapper__subscribe(type="submit" value="")

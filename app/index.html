@@ -72,16 +72,16 @@
           <form class="form-ui" type="get">
             <div class="input-wrapper">
               <label class="input-wrapper__title" for="textField">text field</label>
-              <input class="input-wrapper__field" type="text" id="textField" name="textField" placeholder="Some text...">
+              <input class="input-wrapper__field" type="text" id="textField" name="textField" placeholder="Some text..." required="true">
             </div>
             <div class="input-wrapper">
               <label class="input-wrapper__title" for="maskedEmail">subscription text field</label>
-              <input class="input-wrapper__field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email">
+              <input class="input-wrapper__field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email" required="false">
               <input class="input-wrapper__subscribe" type="submit" value="">
             </div>
             <div class="input-wrapper">
               <label class="input-wrapper__title" for="maskedDate">masked text field</label>
-              <input class="input-wrapper__field" type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ">
+              <input class="input-wrapper__field" type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ" required="false">
             </div>
             <div class="input-wrapper input-wrapper_dropdown"><span class="input-wrapper__title" for="dropdown">dropdown</span>
               <div class="input-wrapper__field input-wrapper__field_dropdown showTotal"> Сколько гостей</div>
@@ -163,7 +163,7 @@
         </div>
         <div class="form-elements-block-ui__column260">
           <form class="form-ui" type="get">
-            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Checkbox buttons </span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">checkbox buttons </span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
@@ -185,43 +185,40 @@
                 </li>
               </ul>
             </div>
-            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Radio Buttons </span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">checkbox buttons </span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label">
+                  <label class="input-wrapper__check-label"> 
                     <input type="radio" name="sex">
                     <div class="input-wrapper__radio"></div><span class="input-wrapper__text">Мужчина</span>
                   </label>
                 </li>
                 <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label">
+                  <label class="input-wrapper__check-label"> 
                     <input type="radio" name="sex">
                     <div class="input-wrapper__radio"></div><span class="input-wrapper__text">Женщина</span>
                   </label>
                 </li>
               </ul>
             </div>
-            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">toggle</span>
+            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">checkbox buttons </span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label">
+                  <label class="input-wrapper__check-label"> 
                     <input type="checkbox" name="privacy">
-                    <div class="input-wrapper__toggle"></div><span class="input-wrapper__text">Можно курить</span>
+                    <div class="input-wrapper__toggle"></div><span class="input-wrapper__text">Получать спецпредложения</span>
                   </label>
                 </li>
                 <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label">
-                    <input type="checkbox" name="subscribe">
-                    <div class="input-wrapper__toggle"></div><span class="input-wrapper__text">Можно с питомцами</span>
+                  <label class="input-wrapper__check-label"> 
+                    <input type="checkbox" name="pets">
+                    <div class="input-wrapper__toggle"></div><span class="input-wrapper__text">Согласиться на пытки</span>
                   </label>
                 </li>
               </ul>
             </div>
-            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">like button</span>
-              <div class="form-elements-block-ui__row">
-                <div class="input-wrapper__like-button"><span class="input-wrapper__like-counter">2</span></div>
-                <div class="input-wrapper__like-button input-wrapper__like-button_active"><span class="input-wrapper__like-counter">22</span></div>
-              </div>
+            <div class="input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">like button</span>
+              <div class="input-wrapper__like-button"><span class="input-wrapper__like-counter">22</span></div>
             </div>
             <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Rate button</span>
               <div class="form-elements-block-ui__row">

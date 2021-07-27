@@ -1,0 +1,11 @@
+mixin check-list(options)
+  div.form__element-ui.input-wrapper
+    if (options.title)
+      span.input-wrapper__title.input-wrapper__title_no-field #{options.title} 
+    ul.input-wrapper__check-list
+      each item in options.items
+        li.input-wrapper__check-button
+          label.input-wrapper__check-label 
+            input(type=item.type name=item.name required=item.required)
+            div(class=`input-wrapper__${item.class}`)
+            span.input-wrapper__text #{item.text}

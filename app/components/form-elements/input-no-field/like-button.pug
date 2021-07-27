@@ -1,0 +1,6 @@
+mixin like-button(options)
+  div.input-wrapper
+    if options.title
+      span.input-wrapper__title.input-wrapper__title_no-field #{options.title}
+    div.input-wrapper__like-button
+      span.input-wrapper__like-counter #{options["default-value"]}

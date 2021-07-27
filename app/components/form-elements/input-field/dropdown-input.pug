@@ -13,13 +13,17 @@ mixin dropdown-input(options)
       each item in options.items
 
         li.dropdown-select__option
+
           //- Наименование
+
           span.dropdown-select__title 
             | #{item.title ? item.title : "Кол-во чего-то..."}
 
           div.dropdown-select__counter
             button.dropdown-select__minus(type="button") -
+
             //- Кол-во
+            
             b.dropdown-select__total 
               | #{item["default-value"] ? item["default-value"] : 0}
 

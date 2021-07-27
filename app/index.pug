@@ -2,6 +2,8 @@ include ./components/head
 include ./components/footer
 include ./components/form-elements/input-field/text-input
 include ./components/form-elements/input-field/dropdown-input
+include ./components/form-elements/input-no-field/check-list
+include ./components/form-elements/input-no-field/like-button
 
 
 +head() 
@@ -99,7 +101,8 @@ body
                 title: "text field", 
                 id: "textField", 
                 name: "textField", 
-                placeholder: "Some text..."
+                placeholder: "Some text...",
+                required: true
               }
 
             +text-input(options)
@@ -107,11 +110,11 @@ body
             //- Subscription form
             -
               var options = {
-                type: "subscribe",
+                subscribe: true,
                 title: "subscription text field", 
                 id: "maskedEmail", 
                 name: "maskedEmail", 
-                placeholder: "Email"
+                placeholder: "Email",
               }
 
             +text-input(options)
@@ -127,7 +130,7 @@ body
 
             +text-input(options)
 
-            //- Dropdown element
+            //- Dropdown element 1
             -
               var options = {
                 title: "dropdown",
@@ -148,8 +151,9 @@ body
                   }
                 ]
               }
-
             +dropdown-input(options)
+
+            //- Dropdown element 2
 
             -
               var options = {
@@ -171,7 +175,6 @@ body
                   }
                 ]
               }
-
             +dropdown-input(options)
 
             //- Expandable Checkbox list
@@ -198,64 +201,94 @@ body
         div.form-elements-block-ui__column260
           form.form-ui(type="get")
 
-            //- Checkbox buttons
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="smoke")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно курить
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="pets")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно с питомцами
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="party")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно пригласить гостей (до 10 человек)
+            //- Checkbox 
+
+            -
+              var options = {
+                title: "checkbox buttons",
+                items: [
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    name: "smoke",
+                    text: "Можно курить",
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    name: "pets",
+                    text: "Можно с питомцами",
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    name: "party",
+                    text: "Можно пригласить гостей (до 10 человек)",
+                    required: false
+                  }
+                ]
+              }
+            +check-list(options)
 
             //- Radio buttons
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Radio Buttons 
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label
-                    input(type="radio" name="sex")
-                    div.input-wrapper__radio
-                    span.input-wrapper__text Мужчина
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label
-                    input(type="radio" name="sex")
-                    div.input-wrapper__radio
-                    span.input-wrapper__text Женщина
+
+            -
+              var options = {
+                title: "checkbox buttons",
+                items: [
+                  {
+                    type: "radio",
+                    class: "radio",
+                    name: "sex",
+                    text: "Мужчина",
+                    required: false
+                  },
+                  {
+                    type: "radio",
+                    class: "radio",
+                    name: "sex",
+                    text: "Женщина",
+                    required: false
+                  }
+                ]
+              }
+            +check-list(options)
 
             //- Toggle
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field toggle
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label
-                    input(type="checkbox" name="privacy")
-                    div.input-wrapper__toggle
-                    span.input-wrapper__text Можно курить
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label
-                    input(type="checkbox" name="subscribe")
-                    div.input-wrapper__toggle
-                    span.input-wrapper__text Можно с питомцами
+
+            -
+              var options = {
+                title: "checkbox buttons",
+                items: [
+                  {
+                    type: "checkbox",
+                    class: "toggle",
+                    name: "privacy",
+                    text: "Получать спецпредложения",
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "toggle",
+                    name: "pets",
+                    text: "Согласиться на пытки",
+                    required: false
+                  }
+                ]
+              }
+            +check-list(options)
 
             //- Like button
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field like button
-              div.form-elements-block-ui__row
-                div.input-wrapper__like-button
-                  span.input-wrapper__like-counter 2
-                div.input-wrapper__like-button.input-wrapper__like-button_active
-                  span.input-wrapper__like-counter 22
+
+            -
+              var options = {
+                title: "like button",
+                "default-value": 22
+              }
+            +like-button(options)
+
 
             //- Rate button
             div.form__element-ui.input-wrapper

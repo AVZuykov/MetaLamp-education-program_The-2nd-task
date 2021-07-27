@@ -7,6 +7,7 @@ window.$ = $
 import Inputmask from 'inputmask'
 import ionRangeSlider from 'ion-rangeslider'
 import Dropdown from '~/app/libs/form-elements/dropdown.js'
+import LikeButton from '~/app/libs/form-elements/like-button.js'
 require('paginationjs')
 
 
@@ -22,18 +23,27 @@ const currentMonth = today.getMonth() + 1
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // dropdown init
 
-  const dropdowns = document.querySelectorAll('.input-wrapper_dropdown')
+  let dropdowns = Array.from(document.querySelectorAll('.input-wrapper_dropdown'))
 
-  const ddArr = []
+  dropdowns = dropdowns.map(dropdown => new Dropdown(dropdown).init())
 
-  dropdowns.forEach(dropdown => {
-    const dd = new Dropdown(dropdown)
-    dd.init()
-    ddArr.push(dd)
+  // like button init
+
+  let likeButtons = Array.from(document.querySelectorAll('.input-wrapper__like-button'))
+
+  likeButtons = likeButtons.map(likeButton => {
+    return new LikeButton({
+      elem: likeButton,
+      counter: '.input-wrapper__like-counter'
+    }).init()
   })
 
-  // Range slider
+
+
+  likeButtons
+  // Range slider init
 
   $('#example_id').ionRangeSlider({
     type: 'double',

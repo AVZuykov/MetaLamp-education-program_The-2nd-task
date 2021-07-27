@@ -1,26 +1,30 @@
 export default class Dropdown {
   constructor(elem) {
-    this.elem = elem
+
     this.initialized = false
 
+    // elems
 
-
+    this.elem = elem
     this.dropdownField = this.elem.querySelector('.input-wrapper__field_dropdown')
     this.options = Array.from(this.elem.querySelectorAll('.dropdown-select__option'))
     this.isShowTotal = this.elem.querySelector('.showTotal')
 
+    // states
+    
     this.defaultState = defaultState(this.options)
     this.state = this.defaultState.map(a => ({ ...a }))
     this.draftState = []
   }
 
-  // initialize plugin
   init() {
 
     this.handlerEventListeners(this.elem)
 
     // set initialized to `true`
     this.initialized = true
+
+    return this
   }
 
   handlerEventListeners(elem) {
@@ -54,8 +58,6 @@ export default class Dropdown {
     // Сброс состояния
 
     clearBtn.addEventListener('click', (event) => {
-      this.draftState = []
-      this.state = this.defaultState.map(a => ({ ...a }))
       this.default()
     })
 
@@ -118,12 +120,18 @@ export default class Dropdown {
   // Приведение dropdown в исходное состояние
 
   default() {
+
+    this.draftState = []
+
+    this.state = this.defaultState.map(a => ({ ...a }))
+
     this.options.forEach((option, idx) => {
 
       const total = option.querySelector('.dropdown-select__total')
 
       total.innerText = this.defaultState[idx]['total']
     })
+    
     this.showTotal(this.isShowTotal)
   }
 
