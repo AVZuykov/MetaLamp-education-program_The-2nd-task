@@ -1,14 +1,27 @@
 export default class Dropdown {
-  constructor(elem) {
+  constructor(options) {
 
+
+    this.elem = options.elem
+
+
+    // serch elems
+
+    this.dropdownField = this.elem.querySelector(options.field)
+    this.acceptBtn     = this.elem.querySelector(options.acceptBtn)
+    this.clearBtn      = this.elem.querySelector(options.clearBtn)
+    this.options       = Array.from(this.elem.querySelectorAll(options.option))
+
+    this.counter       = options.counter
+
+    this.dropdownActiveClassField = options.field.substring(1) + '-active'
+
+    console.log(this.dropdownActiveClassField)
+
+    // other settings 
+
+    this.isShowTotal = options.isShowTotal
     this.initialized = false
-
-    // elems
-
-    this.elem = elem
-    this.dropdownField = this.elem.querySelector('.input-wrapper__field_dropdown')
-    this.options = Array.from(this.elem.querySelectorAll('.dropdown-select__option'))
-    this.isShowTotal = this.elem.querySelector('.showTotal')
 
     // states
     
@@ -21,7 +34,6 @@ export default class Dropdown {
 
     this.handlerEventListeners(this.elem)
 
-    // set initialized to `true`
     this.initialized = true
 
     return this
@@ -46,24 +58,21 @@ export default class Dropdown {
 
     // Изменение кол-ва и его сохранение
 
-    const acceptBtn = elem.querySelector('.dropdown-select__accept')
-    const clearBtn = elem.querySelector('.dropdown-select__clear')
-
     this.options.forEach((option, idx) => {
-      const counterElements = option.querySelector('.dropdown-select__counter').children
+      const counterElements = option.querySelector(this.counter).children
 
       this.count(counterElements, idx)
     })
 
     // Сброс состояния
 
-    clearBtn.addEventListener('click', (event) => {
+    this.clearBtn.addEventListener('click', (event) => {
       this.default()
     })
 
     // Сохранить изменения
 
-    acceptBtn.addEventListener('click', (event) => {
+    this.acceptBtn.addEventListener('click', (event) => {
       this.save()
     })
 
@@ -88,9 +97,9 @@ export default class Dropdown {
 
   toggleDropdown(close = false) {
     if (!close) {
-      this.dropdownField.classList.toggle('input-wrapper__field_dropdown-active')
+      this.dropdownField.classList.toggle(this.dropdownActiveClassField)
     } else
-      this.dropdownField.classList.remove('input-wrapper__field_dropdown-active')
+      this.dropdownField.classList.remove(this.dropdownActiveClassField)
   }
 
   // Изменить draftState и визуальную часть dropdawn
@@ -127,7 +136,7 @@ export default class Dropdown {
 
     this.options.forEach((option, idx) => {
 
-      const total = option.querySelector('.dropdown-select__total')
+      const total = option.querySelector(this.counter).children[1]
 
       total.innerText = this.defaultState[idx]['total']
     })

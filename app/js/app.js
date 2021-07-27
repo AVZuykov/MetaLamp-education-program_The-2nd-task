@@ -27,7 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let dropdowns = Array.from(document.querySelectorAll('.input-wrapper_dropdown'))
 
-  dropdowns = dropdowns.map(dropdown => new Dropdown(dropdown).init())
+  dropdowns = dropdowns.map(dropdown => {
+    return new Dropdown({
+      // elems
+      elem:       dropdown,
+      field:     '.input-wrapper__field_dropdown',
+      option:    '.dropdown-select__option',
+
+      counter: '.dropdown-select__counter',
+
+      acceptBtn: '.dropdown-select__accept',
+      clearBtn:  '.dropdown-select__clear',
+
+      // settings
+
+      isShowTotal: true
+
+    }).init()})
 
   // like button init
 
