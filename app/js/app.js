@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 
+  console.log(likeButtons)
 
   likeButtons
   // Range slider init

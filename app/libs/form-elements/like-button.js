@@ -4,18 +4,17 @@ export default class LikeButton {
     this.elem = options.elem
     this.counter = options.elem.querySelector(options.counter)
 
+    this.total = this.counter.innerText
     this.initialized = false
   }
 
   init() {
 
-
-
     this.handlerEventListeners()
 
     this.initialized = true
 
-
+    return this
   }
 
   handlerEventListeners() {
@@ -28,10 +27,15 @@ export default class LikeButton {
 
   toggle() {
     if (this.elem.classList.contains('input-wrapper__like-button_active')) {
-      this.counter.innerText--
+      this.total--
     } else {
-      this.counter.innerText++
+      this.total++
     }
+    this.render()
+  }
+
+  render() {
+    this.counter.innerText = this.total
     this.elem.classList.toggle('input-wrapper__like-button_active')
   }
 
