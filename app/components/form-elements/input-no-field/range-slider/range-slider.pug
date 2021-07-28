@@ -1,0 +1,9 @@
+mixin range-slider(options)
+  div.form__element-ui.input-wrapper
+    div.input-wrapper__range-slider
+      div.input-wrapper__range-header
+        span.input-wrapper__title.input-wrapper__title_no-field Range slider
+        div.input-wrapper__range
+          span.input-wrapper__range-from 
+          span.input-wrapper__range-to 
+      input(type="text" data-from=options.from data-to=options.to name="example_name" value="")

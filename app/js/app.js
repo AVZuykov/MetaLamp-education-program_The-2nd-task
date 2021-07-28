@@ -68,19 +68,37 @@ document.addEventListener('DOMContentLoaded', () => {
       star: '.input-wrapper__rate-star'
     }).init()
   })
-  
-  // Range slider init
 
-  $('#example_id').ionRangeSlider({
-    type: 'double',
-    step: 100,
-    min: 100,
-    max: 16000,
-    from: 5000,
-    to: 10000,
-    hide_min_max: true,
-    hide_from_to: true,
+  // Range slider init
+  
+  $('.input-wrapper__range-slider').each(function () {
+
+    const slider = $(this).find('input')
+    const from = $(this).find('.input-wrapper__range-from')
+    const to = $(this).find('.input-wrapper__range-to')
+
+    slider.ionRangeSlider({
+      type: 'double',
+      step: 1000,
+      min: 1000,
+      max: 16000,
+      min_interval: 2000,
+      drag_interval: true,
+      from: slider.data('from'),
+      to: slider.data('to'),
+      hide_min_max: true,
+      hide_from_to: true,
+      onStart: (data) => {
+        from.text(data.from_pretty + '₽ - ')
+        to.text(data.to_pretty + '₽')
+      },
+      onChange: (data) => {
+        from.text(data.from_pretty + '₽ - ')
+        to.text(data.to_pretty + '₽')
+      }
+    })
   })
+
 
   // Pagination
 

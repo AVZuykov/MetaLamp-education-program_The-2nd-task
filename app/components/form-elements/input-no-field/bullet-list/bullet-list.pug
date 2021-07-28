@@ -1,0 +1,24 @@
+mixin bullet-list(options)
+  div.input-wrapper
+    if (options.title)
+      span.input-wrapper__title.input-wrapper__title_no-field #{options.title}
+
+    ul.input-wrapper__bullet-list
+
+      each item in options.items
+        if (Array.isArray(item.text))
+
+          //- Несколько строк
+          li.input-wrapper__bullet-item 
+            each string in item.text
+              span.input-wrapper__bullet-text  #{string}
+              
+
+        else 
+
+          //- Сплошной текст
+
+          li.input-wrapper__bullet-item  #{item.text}
+
+
+

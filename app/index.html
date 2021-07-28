@@ -138,8 +138,8 @@
               </ul>
             </div>
             <div class="input-wrapper">
-              <input class="input-wrapper__dropdown-checkbox" type="checkbox" id="dropdown-check-list-28821">
-              <label class="input-wrapper__dropdown-label" for="dropdown-check-list-28821"><span class="input-wrapper__title input-wrapper__title_no-field">expandable checkbox list </span></label>
+              <input class="input-wrapper__dropdown-checkbox" type="checkbox" id="dropdown-check-list-68897">
+              <label class="input-wrapper__dropdown-label" for="dropdown-check-list-68897"><span class="input-wrapper__title input-wrapper__title_no-field">expandable checkbox list </span></label>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
@@ -327,8 +327,12 @@
         <div class="form-elements-block-ui__column320">
           <form class="form-ui" type="get">
             <div class="form__element-ui input-wrapper">
-              <div class="input-wrapper__range-header"><span class="input-wrapper__title input-wrapper__title_no-field">Range slider</span><span class="input-wrapper__range-counter">5 000₽ - 10 000₽</span></div>
-              <input class="input-wrapper__range-slider" type="text" id="example_id" name="example_name" value="">
+              <div class="input-wrapper__range-slider">
+                <div class="input-wrapper__range-header"><span class="input-wrapper__title input-wrapper__title_no-field">Range slider</span>
+                  <div class="input-wrapper__range"><span class="input-wrapper__range-from"> </span><span class="input-wrapper__range-to"> </span></div>
+                </div>
+                <input type="text" data-from="5000" data-to="10000" name="example_name" value="">
+              </div>
             </div>
             <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Buttons </span>
               <div class="form-elements-block-ui__row">
@@ -351,11 +355,12 @@
               <div class="content"></div>
               <div class="input-wrapper__pagination"></div>
             </div>
-            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Bullet list</span>
+            <div class="input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">bullet list</span>
               <ul class="input-wrapper__bullet-list">
-                <li class="input-wrapper__bullet-item">Нельзя с питомцами</li>
-                <li class="input-wrapper__bullet-item">Без вечеринок и мероприятий</li>
-                <li class="input-wrapper__bullet-item">Время прибытия — после 13:00,<br>а выезд до 12:00</li>
+                <li class="input-wrapper__bullet-item"> Нельзя с питомцами</li>
+                <li class="input-wrapper__bullet-item"> Без вечеринок и мероприятий</li>
+                <li class="input-wrapper__bullet-item"> <span class="input-wrapper__bullet-text"> Время прибытия — после 13:00,</span><span class="input-wrapper__bullet-text"> а выезд до 12:00</span>
+                </li>
               </ul>
             </div>
           </form>

@@ -1,0 +1,29 @@
+.input-wrapper__range-header
+  display: flex
+  justify-content: space-between
+
+.irs--flat
+  & .irs-line,
+  & .irs-bar
+    top: 0
+
+  & .irs-line
+    height: 6px
+    background: none
+    border: 1px solid $darkShade25
+
+  & .irs-bar
+    height: 6px
+    background: linear-gradient(to bottom, rgba(#6FCF97, 1) 0%, rgba(#66D2EA,1) 100%)
+
+  & .irs-handle
+    cursor: pointer
+    top: -5px
+    height: 12px
+    width: 12px
+    box-sizing: content-box
+    border-radius: 50%
+    background: linear-gradient(to bottom, rgba(#6FCF97, 1) 0%, rgba(#66D2EA,1) 100%)
+    border: 2px solid #fff
+    & i
+      opacity: 0

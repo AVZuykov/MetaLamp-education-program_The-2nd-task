@@ -394,11 +394,14 @@ body
           form.form-ui(type="get")
 
             //- Range slider
-            div.form__element-ui.input-wrapper
-              div.input-wrapper__range-header
-                span.input-wrapper__title.input-wrapper__title_no-field Range slider
-                span.input-wrapper__range-counter 5 000₽ - 10 000₽
-              input.input-wrapper__range-slider(type="text" id="example_id" name="example_name" value="")
+
+            -
+              var options ={
+                from: 5000,
+                to: 10000
+              }
+            +range-slider(options)
+
 
             //- Buttons            
             div.form__element-ui.input-wrapper
@@ -429,14 +432,23 @@ body
               div.input-wrapper__pagination
 
             //- Bullet list
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Bullet list
-              ul.input-wrapper__bullet-list
-                li.input-wrapper__bullet-item Нельзя с питомцами
-                li.input-wrapper__bullet-item Без вечеринок и мероприятий
-                li.input-wrapper__bullet-item Время прибытия — после 13:00,
-                  br
-                  | а выезд до 12:00
+
+            -
+              var options = {
+                title: "bullet list",
+                items: [
+                  {
+                    text: "Нельзя с питомцами"
+                  },
+                  {
+                    text: "Без вечеринок и мероприятий"
+                  },
+                  {
+                    text: ["Время прибытия — после 13:00,", "а выезд до 12:00"]
+                  },
+                ]
+              }
+            +bullet-list(options)
 
     //- Icon list and comment
     section.section-ui 
