@@ -1,0 +1,9 @@
+mixin rate-button(options)
+  div.input-wrapper
+    if options.title
+      span.input-wrapper__title.input-wrapper__title_no-field #{options.title}
+    div.input-wrapper__rate-button
+      - var i = 0
+        while i < options.count
+          div.input-wrapper__rate-star
+          -++i 

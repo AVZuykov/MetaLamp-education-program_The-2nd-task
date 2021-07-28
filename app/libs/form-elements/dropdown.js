@@ -14,9 +14,7 @@ export default class Dropdown {
 
     this.counter       = options.counter
 
-    this.dropdownActiveClassField = options.field.substring(1) + '-active'
-
-    console.log(this.dropdownActiveClassField)
+    this.dropdownActiveClassField = options.field.substring(1) + '_dropdown-active'
 
     // other settings 
 

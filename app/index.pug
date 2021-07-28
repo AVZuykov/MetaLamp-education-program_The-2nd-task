@@ -1,9 +1,6 @@
 include ./components/head
 include ./components/footer
-include ./components/form-elements/input-field/text-input
-include ./components/form-elements/input-field/dropdown-input
-include ./components/form-elements/input-no-field/check-list
-include ./components/form-elements/input-no-field/like-button
+include ./components/form-elements/form-elements
 
 
 +head() 
@@ -178,24 +175,84 @@ body
             +dropdown-input(options)
 
             //- Expandable Checkbox list
-            div.form__element-ui.input-wrapper.input-wrapper_checklist-dropdown
-              span.input-wrapper__title.input-wrapper__title_no-field expandable checkbox list 
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="smoke")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно курить
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="pets")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно с питомцами
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="party")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно пригласить гостей (до 10 человек)
+
+            -
+              var options = {
+                title: "expandable checkbox list",
+                dropdown: true,
+                items: [
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    name: "breakfast",
+                    text: "Завтрак",
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    check: true,
+                    name: "table",
+                    text: "Письменный стол",
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    check: true,
+                    name: "table",
+                    text: "Стул для кормления",
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    check: true,
+                    name: "babyBed",
+                    text: "Кроватка",
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    name: "tv",
+                    text: "Телевизор",
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    name: "Shampoo",
+                    text: "Шампунь",
+                    required: false
+                  }
+                ]
+              }
+            +check-list(options)
+
+            //- Dropdown element 3
+
+            -
+              var options = {
+                title: "dropdown",
+                placeholder: "Сколько комнат и кроватей",
+                class: "showTotal",
+                items: [
+                  {
+                    title: "спальни",
+                    "default-value": 2,
+                  },
+                  {
+                    title: "кровати",
+                    "default-value": 2,
+                  },
+                  {
+                    title: "ванные комнаты",
+                    "default-value": 0,
+                  }
+                ]
+              }
+            +dropdown-input(options)
 
         //- max width 260px
         div.form-elements-block-ui__column260
@@ -217,6 +274,7 @@ body
                   {
                     type: "checkbox",
                     class: "checkbox",
+                    check: true,
                     name: "pets",
                     text: "Можно с питомцами",
                     required: false
@@ -224,8 +282,9 @@ body
                   {
                     type: "checkbox",
                     class: "checkbox",
+                    check: true,
                     name: "party",
-                    text: "Можно пригласить гостей (до 10 человек)",
+                    text: ["Можно пригласить гостей", "(до 10 человек)"],
                     required: false
                   }
                 ]
@@ -241,6 +300,7 @@ body
                   {
                     type: "radio",
                     class: "radio",
+                    check: true,
                     name: "sex",
                     text: "Мужчина",
                     required: false
@@ -265,6 +325,7 @@ body
                   {
                     type: "checkbox",
                     class: "toggle",
+                    check: true,
                     name: "privacy",
                     text: "Получать спецпредложения",
                     required: false
@@ -291,47 +352,42 @@ body
 
 
             //- Rate button
-            div.form__element-ui.input-wrapper
 
-              span.input-wrapper__title.input-wrapper__title_no-field Rate button
-              div.form-elements-block-ui__row
-                div.input-wrapper__rate-button
-                  input(type="number" hidden value="0")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="1")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="2")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="3")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="4")
-                  div.input-wrapper__rate-star(data-rate="5")
-                div.input-wrapper__rate-button
-                  input(type="number" hidden value="0")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="1")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="2")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="3")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="4")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="5")
+            -
+              var options = {
+                title: "rate button",
+                count: 5
+              }
+            +rate-button(options)
 
             //- Rich checkbox buttons
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="smoke")
-                    div.input-wrapper__checkbox
-                    div.input-wrapper__rich-wrapper
-                      span.input-wrapper__richt-label Широкий коридор
-                      span.input-wrapper__text Ширина коридоров в номере
-                        br
-                        | не менее 91 см.
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="smoke")
-                    div.input-wrapper__checkbox
-                    div.input-wrapper__rich-wrapper
-                      span.input-wrapper__richt-label Помощник для инвалидов
-                      span.input-wrapper__text На 1 этаже вас встретит специалист
-                        br
-                        | и проводит до номера.
+
+            -
+              var options = {
+                title: "rich Checkbox Buttons",
+                items: [
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    rich: true,
+                    heading: "Широкий коридор",
+                    name: "hall",
+                    text: ["Ширина коридоров в номере", " не менее 91 см."],
+                    required: false
+                  },
+                  {
+                    type: "checkbox",
+                    class: "checkbox",
+                    rich: true,
+                    heading: "Помощник для инвалидов",                 
+                    name: "help",
+                    text: ["На 1 этаже вас встретит специалист", "и проводит до номера."],
+                    required: false
+                  }
+                ]
+              }
+            +check-list(options)
+
 
         //- other elements
         div.form-elements-block-ui__column320

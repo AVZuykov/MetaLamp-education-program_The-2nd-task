@@ -7,8 +7,37 @@
   padding: 0
 
 // Check-list dropdown mod
-.input-wrapper_checklist-dropdown
+
+input.input-wrapper__dropdown-checkbox
+  position: absolute
+  z-index: -1
+  opacity: 0
+
+  & ~ .input-wrapper__check-list
+    height: 0
+    overflow: hidden
+    opacity: 0
+    transition: all .25s ease-in-out
+  
+
+
+input.input-wrapper__dropdown-checkbox:checked
+
+  & ~ .input-wrapper__check-list
+    opacity: 1
+    height: 100%
+
+  & + .input-wrapper__dropdown-label
+    .input-wrapper__title
+      &::before
+        transform: scaleY(-1)
+
+.input-wrapper__dropdown-label
+  position: relative
+  cursor: pointer
+
   .input-wrapper__title
+    display: block
     position: relative
     &::before
       content: ''
@@ -20,19 +49,8 @@
       bottom: 0
       background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
       transition: all .25s ease-in-out
-  .input-wrapper__check-list
-    transform-origin: top
-    transform: scaleY(0)
-    opacity: 0
-    transition: all .25s ease-in-out
 
-.input-wrapper_checklist-dropdown:hover
-  .input-wrapper__title
-    &::before
-      transform: scaleY(-1)
-  .input-wrapper__check-list
-    transform: scaleY(1)
-    opacity: 1
+// check-item
 
 .input-wrapper__check-button
   margin-bottom: 11px
@@ -51,8 +69,9 @@
   margin-right: 10px
   transition: border-color .25s ease-in-out
 
-  & ~ .input-wrapper__text
-    transition: all .25s ease-in-out
+  & + .input-wrapper__text-wrapper
+    .input-wrapper__text
+      transition: all .25s ease-in-out
 
 .input-wrapper__checkbox
   border-radius: 4px
@@ -64,15 +83,17 @@
   width: 40px
   border-radius: 10px
 
-// checkbox rich type
-
-.input-wrapper__rich-wrapper
+.input-wrapper__text-wrapper
   display: flex
   flex-flow: column
+
+// Check-list rich mod
+
+.input-wrapper__text-wrapper_rich
   .input-wrapper__text
     font-size: 12px
 
-.input-wrapper__richt-label
+.input-wrapper__text-heading
   font-size: 14px
   font-weight: 700
   color: $darkShade75
@@ -81,27 +102,17 @@
 
 .input-wrapper__checkbox
   position: relative
-
-  &::before,
-  &::after
-    content: ''
-    position: absolute
-    top: 50%
-    left: 50%
-    width: 0px
-    transition: all .25s ease-in-out
+  background: url(../images/svg/checkbox-check.svg) no-repeat center center
 
   &::before
-    height: 6px
-    transform: translateX(-100%) translateY(-50%) rotate(315deg)
-    transform-origin: 3px 6px
-    background: linear-gradient(to right, rgba(139,164,249,1) 0%, rgba(151,162,251,1) 100%)
-
-  &::after
-    height: 8px
-    transform: translateX(-100%) translateY(-50%) rotate(45deg)
-    transform-origin: 2px 8px
-    background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+    content: ''
+    position: absolute
+    top: 4px
+    bottom: 4px
+    left: 4px
+    right: 4px
+    background-color: rgba(#fff, 1)
+    transition: all .25s ease-in-out
 
 // radio (check)
 
@@ -141,12 +152,13 @@
   &::after
     background: #C7C7CF
 
-// Label checkbox radio toggle
+// Label 
 
 .input-wrapper__check-label
   color: $darkShade50
   display: flex
   flex-flow: row nowrap
+  cursor: pointer
 
   // dynamic 
 
@@ -164,16 +176,15 @@
       &_radio,
       &_toggle
         border-color: $purple
-        & ~ .input-wrapper__text
-          color: $darkShade75
+        & + .input-wrapper__text-wrapper
+          .input-wrapper__text
+            color: $darkShade75
 
       // checkbox (check)
 
       &_checkbox
         &::before
-          width: 2px
-        &::after
-          width: 2px
+          background-color: rgba(#fff, 0)
 
       // radio (check)
 

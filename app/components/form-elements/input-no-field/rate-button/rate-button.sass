@@ -1,0 +1,20 @@
+.input-wrapper__rate-button
+  align-self: flex-start
+  display: flex
+  
+.input-wrapper__rate-star
+  display: inline-block
+  cursor: pointer
+  height: 24px
+  width: 24px
+  background: url(../images/svg/star-border.svg) no-repeat center center
+  transition: all .25s ease-in-out
+
+  &_active
+    background: url(../images/svg/star.svg) no-repeat center center
+
+.input-wrapper__rate-button:hover
+  .input-wrapper__rate-star
+    background: url(../images/svg/star.svg) no-repeat center center
+    &:hover ~ .input-wrapper__rate-star
+      background: url(../images/svg/star-border.svg) no-repeat center center

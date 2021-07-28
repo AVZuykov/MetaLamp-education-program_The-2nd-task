@@ -1,0 +1,60 @@
+mixin check-list(options)
+  div.input-wrapper
+
+    //- Дропдаун?
+
+    if (options.dropdown)
+
+      - var id = "dropdown-check-list-" + Math.floor(Math.random() * 99999)
+
+        input.input-wrapper__dropdown-checkbox(type="checkbox" id=id)
+
+        label.input-wrapper__dropdown-label(for=id)
+          span.input-wrapper__title.input-wrapper__title_no-field #{options.title} 
+
+
+    //- Заголовок 
+
+    else if (options.title)
+
+      span.input-wrapper__title.input-wrapper__title_no-field #{options.title} 
+
+    ul.input-wrapper__check-list
+
+      each item in options.items
+
+        //- Создание списка 
+
+        li.input-wrapper__check-button
+          label.input-wrapper__check-label 
+            input(type=item.type name=item.name checked=item.check required=item.required)
+
+            //- Вид элемента checkbox, radio, toggle
+
+            div(class=`input-wrapper__${item.class}`)
+
+            //- Обертка текста элемента
+
+            div.input-wrapper__text-wrapper(class=`${item.heading ? "input-wrapper__text-wrapper_rich" : ""}`)
+
+              //- Заголовок элемента
+              if (item.heading)
+
+                span.input-wrapper__text-heading #{item.heading}
+
+              //- Проверка наличия нескольких строк
+
+              if (Array.isArray(item.text))
+
+                //- Несколько строк
+
+                each string in item.text
+                  span.input-wrapper__text  #{string}
+
+              else 
+
+                //- Сплошной текст
+
+                span.input-wrapper__text #{item.text}
+
+
