@@ -1,16 +1,21 @@
 mixin text-input(options)
-  div.input-wrapper
 
-    if options.title 
-      label.input-wrapper__title(for=options.id) #{options.title}
+  if (options.header)
+  
+    label.inputs-block__header(for=options.id) #{options.header}
 
-    input.input-wrapper__field(
-      class=options.class
-      type="text" 
-      id=options.id  
-      name=options.name 
-      placeholder=`${options.placeholder ? options.placeholder : "Some text"}`
-      required=`${options.required ? true : false}`
-    )
-    if options.subscribe
-      input.input-wrapper__subscribe(type="submit" value="")
+  each item in options.items
+
+    div.text-input
+      input.text-input__entry-field(
+        class=item.class
+        type="text" 
+        id=item.id  
+        name=item.name 
+        placeholder=`${item.placeholder ? item.placeholder : "Some text"}`
+        required=`${item.required ? true : false}`
+      )
+
+      if (item.subscribe)
+
+        input.text-input__subscribe-button(type="submit" value="")

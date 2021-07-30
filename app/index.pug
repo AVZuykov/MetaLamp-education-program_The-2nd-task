@@ -93,166 +93,213 @@ body
           form.form-ui()
 
             //- Text form
-            -
-              var options = {
-                title: "text field",
-                id: "textField",
-                name: "textField",
-                placeholder: "Some text...",
-                required: true
-              };
 
-            +text-input(options)
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "text field",
+
+                  items: [
+                    {
+                      id: "textField",
+                      name: "textField",
+                      placeholder: "Some text field 1...",
+                      required: true
+                    },
+                    {
+                      id: "textField",
+                      name: "textField",
+                      placeholder: "Some text field 2...",
+                    }
+
+                  ]
+                };
+
+              +text-input(options)
 
             //- Subscription form
-            -
-              var options = {
-                subscribe: true,
-                title: "subscription text field", 
-                id: "maskedEmail", 
-                name: "maskedEmail", 
-                placeholder: "Email",
-              }
 
-            +text-input(options)
+            div.inputs-block
+
+              -
+                var options = {
+
+                  header: "subscription text field", 
+
+                  items: [
+                    {
+                      id: "maskedEmail",
+                      name: "maskedEmail",
+                      placeholder: "Email",
+                      subscribe: true,
+                    },
+                    {
+                      id: "maskedEmail",
+                      name: "maskedEmail",
+                      placeholder: "Email",
+                    }
+                  ]
+                }
+
+              +text-input(options)
 
             //- Masked form
-            -
-              var options = {
-                title: "masked text field", 
-                id: "maskedDate", 
-                name: "maskedDate", 
-                placeholder: "ДД.ММ.ГГГГ"
-              }
 
-            +text-input(options)
+            div.inputs-block
+
+              -
+                var options = {
+
+                  header: "masked text field", 
+
+                  items: [
+                    {
+                      id: "maskedDate",
+                      name: "maskedDate",
+                      placeholder: "ДД.ММ.ГГГГ",
+                    }
+                  ]
+                }
+
+              +text-input(options)
 
             //- Dropdown element 1
-            -
-              var options = {
-                title: "dropdown",
-                placeholder: "Сколько гостей",
-                class: "showTotal",
-                items: [
-                  {
-                    title: "взрослые",
-                    "default-value": 2,
-                  },
-                  {
-                    title: "Дети",
-                    "default-value": 1,
-                  },
-                  {
-                    title: "Младенцы",
-                    "default-value": 0,
-                  }
-                ]
-              }
-            +dropdown-input(options)
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "dropdown without buttons",
+                  placeholder: "Сколько гостей",
+                  class: "showTotal",
+                  disableControls: true,
+                  items: [
+                    {
+                      title: "взрослые  ",
+                      "default-value": 2,
+                    },
+                    {
+                      title: "Дети",
+                      "default-value": 1,
+                    },
+                    {
+                      title: "Младенцы",
+                      "default-value": 0,
+                    }
+                  ]
+                }
+              +dropdown-input(options)
 
             //- Dropdown element 2
 
-            -
-              var options = {
-                title: "dropdown",
-                placeholder: "Сколько комнат и кроватей",
-                class: "showTotal",
-                items: [
-                  {
-                    title: "спальни",
-                    "default-value": 2,
-                  },
-                  {
-                    title: "кровати",
-                    "default-value": 2,
-                  },
-                  {
-                    title: "ванные комнаты",
-                    "default-value": 0,
-                  }
-                ]
-              }
-            +dropdown-input(options)
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "dropdown with buttons",
+                  placeholder: "Сколько комнат и кроватей",
+                  class: "showTotal",
+                  items: [
+                    {
+                      title: "спальни",
+                      "default-value": 2,
+                    },
+                    {
+                      title: "кровати",
+                      "default-value": 2,
+                    },
+                    {
+                      title: "ванные комнаты",
+                      "default-value": 0,
+                    }
+                  ]
+                }
+              +dropdown-input(options)
 
             //- Expandable Checkbox list
 
-            -
-              var options = {
-                title: "expandable checkbox list",
-                dropdown: true,
-                items: [
-                  {
-                    type: "checkbox",
-                    class: "checkbox",
-                    name: "breakfast",
-                    text: "Завтрак",
-                    required: false
-                  },
-                  {
-                    type: "checkbox",
-                    class: "checkbox",
-                    check: true,
-                    name: "table",
-                    text: "Письменный стол",
-                    required: false
-                  },
-                  {
-                    type: "checkbox",
-                    class: "checkbox",
-                    check: true,
-                    name: "table",
-                    text: "Стул для кормления",
-                    required: false
-                  },
-                  {
-                    type: "checkbox",
-                    class: "checkbox",
-                    check: true,
-                    name: "babyBed",
-                    text: "Кроватка",
-                    required: false
-                  },
-                  {
-                    type: "checkbox",
-                    class: "checkbox",
-                    name: "tv",
-                    text: "Телевизор",
-                    required: false
-                  },
-                  {
-                    type: "checkbox",
-                    class: "checkbox",
-                    name: "Shampoo",
-                    text: "Шампунь",
-                    required: false
-                  }
-                ]
-              }
-            +check-list(options)
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "expandable checkbox list",
+                  dropdown: true,
+                  items: [
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      name: "breakfast",
+                      text: "Завтрак",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      check: true,
+                      name: "table",
+                      text: "Письменный стол",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      check: true,
+                      name: "table",
+                      text: "Стул для кормления",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      check: true,
+                      name: "babyBed",
+                      text: "Кроватка",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      name: "tv",
+                      text: "Телевизор",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      name: "Shampoo",
+                      text: "Шампунь",
+                      required: false
+                    }
+                  ]
+                }
+              +check-list(options)
 
             //- Dropdown element 3
 
-            -
-              var options = {
-                title: "dropdown",
-                placeholder: "Сколько комнат и кроватей",
-                class: "showTotal",
-                items: [
-                  {
-                    title: "спальни",
-                    "default-value": 2,
-                  },
-                  {
-                    title: "кровати",
-                    "default-value": 2,
-                  },
-                  {
-                    title: "ванные комнаты",
-                    "default-value": 0,
-                  }
-                ]
-              }
-            +dropdown-input(options)
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "dropdown",
+                  placeholder: "Сколько комнат и кроватей",
+                  class: "showTotal",
+                  items: [
+                    {
+                      title: "спальни",
+                      "default-value": 2,
+                    },
+                    {
+                      title: "кровати",
+                      "default-value": 2,
+                    },
+                    {
+                      title: "ванные комнаты",
+                      "default-value": 0,
+                    }
+                  ]
+                }
+              +dropdown-input(options)
 
         //- max width 260px
         div.form-elements-block-ui__column260

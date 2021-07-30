@@ -26,19 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // dropdown init
 
-  let dropdowns = Array.from(document.querySelectorAll('.input-wrapper_dropdown'))
+  let dropdowns = Array.from(document.querySelectorAll('.dropdown'))
 
   dropdowns = dropdowns.map(dropdown => {
     return new Dropdown({
       // elems
       elem: dropdown,
-      field: '.input-wrapper__field',
-      option: '.dropdown-select__option',
+      field: '.dropdown__field',
+      option: '.dropdown__option',
 
-      counter: '.dropdown-select__counter',
+      counter: '.dropdown__option-counter',
 
-      acceptBtn: '.dropdown-select__accept',
-      clearBtn: '.dropdown-select__clear',
+      acceptBtn: '.dropdown__accept-button',
+      clearBtn: '.dropdown__clear-button',
 
       // settings
 

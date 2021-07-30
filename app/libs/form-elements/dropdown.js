@@ -8,13 +8,13 @@ export default class Dropdown {
     // serch elems
 
     this.dropdownField = this.elem.querySelector(options.field)
-    this.acceptBtn     = this.elem.querySelector(options.acceptBtn)
-    this.clearBtn      = this.elem.querySelector(options.clearBtn)
-    this.options       = Array.from(this.elem.querySelectorAll(options.option))
+    this.acceptBtn = this.elem.querySelector(options.acceptBtn)
+    this.clearBtn = this.elem.querySelector(options.clearBtn)
+    this.options = Array.from(this.elem.querySelectorAll(options.option))
 
-    this.counter       = options.counter
+    this.counter = options.counter
 
-    this.dropdownActiveClassField = options.field.substring(1) + '_dropdown-active'
+    this.dropdownActiveClassField = options.field.substring(1) + '_active'
 
     // other settings 
 
@@ -22,7 +22,7 @@ export default class Dropdown {
     this.initialized = false
 
     // states
-    
+
     this.defaultState = defaultState(this.options)
     this.state = this.defaultState.map(a => ({ ...a }))
     this.draftState = []
@@ -47,7 +47,7 @@ export default class Dropdown {
 
     document.addEventListener('click', (event) => {
 
-      const ddElem = event.target.closest('.input-wrapper_dropdown')
+      const ddElem = event.target.closest('.dropdown')
 
       if (!ddElem || ddElem !== this.elem) {
         this.toggleDropdown('close')
@@ -62,17 +62,20 @@ export default class Dropdown {
       this.count(counterElements, idx)
     })
 
-    // Сброс состояния
+    if (this.acceptBtn && this.clearBtn) {
+      
+      // Сброс состояния
 
-    this.clearBtn.addEventListener('click', (event) => {
-      this.default()
-    })
+      this.clearBtn.addEventListener('click', (event) => {
+        this.default()
+      })
 
-    // Сохранить изменения
+      // Сохранить изменения
 
-    this.acceptBtn.addEventListener('click', (event) => {
-      this.save()
-    })
+      this.acceptBtn.addEventListener('click', (event) => {
+        this.save()
+      })
+    }
 
   }
 
@@ -96,7 +99,8 @@ export default class Dropdown {
   toggleDropdown(close = false) {
     if (!close) {
       this.dropdownField.classList.toggle(this.dropdownActiveClassField)
-    } else
+    }
+    else
       this.dropdownField.classList.remove(this.dropdownActiveClassField)
   }
 
@@ -106,7 +110,7 @@ export default class Dropdown {
 
     const minus = elements[0]
     const total = elements[1]
-    const plus  = elements[2]
+    const plus = elements[2]
 
 
     minus.addEventListener('click', (event) => {
@@ -138,7 +142,7 @@ export default class Dropdown {
 
       total.innerText = this.defaultState[idx]['total']
     })
-    
+
     this.showTotal(this.isShowTotal)
   }
 
@@ -162,8 +166,8 @@ function defaultState(options) {
 
   options.forEach(option => {
 
-    const title = option.querySelector('.dropdown-select__title').innerText
-    const total = option.querySelector('.dropdown-select__total').innerText
+    const title = option.querySelector('.dropdown__option-title').innerText
+    const total = option.querySelector('.dropdown__counter-total').innerText
 
     state.push({ title, total })
 

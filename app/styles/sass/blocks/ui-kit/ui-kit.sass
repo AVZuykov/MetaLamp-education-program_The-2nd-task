@@ -87,7 +87,7 @@
 .form-ui
   position: relative
 
-  &>div
+  .inputs-block
     margin-bottom: 20px
     &:last-of-type
       margin-bottom: 0
@@ -121,30 +121,3 @@
 .icons-comments-block-ui
   display: flex
   justify-content: space-between
-
-.gradient-box
-
-  display: flex
-  align-items: center
-  margin: auto
-  position: relative
-  box-sizing: border-box
-
-  $border: 5px
-  color: #FFF
-  background: #000
-  background-clip: padding-box
-  border: solid $border transparent
-  border-radius: 1000px
-
-  &:before
-    content: ''
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    z-index: -1
-    margin: -$border
-    border-radius: inherit
-    background: linear-gradient(to right, red, orange)

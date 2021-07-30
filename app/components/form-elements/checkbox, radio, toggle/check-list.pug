@@ -10,14 +10,14 @@ mixin check-list(options)
         input.input-wrapper__dropdown-checkbox(type="checkbox" id=id)
 
         label.input-wrapper__dropdown-label(for=id)
-          span.input-wrapper__title.input-wrapper__title_no-field #{options.title} 
+          span.input-wrapper__title.input-wrapper__title_no-field #{options.header} 
 
 
     //- Заголовок 
 
-    else if (options.title)
+    else if (options.header)
 
-      span.input-wrapper__title.input-wrapper__title_no-field #{options.title} 
+      span.input-wrapper__title.input-wrapper__title_no-field #{options.header} 
 
     ul.input-wrapper__check-list
 

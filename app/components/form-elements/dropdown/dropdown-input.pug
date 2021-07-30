@@ -1,34 +1,37 @@
 mixin dropdown-input(options)
 
-  div.input-wrapper.input-wrapper_dropdown
+  if (options.header)
+    span.inputs-block__header(for="dropdown") #{options.header}
 
-    if options.title
-      span.input-wrapper__title(for="dropdown") #{options.title}
+  div.dropdown
 
-    div.input-wrapper__field.input-wrapper__field_dropdown(class=options.class) 
+    div.dropdown__field(class=options.class) 
       | #{options.placeholder ? options.placeholder : "Укажите кол-во..."}
 
-    ul.input-wrapper__select.dropdown-select
+    ul.dropdown__select
 
       each item in options.items
 
-        li.dropdown-select__option
+        li.dropdown__option
 
           //- Наименование
 
-          span.dropdown-select__title 
+          span.dropdown__option-title
             | #{item.title ? item.title : "Кол-во чего-то..."}
 
-          div.dropdown-select__counter
-            button.dropdown-select__minus(type="button") -
+          div.dropdown__option-counter
+
+            button.dropdown__counter-minus-button(type="button") -
 
             //- Кол-во
-            
-            b.dropdown-select__total 
+
+            b.dropdown__counter-total 
               | #{item["default-value"] ? item["default-value"] : 0}
 
-            button.dropdown-select__plus(type="button") +
+            button.dropdown__counter-plus-button(type="button") +
 
-      li.dropdown-select__buttons 
-        button.dropdown-select__clear(type="button") Очистить
-        button.dropdown-select__accept(type="button") Применить
+      if (!options.disableControls)
+
+        li.dropdown__controls-buttons 
+          button.dropdown__clear-button(type="button") Очистить
+          button.dropdown__accept-button(type="button") Применить
