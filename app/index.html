@@ -69,7 +69,7 @@
       <h2 id="formElements">Form Elements</h2>
       <div class="form-elements-block-ui"> 
         <div class="form-elements-block-ui__column320">
-          <form class="form-ui" type="get">
+          <form class="form-ui">
             <div class="input-wrapper">
               <label class="input-wrapper__title" for="textField">text field</label>
               <input class="input-wrapper__field" type="text" id="textField" name="textField" placeholder="Some text..." required="true">
@@ -138,8 +138,8 @@
               </ul>
             </div>
             <div class="input-wrapper">
-              <input class="input-wrapper__dropdown-checkbox" type="checkbox" id="dropdown-check-list-68897">
-              <label class="input-wrapper__dropdown-label" for="dropdown-check-list-68897"><span class="input-wrapper__title input-wrapper__title_no-field">expandable checkbox list </span></label>
+              <input class="input-wrapper__dropdown-checkbox" type="checkbox" id="dropdown-check-list-64221">
+              <label class="input-wrapper__dropdown-label" for="dropdown-check-list-64221"><span class="input-wrapper__title input-wrapper__title_no-field">expandable checkbox list </span></label>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
                   <label class="input-wrapper__check-label"> 
@@ -221,7 +221,7 @@
           </form>
         </div>
         <div class="form-elements-block-ui__column260">
-          <form class="form-ui" type="get">
+          <form class="form-ui">
             <div class="input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">checkbox buttons </span>
               <ul class="input-wrapper__check-list">
                 <li class="input-wrapper__check-button">
@@ -325,8 +325,8 @@
           </form>
         </div>
         <div class="form-elements-block-ui__column320">
-          <form class="form-ui" type="get">
-            <div class="form__element-ui input-wrapper">
+          <form class="form-ui">
+            <div class="input-wrapper">
               <div class="input-wrapper__range-slider">
                 <div class="input-wrapper__range-header"><span class="input-wrapper__title input-wrapper__title_no-field">Range slider</span>
                   <div class="input-wrapper__range"><span class="input-wrapper__range-from"> </span><span class="input-wrapper__range-to"> </span></div>
@@ -334,22 +334,32 @@
                 <input type="text" data-from="5000" data-to="10000" name="example_name" value="">
               </div>
             </div>
-            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Buttons </span>
-              <div class="form-elements-block-ui__row">
-                <button class="button-wrapper" type="button">Click me</button>
-                <button class="button-wrapper" type="button" disabled>Click me</button>
+            <div class="form-elements-block-ui__row">
+              <div class="input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">buttons </span>
+                <button class="input-wrapper__button" type="button">click me</button>
               </div>
-              <div class="form-elements-block-ui__row">
-                <button class="button-wrapper button-wrapper_border" type="button">Click me</button>
-                <button class="button-wrapper button-wrapper_border" type="button" disabled>Click me</button>
+              <div class="input-wrapper">
+                <button class="input-wrapper__button" type="button" disabled>click me</button>
               </div>
-              <div class="form-elements-block-ui__row">
-                <button class="button-wrapper button-wrapper_only-text" type="button">Click me</button>
-                <button class="button-wrapper button-wrapper_only-text" type="button" disabled>Click me</button>
+            </div>
+            <div class="form-elements-block-ui__row">
+              <div class="input-wrapper">
+                <button class="input-wrapper__button input-wrapper__button_border" type="button">click me</button>
               </div>
-              <div class="form-elements-block-ui__row">
-                <button class="button-wrapper button-wrapper_large" type="button">перейти к оплате</button>
+              <div class="input-wrapper">
+                <button class="input-wrapper__button input-wrapper__button_border" type="button" disabled>click me</button>
               </div>
+            </div>
+            <div class="form-elements-block-ui__row">
+              <div class="input-wrapper">
+                <button class="input-wrapper__button input-wrapper__button_only-text" type="button">click me</button>
+              </div>
+              <div class="input-wrapper">
+                <button class="input-wrapper__button input-wrapper__button_only-text" type="button" disabled>click me</button>
+              </div>
+            </div>
+            <div class="input-wrapper">
+              <button class="input-wrapper__button input-wrapper__button_large" type="button">перейти к оплате</button>
             </div>
             <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">pagination</span>
               <div class="content"></div>

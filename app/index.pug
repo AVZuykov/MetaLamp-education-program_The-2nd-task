@@ -90,17 +90,17 @@ body
       .form-elements-block-ui 
         .form-elements-block-ui__column320
           //- Form
-          form.form-ui(type="get")
+          form.form-ui()
 
             //- Text form
             -
               var options = {
-                title: "text field", 
-                id: "textField", 
-                name: "textField", 
+                title: "text field",
+                id: "textField",
+                name: "textField",
                 placeholder: "Some text...",
                 required: true
-              }
+              };
 
             +text-input(options)
 
@@ -256,7 +256,7 @@ body
 
         //- max width 260px
         div.form-elements-block-ui__column260
-          form.form-ui(type="get")
+          form.form-ui()
 
             //- Checkbox 
 
@@ -391,7 +391,7 @@ body
 
         //- other elements
         div.form-elements-block-ui__column320
-          form.form-ui(type="get")
+          form.form-ui()
 
             //- Range slider
 
@@ -404,26 +404,25 @@ body
 
 
             //- Buttons            
-            div.form__element-ui.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Buttons 
-              div.form-elements-block-ui__row
-                button.button-wrapper(type="button")
-                  | Click me
-                button.button-wrapper(type="button" disabled)
-                  | Click me
-              div.form-elements-block-ui__row
-                button.button-wrapper.button-wrapper_border(type="button")
-                  | Click me
-                button.button-wrapper.button-wrapper_border(type="button" disabled)
-                  | Click me
-              div.form-elements-block-ui__row
-                button.button-wrapper.button-wrapper_only-text(type="button")
-                  | Click me
-                button.button-wrapper.button-wrapper_only-text(type="button" disabled)
-                  | Click me
-              div.form-elements-block-ui__row
-                button.button-wrapper.button-wrapper_large(type="button")
-                  | перейти к оплате
+
+            -
+              var options = {
+                title: "buttons",
+                button: "click me",
+              }
+            div.form-elements-block-ui__row
+              +button(options)
+              +button({button: "click me", disabled: true})
+
+            div.form-elements-block-ui__row
+              +button({button: "click me", mod: "border"})
+              +button({button: "click me", mod: "border", disabled: true})
+
+            div.form-elements-block-ui__row
+              +button({button: "click me", mod: "only-text"})
+              +button({button: "click me", mod: "only-text", disabled: true})
+
+            +button({button: "перейти к оплате", mod: "large"})
 
             //- Pagination
             div.form__element-ui.input-wrapper
@@ -450,7 +449,7 @@ body
               }
             +bullet-list(options)
 
-    //- Icon list and comment
+          //- Icon list and comment
     section.section-ui 
 
       div.icons-comments-block-ui

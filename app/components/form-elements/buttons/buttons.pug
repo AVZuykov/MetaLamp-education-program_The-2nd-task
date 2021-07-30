@@ -1,0 +1,9 @@
+mixin button(options)
+  div.input-wrapper
+    if (options.title)
+      span.input-wrapper__title.input-wrapper__title_no-field #{options.title} 
+    button.input-wrapper__button(
+      class=`${options.mod ? 'input-wrapper__button_' + options.mod : ''}` 
+      type=`${options.type ? options.type : 'button'}`
+      disabled=options.disabled
+    ) #{options.button}
