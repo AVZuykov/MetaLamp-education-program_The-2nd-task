@@ -49,33 +49,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // like button init
 
-  let likeButtons = Array.from(document.querySelectorAll('.input-wrapper__like-button'))
+  let likeButtons = Array.from(document.querySelectorAll('.like-button'))
 
   likeButtons = likeButtons.map(likeButton => {
     return new LikeButton({
       elem: likeButton,
-      counter: '.input-wrapper__like-counter'
+      counter: '.like-button__counter'
     }).init()
   })
 
   //  rate button init
 
-  let rateButtons = Array.from(document.querySelectorAll('.input-wrapper__rate-button'))
+  let rateButtons = Array.from(document.querySelectorAll('.rate-button'))
 
   rateButtons = rateButtons.map(rateButton => {
     return new RateButton({
       elem: rateButton,
-      star: '.input-wrapper__rate-star'
+      star: '.rate-button__star'
     }).init()
   })
 
   // Range slider init
   
-  $('.input-wrapper__range-slider').each(function () {
+  $('.range-slider').each(function () {
 
     const slider = $(this).find('input')
-    const from = $(this).find('.input-wrapper__range-from')
-    const to = $(this).find('.input-wrapper__range-to')
+    const from = $(this).find('.range-slider__from')
+    const to = $(this).find('.range-slider__to')
 
     slider.ionRangeSlider({
       type: 'double',
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Pagination
 
-  $('.input-wrapper__pagination').pagination({
+  $('.pagination').pagination({
     dataSource: function (done) {
       var result = [];
       for (var i = 1; i < 110; i++) {

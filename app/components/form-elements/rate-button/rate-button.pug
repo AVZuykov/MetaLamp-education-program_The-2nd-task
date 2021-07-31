@@ -1,9 +1,9 @@
 mixin rate-button(options)
-  div.input-wrapper
-    if options.title
-      span.input-wrapper__title.input-wrapper__title_no-field #{options.title}
-    div.input-wrapper__rate-button
-      - var i = 0
-        while i < options.count
-          div.input-wrapper__rate-star
-          -++i 
+
+  if (options.header)
+    span.inputs-block__header.inputs-block__header_extra-indent #{options.header}
+  div.rate-button
+    - var i = 0
+      while i < options.count
+        div.rate-button__star
+        - ++i 

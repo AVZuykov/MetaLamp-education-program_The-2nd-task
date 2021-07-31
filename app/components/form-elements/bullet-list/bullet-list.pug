@@ -1,24 +1,21 @@
 mixin bullet-list(options)
-  div.input-wrapper
-    if (options.title)
-      span.input-wrapper__title.input-wrapper__title_no-field #{options.title}
 
-    ul.input-wrapper__bullet-list
+  if (options.header)
+    span.inputs-block__header.inputs-block__header_extra-indent #{options.header}
 
-      each item in options.items
-        if (Array.isArray(item.text))
+  ul.bullet-list
 
-          //- Несколько строк
-          li.input-wrapper__bullet-item 
-            each string in item.text
-              span.input-wrapper__bullet-text  #{string}
-              
+    each item in options.items
+      if (Array.isArray(item.text))
 
-        else 
-
-          //- Сплошной текст
-
-          li.input-wrapper__bullet-item  #{item.text}
+        //- Несколько строк
+        li.bullet-list__item
+          each string in item.text
+            span.bullet-list__text  #{string}
 
 
+      else 
 
+        //- Сплошной текст
+
+        li.bullet-list__item  #{item.text}

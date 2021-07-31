@@ -1,0 +1,10 @@
+mixin inputs-block-dropdown(options)
+
+  if (options.dropdown)
+
+    - var id = "inputs-block-dropdown-" + Math.floor(Math.random() * 99999)
+
+      input.inputs-block__dropdown(type="checkbox" checked=options.dropdownChecked id=id)
+
+      label.inputs-block__dropdown-label(for=id)
+        span.inputs-block__header.inputs-block__header_extra-indent #{options.header} 

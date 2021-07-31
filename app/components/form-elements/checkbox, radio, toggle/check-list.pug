@@ -1,60 +1,76 @@
+//- options
+  {
+    header: "Заголовок блока", 
+    dropdown: true/false,             // Флаг для превращения блока в дропдаун
+    dropdownChecked: true/false       // Флаг для активности дропдауна по умолчанию
+    items: [
+      {
+        type: "checkbox/radio/toggle" // тип тега input 
+        title: "Заголовок элемента"
+        name: "maskedEmail",          // атрибут name тега input
+        required: true/false,         // Флаг обязательного поля
+        check: true/false,            // Флаг активности по умолчанию
+        text: "Сплошной текст"/["Несколько", "строк"]
+      }
+    ]
+  }
+
 mixin check-list(options)
-  div.input-wrapper
 
-    //- Дропдаун?
+  //- Миксин для превращения блока в дропдаун
 
-    if (options.dropdown)
+  +inputs-block-dropdown(options)
 
-      - var id = "dropdown-check-list-" + Math.floor(Math.random() * 99999)
+  //- Заголовок 
 
-        input.input-wrapper__dropdown-checkbox(type="checkbox" id=id)
+  if (!options.dropdown && options.header)
 
-        label.input-wrapper__dropdown-label(for=id)
-          span.input-wrapper__title.input-wrapper__title_no-field #{options.header} 
+    span.inputs-block__header.inputs-block__header_extra-indent #{options.header} 
 
+  ul.check-list
 
-    //- Заголовок 
+    each item in options.items
 
-    else if (options.header)
+      //- Создание списка 
 
-      span.input-wrapper__title.input-wrapper__title_no-field #{options.header} 
+      li.check-list__item
+        label.check-list__item-label-wrapper
 
-    ul.input-wrapper__check-list
+          input.check-list__hidden-check-element(
+            type = `${
+              item.type === "checkbox" || item.type === "toggle" 
+                ? "checkbox" 
+                : "radio"
+              }`
+            name     = item.name 
+            checked  = item.check 
+            required = item.required
+          )
 
-      each item in options.items
+          //- Вид элемента checkbox, radio, toggle
 
-        //- Создание списка 
+          div(class=`check-list__visible-check-element-${item.type}`)
 
-        li.input-wrapper__check-button
-          label.input-wrapper__check-label 
-            input(type=item.type name=item.name checked=item.check required=item.required)
+          //- Обертка текста элемента
 
-            //- Вид элемента checkbox, radio, toggle
+          div.check-list__item-text-wrapper(class=`${item.title ? "check-list__item-text-wrapper_rich" : ""}`)
 
-            div(class=`input-wrapper__${item.class}`)
+            //- Заголовок элемента
+            if (item.title)
 
-            //- Обертка текста элемента
+              span.check-list__item-title #{item.title}
 
-            div.input-wrapper__text-wrapper(class=`${item.heading ? "input-wrapper__text-wrapper_rich" : ""}`)
+            //- Проверка наличия нескольких строк
 
-              //- Заголовок элемента
-              if (item.heading)
+            if (Array.isArray(item.text))
 
-                span.input-wrapper__text-heading #{item.heading}
+              //- Несколько строк
 
-              //- Проверка наличия нескольких строк
+              each string in item.text
+                span.check-list__item-text  #{string}
 
-              if (Array.isArray(item.text))
+            else 
 
-                //- Несколько строк
+              //- Сплошной текст
 
-                each string in item.text
-                  span.input-wrapper__text  #{string}
-
-              else 
-
-                //- Сплошной текст
-
-                span.input-wrapper__text #{item.text}
-
-
+              span.check-list__item-text #{item.text}

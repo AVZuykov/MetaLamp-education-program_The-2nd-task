@@ -1,6 +1,5 @@
 mixin like-button(options)
-  div.input-wrapper
-    if options.title
-      span.input-wrapper__title.input-wrapper__title_no-field #{options.title}
-    div.input-wrapper__like-button
-      span.input-wrapper__like-counter #{options["default-value"]}
+    if (options.header)
+      span.inputs-block__header.inputs-block__header_extra-indent #{options.header}
+    div.like-button
+      span.like-button__counter #{options["default-value"]}

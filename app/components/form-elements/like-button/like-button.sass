@@ -1,6 +1,6 @@
 // Like button
 
-.input-wrapper__like-button
+.like-button
   position: relative
   height: 20px
   width: 40px
@@ -16,7 +16,7 @@
     border-color: $purple
     cursor: pointer
 
-.input-wrapper__like-counter
+.like-button__counter
   font-size: 10px
   line-height: 0
   padding-top: 2px
@@ -35,9 +35,9 @@
 
 // like mod
 
-.input-wrapper__like-button_active
+.like-button_active
   border-color: $purple
-  .input-wrapper__like-counter
+  .like-button__counter
     color: $purple
     &::before
       background: url(../images/svg/like.svg) no-repeat center center

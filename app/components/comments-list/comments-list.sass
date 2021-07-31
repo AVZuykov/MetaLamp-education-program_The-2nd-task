@@ -1,0 +1,36 @@
+.comments-list
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+.comments-list__item
+  display: flex
+
+.comments-list__item
+  &-left,
+  &-right
+    display: flex
+    flex-flow: column
+
+  &-left
+    align-items: center
+    margin-right: 10px
+  &-right
+    align-items: flex-start
+
+.comments-list__item-avatar
+  max-width: 48px
+  border-radius: 50%
+  border: 2px solid #fff
+  box-shadow: 0 10px 20px rgba(#1F2041, .1)
+  margin-bottom: 12px
+
+.comments-list__item-header
+  display: flex
+  flex-flow: column
+  justify-content: center
+  height: 48px
+  margin-bottom: 10px
+
+.comments-list__author-name
+  font-weight: 700

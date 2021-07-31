@@ -26,7 +26,7 @@ export default class LikeButton {
   }
 
   toggle() {
-    if (this.elem.classList.contains('input-wrapper__like-button_active')) {
+    if (this.elem.classList.contains('like-button_active')) {
       this.total--
     } else {
       this.total++
@@ -36,7 +36,7 @@ export default class LikeButton {
 
   render() {
     this.counter.innerText = this.total
-    this.elem.classList.toggle('input-wrapper__like-button_active')
+    this.elem.classList.toggle('like-button_active')
   }
 
 }

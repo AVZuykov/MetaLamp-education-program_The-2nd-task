@@ -69,9 +69,8 @@
       <h2 id="formElements">Form Elements</h2>
       <div class="form-elements-block-ui"> 
         <div class="form-elements-block-ui__column320">
-          <form class="form-ui">
-            <div class="inputs-block">
-              <label class="inputs-block__header">text field</label>
+          <form>
+            <div class="inputs-block"><span class="inputs-block__header">text field</span>
               <div class="text-input">
                 <input class="text-input__entry-field" type="text" id="textField" name="textField" placeholder="Some text field 1..." required="true">
               </div>
@@ -80,7 +79,16 @@
               </div>
             </div>
             <div class="inputs-block">
-              <label class="inputs-block__header">subscription text field</label>
+              <input class="inputs-block__dropdown" type="checkbox" id="inputs-block-dropdown-91579">
+              <label class="inputs-block__dropdown-label" for="inputs-block-dropdown-91579"><span class="inputs-block__header inputs-block__header_extra-indent">expandable text field </span></label>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="textField" name="textField" placeholder="Some text field 1..." required="true">
+              </div>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="textField" name="textField" placeholder="Some text field 2..." required="false">
+              </div>
+            </div>
+            <div class="inputs-block"><span class="inputs-block__header">subscription text field</span>
               <div class="text-input">
                 <input class="text-input__entry-field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email" required="false">
                 <input class="text-input__subscribe-button" type="submit" value="">
@@ -89,8 +97,7 @@
                 <input class="text-input__entry-field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email" required="false">
               </div>
             </div>
-            <div class="inputs-block">
-              <label class="inputs-block__header">masked text field</label>
+            <div class="inputs-block"><span class="inputs-block__header">masked text field</span>
               <div class="text-input">
                 <input class="text-input__entry-field" type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ" required="false">
               </div>
@@ -150,60 +157,58 @@
               </div>
             </div>
             <div class="inputs-block">
-              <div class="input-wrapper">
-                <input class="input-wrapper__dropdown-checkbox" type="checkbox" id="dropdown-check-list-25625">
-                <label class="input-wrapper__dropdown-label" for="dropdown-check-list-25625"><span class="input-wrapper__title input-wrapper__title_no-field">expandable checkbox list </span></label>
-                <ul class="input-wrapper__check-list">
-                  <li class="input-wrapper__check-button">
-                    <label class="input-wrapper__check-label"> 
-                      <input type="checkbox" name="breakfast">
-                      <div class="input-wrapper__checkbox"></div>
-                      <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Завтрак</span>
-                      </div>
-                    </label>
-                  </li>
-                  <li class="input-wrapper__check-button">
-                    <label class="input-wrapper__check-label"> 
-                      <input type="checkbox" name="table" checked>
-                      <div class="input-wrapper__checkbox"></div>
-                      <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Письменный стол</span>
-                      </div>
-                    </label>
-                  </li>
-                  <li class="input-wrapper__check-button">
-                    <label class="input-wrapper__check-label"> 
-                      <input type="checkbox" name="table" checked>
-                      <div class="input-wrapper__checkbox"></div>
-                      <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Стул для кормления</span>
-                      </div>
-                    </label>
-                  </li>
-                  <li class="input-wrapper__check-button">
-                    <label class="input-wrapper__check-label"> 
-                      <input type="checkbox" name="babyBed" checked>
-                      <div class="input-wrapper__checkbox"></div>
-                      <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Кроватка</span>
-                      </div>
-                    </label>
-                  </li>
-                  <li class="input-wrapper__check-button">
-                    <label class="input-wrapper__check-label"> 
-                      <input type="checkbox" name="tv">
-                      <div class="input-wrapper__checkbox"></div>
-                      <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Телевизор</span>
-                      </div>
-                    </label>
-                  </li>
-                  <li class="input-wrapper__check-button">
-                    <label class="input-wrapper__check-label"> 
-                      <input type="checkbox" name="Shampoo">
-                      <div class="input-wrapper__checkbox"></div>
-                      <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Шампунь</span>
-                      </div>
-                    </label>
-                  </li>
-                </ul>
-              </div>
+              <input class="inputs-block__dropdown" type="checkbox" id="inputs-block-dropdown-50582">
+              <label class="inputs-block__dropdown-label" for="inputs-block-dropdown-50582"><span class="inputs-block__header inputs-block__header_extra-indent">expandable checkbox list </span></label>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="breakfast">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Завтрак</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="table" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Письменный стол</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="table" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Стул для кормления</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="babyBed" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Кроватка</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="tv">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Телевизор</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="Shampoo">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Шампунь</span>
+                    </div>
+                  </label>
+                </li>
+              </ul>
             </div>
             <div class="inputs-block"><span class="inputs-block__header" for="dropdown">dropdown</span>
               <div class="dropdown">
@@ -237,102 +242,102 @@
           </form>
         </div>
         <div class="form-elements-block-ui__column260">
-          <form class="form-ui">
-            <div class="input-wrapper">
-              <ul class="input-wrapper__check-list">
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="smoke">
-                    <div class="input-wrapper__checkbox"></div>
-                    <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Можно курить</span>
+          <form>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">checkbox buttons </span>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="smoke">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Можно курить</span>
                     </div>
                   </label>
                 </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="pets" checked>
-                    <div class="input-wrapper__checkbox"></div>
-                    <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Можно с питомцами</span>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="pets" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Можно с питомцами</span>
                     </div>
                   </label>
                 </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="party" checked>
-                    <div class="input-wrapper__checkbox"></div>
-                    <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text"> Можно пригласить гостей</span><span class="input-wrapper__text"> (до 10 человек)</span>
-                    </div>
-                  </label>
-                </li>
-              </ul>
-            </div>
-            <div class="input-wrapper">
-              <ul class="input-wrapper__check-list">
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="radio" name="sex" checked>
-                    <div class="input-wrapper__radio"></div>
-                    <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Мужчина</span>
-                    </div>
-                  </label>
-                </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="radio" name="sex">
-                    <div class="input-wrapper__radio"></div>
-                    <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Женщина</span>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="party" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text"> Можно пригласить гостей</span><span class="check-list__item-text"> (до 10 человек)</span>
                     </div>
                   </label>
                 </li>
               </ul>
             </div>
-            <div class="input-wrapper">
-              <ul class="input-wrapper__check-list">
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="privacy" checked>
-                    <div class="input-wrapper__toggle"></div>
-                    <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Получать спецпредложения</span>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">checkbox buttons </span>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="radio" name="sex" checked>
+                    <div class="check-list__visible-check-element-radio"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Мужчина</span>
                     </div>
                   </label>
                 </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="pets">
-                    <div class="input-wrapper__toggle"></div>
-                    <div class="input-wrapper__text-wrapper"><span class="input-wrapper__text">Согласиться на пытки</span>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="radio" name="sex">
+                    <div class="check-list__visible-check-element-radio"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Женщина</span>
                     </div>
                   </label>
                 </li>
               </ul>
             </div>
-            <div class="input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">like button</span>
-              <div class="input-wrapper__like-button"><span class="input-wrapper__like-counter">22</span></div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">checkbox buttons </span>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="privacy" checked>
+                    <div class="check-list__visible-check-element-toggle"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Получать спецпредложения</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="pets">
+                    <div class="check-list__visible-check-element-toggle"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Согласиться на пытки</span>
+                    </div>
+                  </label>
+                </li>
+              </ul>
             </div>
-            <div class="input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">rate button</span>
-              <div class="input-wrapper__rate-button">
-                <div class="input-wrapper__rate-star"></div>
-                <div class="input-wrapper__rate-star"></div>
-                <div class="input-wrapper__rate-star"></div>
-                <div class="input-wrapper__rate-star"></div>
-                <div class="input-wrapper__rate-star"></div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">like button</span>
+              <div class="like-button"><span class="like-button__counter">22</span></div>
+            </div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">rate button</span>
+              <div class="rate-button">
+                <div class="rate-button__star"></div>
+                <div class="rate-button__star"></div>
+                <div class="rate-button__star"></div>
+                <div class="rate-button__star"></div>
+                <div class="rate-button__star"></div>
               </div>
             </div>
-            <div class="input-wrapper">
-              <ul class="input-wrapper__check-list">
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="hall">
-                    <div class="input-wrapper__checkbox"></div>
-                    <div class="input-wrapper__text-wrapper input-wrapper__text-wrapper_rich"><span class="input-wrapper__text-heading">Широкий коридор</span><span class="input-wrapper__text"> Ширина коридоров в номере</span><span class="input-wrapper__text">  не менее 91 см.</span>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">rich Checkbox Buttons </span>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="hall">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper check-list__item-text-wrapper_rich"><span class="check-list__item-title">Широкий коридор</span><span class="check-list__item-text"> Ширина коридоров в номере</span><span class="check-list__item-text">  не менее 91 см.</span>
                     </div>
                   </label>
                 </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="help">
-                    <div class="input-wrapper__checkbox"></div>
-                    <div class="input-wrapper__text-wrapper input-wrapper__text-wrapper_rich"><span class="input-wrapper__text-heading">Помощник для инвалидов</span><span class="input-wrapper__text"> На 1 этаже вас встретит специалист</span><span class="input-wrapper__text"> и проводит до номера.</span>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="help">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper check-list__item-text-wrapper_rich"><span class="check-list__item-title">Помощник для инвалидов</span><span class="check-list__item-text"> На 1 этаже вас встретит специалист</span><span class="check-list__item-text"> и проводит до номера.</span>
                     </div>
                   </label>
                 </li>
@@ -342,50 +347,37 @@
         </div>
         <div class="form-elements-block-ui__column320">
           <form class="form-ui">
-            <div class="input-wrapper">
-              <div class="input-wrapper__range-slider">
-                <div class="input-wrapper__range-header"><span class="input-wrapper__title input-wrapper__title_no-field">Range slider</span>
-                  <div class="input-wrapper__range"><span class="input-wrapper__range-from"> </span><span class="input-wrapper__range-to"> </span></div>
+            <div class="inputs-block">
+              <div class="range-slider">
+                <div class="range-slider__header"><span class="inputs-block__header inputs-block__header_extra-indent">range-slider</span>
+                  <div class="range-slider__range"><span class="range-slider__from"> </span><span class="range-slider__to"> </span></div>
                 </div>
                 <input type="text" data-from="5000" data-to="10000" name="example_name" value="">
               </div>
             </div>
-            <div class="form-elements-block-ui__row">
-              <div class="input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">buttons </span>
-                <button class="input-wrapper__button" type="button">click me</button>
-              </div>
-              <div class="input-wrapper">
-                <button class="input-wrapper__button" type="button" disabled>click me</button>
-              </div>
+            <div class="inputs-block inputs-block_row">
+              <button class="button" type="button">click me</button>
+              <button class="button" type="button" disabled>click me</button>
             </div>
-            <div class="form-elements-block-ui__row">
-              <div class="input-wrapper">
-                <button class="input-wrapper__button input-wrapper__button_border" type="button">click me</button>
-              </div>
-              <div class="input-wrapper">
-                <button class="input-wrapper__button input-wrapper__button_border" type="button" disabled>click me</button>
-              </div>
+            <div class="inputs-block inputs-block_row">
+              <button class="button button_border" type="button">click me</button>
+              <button class="button button_border" type="button" disabled>click me</button>
             </div>
-            <div class="form-elements-block-ui__row">
-              <div class="input-wrapper">
-                <button class="input-wrapper__button input-wrapper__button_only-text" type="button">click me</button>
-              </div>
-              <div class="input-wrapper">
-                <button class="input-wrapper__button input-wrapper__button_only-text" type="button" disabled>click me</button>
-              </div>
+            <div class="inputs-block inputs-block_row">
+              <button class="button button_only-text" type="button">click me</button>
+              <button class="button button_only-text" type="button" disabled>click me</button>
             </div>
-            <div class="input-wrapper">
-              <button class="input-wrapper__button input-wrapper__button_large" type="button">перейти к оплате</button>
+            <div class="inputs-block">
+              <button class="button button_large" type="button">перейти к оплате</button>
             </div>
-            <div class="form__element-ui input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">pagination</span>
-              <div class="content"></div>
-              <div class="input-wrapper__pagination"></div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">Pagination </span>
+              <div class="pagination"></div>
             </div>
-            <div class="input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">bullet list</span>
-              <ul class="input-wrapper__bullet-list">
-                <li class="input-wrapper__bullet-item"> Нельзя с питомцами</li>
-                <li class="input-wrapper__bullet-item"> Без вечеринок и мероприятий</li>
-                <li class="input-wrapper__bullet-item"> <span class="input-wrapper__bullet-text"> Время прибытия — после 13:00,</span><span class="input-wrapper__bullet-text"> а выезд до 12:00</span>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">bullet list</span>
+              <ul class="bullet-list">
+                <li class="bullet-list__item"> Нельзя с питомцами</li>
+                <li class="bullet-list__item"> Без вечеринок и мероприятий</li>
+                <li class="bullet-list__item"><span class="bullet-list__text"> Время прибытия — после 13:00,</span><span class="bullet-list__text"> а выезд до 12:00</span>
                 </li>
               </ul>
             </div>
@@ -395,26 +387,21 @@
     </section>
     <section class="section-ui"> 
       <div class="icons-comments-block-ui">
-        <ul class="icon-list"> 
-          <li class="icon-list__item"> <img class="icon-list__icon" src="images/svg/smile.svg" alt="smile">
-            <div class="icon-list__label"><span class="icon-list__heading">Комфорт</span><span class="icon-list__text">Шумопоглащающие стены</span></div>
+        <ul class="icons-list"> 
+          <li class="icons-list__item"> <img class="icons-list__item-icon" src="images/svg/smile.svg" alt="Шумопоглащающие стены">
+            <div class="icons-list__item-context"><span class="icons-list__item-title"> Комфорт</span><span class="icons-list__item-text">Шумопоглащающие стены</span></div>
           </li>
-          <li class="icon-list__item"> <img class="icon-list__icon" src="images/svg/city.svg" alt="smile">
-            <div class="icon-list__label"><span class="icon-list__heading">Удобство</span><span class="icon-list__text">Окно в каждой из спален</span></div>
+          <li class="icons-list__item"> <img class="icons-list__item-icon" src="images/svg/city.svg" alt="Окно в каждой из спален">
+            <div class="icons-list__item-context"><span class="icons-list__item-title"> Комфорт</span><span class="icons-list__item-text">Окно в каждой из спален</span></div>
           </li>
         </ul>
-        <ul class="comment-list"> 
-          <li class="comment"> 
-            <div class="comment__header"><img class="comment__avatar" src="images/dist/comments/1.jpg" alt="Murad Sarafanov">
-              <div class="comment__author"><span class="comment__name">Мурад Сарафанов</span><span class="comment__date">5 дней назад</span></div>
+        <ul class="comments-list"> 
+          <li class="comments-list__item"> 
+            <div class="comments-list__item-left"><img class="comments-list__item-avatar" src="images/dist/comments/1.jpg" alt="Мурад Сарафанов">
+              <div class="like-button"><span class="like-button__counter">55</span></div>
             </div>
-            <div class="comment__content">
-              <div class="comment__like input-wrapper">
-                <div class="form-elements-block-ui__row">
-                  <div class="input-wrapper__like-button"><span class="input-wrapper__like-counter">2</span></div>
-                </div>
-              </div>
-              <p class="comment__text">Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.<br>И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто<br>не жаловался из соседей.</p>
+            <div class="comments-list__item-right">
+              <div class="comments-list__item-header"><span class="comments-list__author-name">Мурад Сарафанов</span><span class="comments-list__item-date">5 дней назад</span></div><span class="comments-list__item-text">Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.</span>
             </div>
           </li>
         </ul>

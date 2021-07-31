@@ -1,8 +1,8 @@
-.input-wrapper__rate-button
+.rate-button
   align-self: flex-start
   display: flex
   
-.input-wrapper__rate-star
+.rate-button__star
   display: inline-block
   cursor: pointer
   height: 24px
@@ -13,8 +13,8 @@
   &_active
     background: url(../images/svg/star.svg) no-repeat center center
 
-.input-wrapper__rate-button:hover
-  .input-wrapper__rate-star
+.rate-button:hover
+  .rate-button__star
     background: url(../images/svg/star.svg) no-repeat center center
-    &:hover ~ .input-wrapper__rate-star
+    &:hover ~ .rate-button__star
       background: url(../images/svg/star-border.svg) no-repeat center center
