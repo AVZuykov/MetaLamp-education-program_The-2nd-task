@@ -4,16 +4,16 @@
   
 .rate-button__star
   display: inline-block
-  cursor: pointer
   height: 24px
   width: 24px
   background: url(../images/svg/star-border.svg) no-repeat center center
   transition: all .25s ease-in-out
 
-  &_active
+  &.active
     background: url(../images/svg/star.svg) no-repeat center center
 
-.rate-button:hover
+.rate-button:not(.rate-button_fixed):hover
+  cursor: pointer
   .rate-button__star
     background: url(../images/svg/star.svg) no-repeat center center
     &:hover ~ .rate-button__star

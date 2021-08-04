@@ -358,24 +358,29 @@ body
 
             div.inputs-block
 
-              -
-                var options = {
-                  header: "like button",
-                  "default-value": 22
-                }
-              +like-button(options)
+              if (options.header)
+                span.inputs-block__header(for="dropdown") like button
+              
+              div.like-button
 
 
             //- Rate button
 
             div.inputs-block
 
-              -
-                var options = {
-                  header: "rate button",
-                  count: 5
-                }
-              +rate-button(options)
+              if (options.header)
+                span.inputs-block__header(for="dropdown") rate button
+              
+              div.rate-button.
+
+            //- Fixed rate button
+
+            div.inputs-block
+
+              if (options.header)
+                span.inputs-block__header(for="dropdown") Fixed rate button
+              
+              div.rate-button
 
             //- Rich checkbox buttons
 

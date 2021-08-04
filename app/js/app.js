@@ -6,9 +6,9 @@ window.$ = $
 
 import Inputmask from 'inputmask'
 import ionRangeSlider from 'ion-rangeslider'
-import { Dropdown } from '~/app/libs/dropdown/dropdown.js'
-import LikeButton from '~/app/libs/form-elements/like-button.js'
-import RateButton from '~/app/libs/form-elements/rate-button.js'
+import { Dropdown } from '~/app/libs/dropdown/dropdown'
+import { LikeButton } from '~/app/libs/like/like-button'
+import { RateButton } from '~/app/libs/rate/rate-button'
 require('paginationjs')
 
 
@@ -60,28 +60,25 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
-  window.dropdown = dropdowns[0]
-
   // like button init
 
   let likeButtons = Array.from(document.querySelectorAll('.like-button'))
 
   likeButtons = likeButtons.map(likeButton => {
-    return new LikeButton({
-      elem: likeButton,
-      counter: '.like-button__counter'
-    }).init()
+    return new LikeButton(likeButton, {
+      count: 22
+    })
   })
 
   //  rate button init
 
   let rateButtons = Array.from(document.querySelectorAll('.rate-button'))
 
-  rateButtons = rateButtons.map(rateButton => {
-    return new RateButton({
-      elem: rateButton,
-      star: '.rate-button__star'
-    }).init()
+  rateButtons = rateButtons.map((rateButton, idx) => {
+    return new RateButton(rateButton, {
+      rate: 3,
+      isFixed: idx > 0 ? true : false
+    })
   })
 
   // Range slider init
