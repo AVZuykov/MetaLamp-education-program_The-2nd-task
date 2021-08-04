@@ -1,9 +1,0 @@
-mixin rate-button(options)
-
-  if (options.header)
-    span.inputs-block__header.inputs-block__header_extra-indent #{options.header}
-  div.rate-button
-    - var i = 0
-      while i < options.count
-        div.rate-button__star
-        - ++i 

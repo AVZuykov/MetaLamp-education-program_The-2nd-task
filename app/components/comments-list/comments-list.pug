@@ -8,7 +8,7 @@ mixin comments-list(options)
 
         div.comments-list__item-left
           img.comments-list__item-avatar(src=item.avatar alt=item.author)
-          +like-button({"default-value": 55})
+          div.like-button
         div.comments-list__item-right
           div.comments-list__item-header
             span.comments-list__author-name #{item.author}
