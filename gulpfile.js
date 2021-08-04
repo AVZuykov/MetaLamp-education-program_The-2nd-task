@@ -1,5 +1,4 @@
-let preprocessor = 'sass', // Preprocessor (sass, less, styl); 'sass' also work with the Scss syntax in blocks/ folder.
-    fileswatch   = 'html,htm,txt,json,md,woff2' // List of files extensions for watching & hard reload
+const  fileswatch   = 'html,htm,txt,json,md,woff2' // List of files extensions for watching & hard reload
 
 const { src, dest, parallel, series, watch } = require('gulp')
 const browserSync  = require('browser-sync').create()
@@ -64,9 +63,9 @@ function scripts() {
 }
 
 function styles() {
-	return src([`app/styles/${preprocessor}/*.*`, `!app/styles/${preprocessor}/_*.*`])
-		.pipe(eval(`${preprocessor}glob`)())
-		.pipe(eval(preprocessor)())
+	return src([`app/styles/sass/*.*`, `!app/styles/sass/_*.*`])
+		.pipe(eval(sassglob)())
+		.pipe(eval(sass)().on('error', sass.logError))
 		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
 		.pipe(cleancss({ level: { 1: { specialComments: 0 } }, /*format: 'beautify'*/ }))
 		.pipe(rename({ suffix: ".min" }))
@@ -114,7 +113,7 @@ function deploy() {
 }
 
 function startwatch() {
-	watch([`app/styles/${preprocessor}/**/*`, 'app/components/**/*.sass'], { usePolling: true }, styles)
+	watch([`app/styles/sass/**/*`, 'app/components/**/*.sass', 'app/libs/**/*.sass'], { usePolling: true }, styles)
 	watch(['app/*.pug', 'app/components/**/*.pug'], { usePolling: true }, html)
 	watch(['app/js/**/*.js', 'app/libs/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
 	watch('app/images/src/**/*.{jpg,jpeg,png,webp,svg,gif}', { usePolling: true }, images)

@@ -6,7 +6,7 @@ window.$ = $
 
 import Inputmask from 'inputmask'
 import ionRangeSlider from 'ion-rangeslider'
-import Dropdown from '~/app/libs/form-elements/dropdown.js'
+import { Dropdown } from '~/app/libs/dropdown/dropdown.js'
 import LikeButton from '~/app/libs/form-elements/like-button.js'
 import RateButton from '~/app/libs/form-elements/rate-button.js'
 require('paginationjs')
@@ -16,6 +16,12 @@ require('paginationjs')
 // require('~/app/libs/mmenu/dist/mmenu.js')
 
 // some variables
+
+function test() {
+  console.log('test')
+}
+
+window.test = test
 
 const today = new Date()
 const currentYear = today.getFullYear()
@@ -29,23 +35,29 @@ document.addEventListener('DOMContentLoaded', () => {
   let dropdowns = Array.from(document.querySelectorAll('.dropdown'))
 
   dropdowns = dropdowns.map(dropdown => {
-    return new Dropdown({
-      // elems
-      elem: dropdown,
-      field: '.dropdown__field',
-      option: '.dropdown__option',
-
-      counter: '.dropdown__option-counter',
-
-      acceptBtn: '.dropdown__accept-button',
-      clearBtn: '.dropdown__clear-button',
-
-      // settings
-
-      isShowTotal: true
-
-    }).init()
+    return new Dropdown(dropdown, {
+      placeholder: 'Сколько гостей',
+      items: [
+        {
+          title: "взрослые  ",
+          min: 1,
+          value: 2,
+        },
+        {
+          title: "Дети",
+          max: 5,
+          value: 1,
+        },
+        {
+          title: "Младенцы",
+          max: 4,
+          value: 0,
+        }
+      ]
+    })
   })
+
+  window.dropdown = dropdowns[0]
 
   // like button init
 
@@ -70,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // Range slider init
-  
+
   $('.range-slider').each(function () {
 
     const slider = $(this).find('input')

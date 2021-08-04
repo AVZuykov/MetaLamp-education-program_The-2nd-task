@@ -192,58 +192,23 @@ body
 
               +text-input(options)
 
-            //- Dropdown element 1
+            //- Dropdown
 
             div.inputs-block
 
-              -
-                var options = {
-                  header: "dropdown without buttons",
-                  placeholder: "Сколько гостей",
-                  class: "showTotal",
-                  disableControls: true,
-                  items: [
-                    {
-                      title: "взрослые  ",
-                      "default-value": 2,
-                    },
-                    {
-                      title: "Дети",
-                      "default-value": 1,
-                    },
-                    {
-                      title: "Младенцы",
-                      "default-value": 0,
-                    }
-                  ]
-                }
-              +dropdown-input(options)
+              if (options.header)
+                span.inputs-block__header(for="dropdown") #{options.header}
 
-            //- Dropdown element 2
+              div.dropdown
+
+            //- Dropdown 2
 
             div.inputs-block
 
-              -
-                var options = {
-                  header: "dropdown with buttons",
-                  placeholder: "Сколько комнат и кроватей",
-                  class: "showTotal",
-                  items: [
-                    {
-                      title: "спальни",
-                      "default-value": 2,
-                    },
-                    {
-                      title: "кровати",
-                      "default-value": 2,
-                    },
-                    {
-                      title: "ванные комнаты",
-                      "default-value": 0,
-                    }
-                  ]
-                }
-              +dropdown-input(options)
+              if (options.header)
+                span.inputs-block__header(for="dropdown") #{options.header}
+
+              div.dropdown
 
             //- Expandable Checkbox list
 
@@ -302,32 +267,6 @@ body
                   ]
                 }
               +check-list(options)
-
-            //- Dropdown element 3
-
-            div.inputs-block
-
-              -
-                var options = {
-                  header: "dropdown",
-                  placeholder: "Сколько комнат и кроватей",
-                  class: "showTotal",
-                  items: [
-                    {
-                      title: "спальни",
-                      "default-value": 2,
-                    },
-                    {
-                      title: "кровати",
-                      "default-value": 2,
-                    },
-                    {
-                      title: "ванные комнаты",
-                      "default-value": 0,
-                    }
-                  ]
-                }
-              +dropdown-input(options)
 
         //- max width 260px
         div.form-elements-block-ui__column260
