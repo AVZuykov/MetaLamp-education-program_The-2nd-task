@@ -1,0 +1,9 @@
+mixin button(options)
+
+    if (options.header)
+      span.inputs-block__header.inputs-block__header_extra-indent #{options.header} 
+    button.button(
+      class=`${options.mod ? 'button_' + options.mod : ''}` 
+      type=`${options.type ? options.type : 'button'}`
+      disabled=options.disabled
+    ) #{options.button}

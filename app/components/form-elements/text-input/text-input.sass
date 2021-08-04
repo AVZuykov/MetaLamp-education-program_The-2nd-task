@@ -1,0 +1,29 @@
+.text-input
+  position: relative
+  margin-bottom: 10px
+  &:last-child
+    margin-bottom: 0
+
+  &__entry-field
+    display: block
+    width: 100%
+    padding: 12px 15px
+    border: solid $darkShade25 1px
+    border-radius: 4px
+    color: $darkShade75
+    line-height: 18px
+    transition: all .25s ease-in-out
+
+    &::placeholder
+      color: $darkShade25
+    &:focus, &:hover
+      border-color: $darkShade50
+
+  &__subscribe-button
+    position: absolute
+    background: url(../images/svg/subscribe-arrow.svg) no-repeat center center
+    border: none
+    bottom: 0
+    right: 0
+    height: 44px
+    width: 44px

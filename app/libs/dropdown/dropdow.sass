@@ -1,0 +1,130 @@
+// Dropdown element
+
+.dropdown
+  // 
+
+// Dropdown mod
+
+.dropdown__field
+    cursor: pointer
+    position: relative
+    white-space: nowrap
+    border: solid $darkShade25 1px
+    border-radius: 4px 4px 0 0
+    height: 44px
+    line-height: 18px
+    color: $darkShade75
+    padding: 13px 15px
+    transition: all .25s ease-in-out
+
+    &::placeholder
+      color: $darkShade25
+    &:focus, &:hover
+      border-color: $darkShade50
+      
+    &::after
+      content: ''
+      position: absolute
+      background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
+      border: none
+      bottom: 0
+      right: 0
+      height: 44px
+      width: 44px
+      transition: all .25s ease-in-out
+
+// Dropdown active mod
+.dropdown__field
+  &_active
+    border-color: $darkShade50
+    &::after
+      transform: scaleY(-1)
+
+    & + .dropdown__select
+      transform: scaleY(1)
+      opacity: 1
+
+.dropdown__select
+  display: block
+  overflow: hidden
+  position: absolute
+  top: 100%
+  left: 0
+  right: 0
+  z-index: 100
+  list-style-type: none
+  opacity: 0.5
+  margin: 0
+  padding: 7px
+  padding-left: 15px
+  border: solid 1px $darkShade50
+  border-top: none
+  border-radius: 0 0 4px 4px
+  background-color: #fff
+  transform-origin: top
+  transform: scaleY(0)
+  transition: all .25s ease-in-out
+
+
+.dropdown__option
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 7px
+  &:hover
+    cursor: default
+  &:last-of-type:not(.dropdown__controls-buttons)
+    margin-bottom: 0
+
+.dropdown__option-counter
+  display: flex
+  justify-content: space-between
+  align-items: center
+  font-size: 18px
+
+.dropdown__counter-minus-button, .dropdown__counter-plus-button
+  height: 30px
+  width: 30px
+  display: flex
+  align-items: center
+  justify-content: center
+  box-sizing: border-box
+  border-radius: 50%
+  border: 1px solid $darkShade25
+  color: $darkShade50
+  line-height: 1
+  background: none
+  transition: opacity .25s ease-in-out
+
+  &.disable
+    opacity: .38
+    cursor: default !important
+
+.dropdown__option-title, .dropdown__counter-total
+  font-size: 12px
+  font-weight: 700
+  text-transform: uppercase
+  min-width: 32px
+  text-align: center
+
+.dropdown__controls-buttons
+  display: flex
+  margin-top: 20px
+  margin-bottom: 6px
+
+.dropdown__clear-button
+  margin-rigth: auto
+
+.dropdown__accept-button
+  margin-left: auto
+
+.dropdown__clear-button, .dropdown__accept-button
+  border: none
+  color: $purple
+  font-size: 12px
+  font-weight: 700
+  letter-spacing: .5px
+  background: none
+  text-transform: uppercase
+  &:disabled
+    display: none

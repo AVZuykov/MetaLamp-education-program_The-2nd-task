@@ -1,0 +1,37 @@
+mixin dropdown-input(options)
+
+  if (options.header)
+    span.inputs-block__header(for="dropdown") #{options.header}
+
+  div.dropdown
+
+    div.dropdown__field(class=options.class) 
+      | #{options.placeholder ? options.placeholder : "Укажите кол-во..."}
+
+    ul.dropdown__select
+
+      each item in options.items
+
+        li.dropdown__option
+
+          //- Наименование
+
+          span.dropdown__option-title
+            | #{item.title ? item.title : "Кол-во чего-то..."}
+
+          div.dropdown__option-counter
+
+            button.dropdown__counter-minus-button(type="button") -
+
+            //- Кол-во
+
+            b.dropdown__counter-total 
+              | #{item["default-value"] ? item["default-value"] : 0}
+
+            button.dropdown__counter-plus-button(type="button") +
+
+      if (!options.disableControls)
+
+        li.dropdown__controls-buttons 
+          button.dropdown__clear-button(type="button") Очистить
+          button.dropdown__accept-button(type="button") Применить

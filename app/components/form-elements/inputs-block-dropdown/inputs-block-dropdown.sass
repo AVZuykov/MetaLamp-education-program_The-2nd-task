@@ -1,0 +1,35 @@
+
+.inputs-block__dropdown
+  position: absolute
+  z-index: -1
+  opacity: 0
+
+  & ~ .check-list,
+  & ~ .text-input
+    height: 0
+    overflow: hidden
+    opacity: 0
+    transition: all .25s ease-in-out
+
+  &:not(:checked) 
+    & ~ .check-list,
+    & ~ .text-input
+      margin-bottom: 0
+
+  & + .inputs-block__dropdown-label
+    .inputs-block__header
+      margin-bottom: 0
+  
+
+
+.inputs-block__dropdown:checked
+
+  & ~ .check-list,
+  & ~ .text-input
+    opacity: 1
+    height: 100%
+
+  & + .inputs-block__dropdown-label
+    .inputs-block__header
+      &::before
+        transform: scaleY(-1)

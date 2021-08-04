@@ -1,0 +1,47 @@
+// Input block
+
+.inputs-block
+  position: relative
+  display: flex
+  flex-flow: column
+  margin-bottom: 20px
+  &:last-of-type
+    margin-bottom: 0
+
+  &_row
+    flex-flow: row
+    align-items: center
+    justify-content: space-evenly
+
+.inputs-block__header
+  font-size: 12px
+  font-weight: 700
+  line-height: 1
+  color: $darkShade
+  text-transform: uppercase
+  margin-bottom: 5px
+
+  // Extra indent mod
+
+  &.inputs-block__header_extra-indent
+    margin-bottom: 16px
+
+.inputs-block__dropdown-label
+  position: relative
+  cursor: pointer
+
+  .inputs-block__header
+    display: block
+    position: relative
+    line-height: 15px
+    padding: 14px 0
+    &::before
+      content: ''
+      position: absolute
+      height: 44px
+      width: 44px
+      top: 0
+      right: 0
+      bottom: 0
+      background: url(../images/svg/dropdown-arrow.svg) no-repeat center center
+      transition: all .25s ease-in-out

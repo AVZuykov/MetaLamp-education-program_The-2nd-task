@@ -1,0 +1,9 @@
+mixin icons-list(options)
+
+  ul.icons-list 
+    each item in options.items
+      li.icons-list__item 
+        img.icons-list__item-icon(src=item.icon alt=item.text)
+        div.icons-list__item-context
+          span.icons-list__item-title #{item.title}
+          span.icons-list__item-text #{item.text}

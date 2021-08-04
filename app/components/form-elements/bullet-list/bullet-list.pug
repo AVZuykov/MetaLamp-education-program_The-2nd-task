@@ -1,0 +1,21 @@
+mixin bullet-list(options)
+
+  if (options.header)
+    span.inputs-block__header.inputs-block__header_extra-indent #{options.header}
+
+  ul.bullet-list
+
+    each item in options.items
+      if (Array.isArray(item.text))
+
+        //- Несколько строк
+        li.bullet-list__item
+          each string in item.text
+            span.bullet-list__text  #{string}
+
+
+      else 
+
+        //- Сплошной текст
+
+        li.bullet-list__item  #{item.text}

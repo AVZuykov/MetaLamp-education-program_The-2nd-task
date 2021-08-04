@@ -1,5 +1,9 @@
-include ./parts/head
-include ./parts/footer
+include ./components/head
+include ./components/footer
+include ./components/form-elements/form-elements
+include ./components/icons-list/icons-list
+include ./components/comments-list/comments-list
+
 
 +head() 
 
@@ -77,8 +81,8 @@ body
             span.type-block-ui__h3 H3
             h3 This is a label or CTA text
           li
-            span.type-block-ui__t-text Body
-            p.t-text This is the body text which is used for most of the design, like paragraphs, lists, etc.
+            span.type-block-ui__text Body
+            p.text This is the body text which is used for most of the design, like paragraphs, lists, etc.
 
     //- Form Elements
     section.section-ui 
@@ -87,320 +91,429 @@ body
       //- Basic elements
       .form-elements-block-ui 
         .form-elements-block-ui__column320
-          //- Text form
-          form.t-form(type="get")
-            div.t-form__element.input-wrapper
-              label.input-wrapper__title(for="textField")  TEXT FIELD
-              input.input-wrapper__field(type="text" id="textField" name="someText" placeholder="Some text...")
+          //- Form
+          form
+
+            //- Text form
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "text field",
+
+                  items: [
+                    {
+                      id: "textField",
+                      name: "textField",
+                      placeholder: "Some text field 1...",
+                      required: true
+                    },
+                    {
+                      id: "textField",
+                      name: "textField",
+                      placeholder: "Some text field 2...",
+                    }
+
+                  ]
+                };
+
+              +text-input(options)
+
+            //- Expandable Text form
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "expandable text field",
+                  dropdown: true,
+                  items: [
+                    {
+                      id: "textField",
+                      name: "textField",
+                      placeholder: "Some text field 1...",
+                      required: true
+                    },
+                    {
+                      id: "textField",
+                      name: "textField",
+                      placeholder: "Some text field 2...",
+                    }
+
+                  ]
+                };
+
+              +text-input(options)
 
             //- Subscription form
-            div.t-form__element.input-wrapper
-              label.t-form__element.input-wrapper__title(for="maskedEmail") TEXT FIELD
-              input.input-wrapper__field(type="text" id="maskedEmail" name="maskedEmail" placeholder="Email")
-              input.input-wrapper__subscribe(type="submit" value="")
+
+            div.inputs-block
+
+              -
+                var options = {
+
+                  header: "subscription text field", 
+
+                  items: [
+                    {
+                      id: "maskedEmail",
+                      name: "maskedEmail",
+                      placeholder: "Email",
+                      subscribe: true,
+                    },
+                    {
+                      id: "maskedEmail",
+                      name: "maskedEmail",
+                      placeholder: "Email",
+                    }
+                  ]
+                }
+
+              +text-input(options)
 
             //- Masked form
-            div.t-form__element.input-wrapper
-              label.input-wrapper__title(for="maskedDate") masked text field
-              input.input-wrapper__field(type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ")
 
-            //- Dropdown element
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title(for="dropdown") dropdown
-              div.input-wrapper__field.input-wrapper__field_dropdown 2 спальни, 2 кровати, 2 ванные комнаты
-              ul.input-wrapper__select.dropdown-select   
-                li.dropdown-select__option
-                  input(type="number" hidden name="sleepingrooms" value="")
-                  span.dropdown-select__title спальни
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="beds" value="")
-                  span.dropdown-select__title кровати
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="bathrooms" value="")
-                  span.dropdown-select__title Ванные комнаты
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
+            div.inputs-block
 
-            //- dropdown with accept button
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title(for="dropdown") dropdown with accept button
-              div.input-wrapper__field.input-wrapper__field_dropdown Сколько гостей
-              ul.input-wrapper__select.dropdown-select   
-                li.dropdown-select__option
-                  input(type="number" hidden name="adults" value="")
-                  span.dropdown-select__title Взрослые
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="children" value="")
-                  span.dropdown-select__title Дети
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="baby" value="")
-                  span.dropdown-select__title Младенцы
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 5
-                    button.dropdown-select__plus.dropdown-select__plus_disable(type="button") +
-                li.dropdown-select__buttons 
-                  button.dropdown-select__accept Применить
+              -
+                var options = {
 
-            //- dropdown with accept and clear buttons 
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title(for="dropdown") dropdown with accept and clear buttons
-              div.input-wrapper__field.input-wrapper__field_dropdown 3 гостя
-              ul.input-wrapper__select.dropdown-select   
-                li.dropdown-select__option
-                  input(type="number" hidden name="adults" value="")
-                  span.dropdown-select__title Взрослые
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 2
-                    button.dropdown-select__plus(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="children" value="")
-                  span.dropdown-select__title Дети
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus(type="button") -
-                    b.dropdown-select__count 1
-                    button.dropdown-select__plus(type="button") +
-                li.dropdown-select__option
-                  input(type="number" hidden name="baby" value="")
-                  span.dropdown-select__title Младенцы
-                  div.dropdown-select__counter
-                    button.dropdown-select__minus.dropdown-select__plus_disable(type="button") -
-                    b.dropdown-select__count 0
-                    button.dropdown-select__plus(type="button") +
-                li.dropdown-select__buttons 
-                  button.dropdown-select__clear Очистить
-                  button.dropdown-select__accept Применить
+                  header: "masked text field", 
+
+                  items: [
+                    {
+                      id: "maskedDate",
+                      name: "maskedDate",
+                      placeholder: "ДД.ММ.ГГГГ",
+                    }
+                  ]
+                }
+
+              +text-input(options)
+
+            //- Dropdown
+
+            div.inputs-block
+
+              if (options.header)
+                span.inputs-block__header(for="dropdown") #{options.header}
+
+              div.dropdown
+
+            //- Dropdown 2
+
+            div.inputs-block
+
+              if (options.header)
+                span.inputs-block__header(for="dropdown") #{options.header}
+
+              div.dropdown
 
             //- Expandable Checkbox list
-            div.t-form__element.input-wrapper.input-wrapper_checklist-dropdown
-              span.input-wrapper__title.input-wrapper__title_no-field expandable checkbox list 
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="smoke")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно курить
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="pets")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно с питомцами
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="party")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно пригласить гостей (до 10 человек)
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "expandable checkbox list",
+                  dropdown: true,
+                  items: [
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      name: "breakfast",
+                      text: "Завтрак",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      check: true,
+                      name: "table",
+                      text: "Письменный стол",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      check: true,
+                      name: "table",
+                      text: "Стул для кормления",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      check: true,
+                      name: "babyBed",
+                      text: "Кроватка",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      name: "tv",
+                      text: "Телевизор",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      class: "checkbox",
+                      name: "Shampoo",
+                      text: "Шампунь",
+                      required: false
+                    }
+                  ]
+                }
+              +check-list(options)
 
         //- max width 260px
         div.form-elements-block-ui__column260
-          form.t-form(type="get")
+          form
 
-            //- Checkbox buttons
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="smoke")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно курить
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="pets")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно с питомцами
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="party")
-                    div.input-wrapper__checkbox
-                    span.input-wrapper__text Можно пригласить гостей (до 10 человек)
+            //- Checkbox 
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "checkbox buttons",
+                  items: [
+                    {
+                      type: "checkbox",
+                      name: "smoke",
+                      text: "Можно курить",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      check: true,
+                      name: "pets",
+                      text: "Можно с питомцами",
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      check: true,
+                      name: "party",
+                      text: ["Можно пригласить гостей", "(до 10 человек)"],
+                      required: false
+                    }
+                  ]
+                }
+              +check-list(options)
 
             //- Radio buttons
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Radio Buttons 
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label
-                    input(type="radio" name="sex")
-                    div.input-wrapper__radio
-                    span.input-wrapper__text Мужчина
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label
-                    input(type="radio" name="sex")
-                    div.input-wrapper__radio
-                    span.input-wrapper__text Женщина
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "checkbox buttons",
+                  items: [
+                    {
+                      type: "radio",
+                      check: true,
+                      name: "sex",
+                      text: "Мужчина",
+                      required: false
+                    },
+                    {
+                      type: "radio",
+                      name: "sex",
+                      text: "Женщина",
+                      required: false
+                    }
+                  ]
+                }
+              +check-list(options)
 
             //- Toggle
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field toggle
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label
-                    input(type="checkbox" name="privacy")
-                    div.input-wrapper__toggle
-                    span.input-wrapper__text Можно курить
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label
-                    input(type="checkbox" name="subscribe")
-                    div.input-wrapper__toggle
-                    span.input-wrapper__text Можно с питомцами
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "checkbox buttons",
+                  items: [
+                    {
+                      type: "toggle",
+                      check: true,
+                      name: "privacy",
+                      text: "Получать спецпредложения",
+                      required: false
+                    },
+                    {
+                      type: "toggle",
+                      name: "pets",
+                      text: "Согласиться на пытки",
+                      required: false
+                    }
+                  ]
+                }
+              +check-list(options)
 
             //- Like button
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field like button
-              div.form-elements-block-ui__row
-                div.input-wrapper__like-button
-                  span.input-wrapper__like-counter 2
-                div.input-wrapper__like-button.input-wrapper__like-button_active
-                  span.input-wrapper__like-counter 22
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "like button",
+                  "default-value": 22
+                }
+              +like-button(options)
+
 
             //- Rate button
-            div.t-form__element.input-wrapper
 
-              span.input-wrapper__title.input-wrapper__title_no-field Rate button
-              div.form-elements-block-ui__row
-                div.input-wrapper__rate-button
-                  input(type="number" hidden value="0")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="1")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="2")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="3")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="4")
-                  div.input-wrapper__rate-star(data-rate="5")
-                div.input-wrapper__rate-button
-                  input(type="number" hidden value="0")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="1")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="2")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="3")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="4")
-                  div.input-wrapper__rate-star.input-wrapper__rate-star_active(data-rate="5")
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "rate button",
+                  count: 5
+                }
+              +rate-button(options)
 
             //- Rich checkbox buttons
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Checkbox buttons 
-              ul.input-wrapper__check-list
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="smoke")
-                    div.input-wrapper__checkbox
-                    div.input-wrapper__rich-wrapper
-                      span.input-wrapper__richt-label Широкий коридор
-                      span.input-wrapper__text Ширина коридоров в номере
-                        br
-                        | не менее 91 см.
-                li.input-wrapper__check-button
-                  label.input-wrapper__check-label 
-                    input(type="checkbox" name="smoke")
-                    div.input-wrapper__checkbox
-                    div.input-wrapper__rich-wrapper
-                      span.input-wrapper__richt-label Помощник для инвалидов
-                      span.input-wrapper__text На 1 этаже вас встретит специалист
-                        br
-                        | и проводит до номера.
+
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "rich Checkbox Buttons",
+                  items: [
+                    {
+                      type: "checkbox",
+                      rich: true,
+                      title: "Широкий коридор",
+                      name: "hall",
+                      text: ["Ширина коридоров в номере", " не менее 91 см."],
+                      required: false
+                    },
+                    {
+                      type: "checkbox",
+                      rich: true,
+                      title: "Помощник для инвалидов",                 
+                      name: "help",
+                      text: ["На 1 этаже вас встретит специалист", "и проводит до номера."],
+                      required: false
+                    }
+                  ]
+                }
+              +check-list(options)
+
 
         //- other elements
         div.form-elements-block-ui__column320
-          form.t-form(type="get")
+          form.form-ui()
 
             //- Range slider
-            div.t-form__element.input-wrapper
-              div.input-wrapper__range-header
-                span.input-wrapper__title.input-wrapper__title_no-field Range slider
-                span.input-wrapper__range-counter 5 000₽ - 10 000₽
-              input.input-wrapper__range-slider(type="text" id="example_id" name="example_name" value="")
+
+            div.inputs-block
+              -
+                var options ={
+                  header: "range-slider",
+                  from: 5000,
+                  to: 10000
+                }
+              +range-slider(options)
+
 
             //- Buttons            
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Buttons 
-              div.form-elements-block-ui__row
-                button.button-wrapper(type="button")
-                  | Click me
-                button.button-wrapper(type="button" disabled)
-                  | Click me
-              div.form-elements-block-ui__row
-                button.button-wrapper.button-wrapper_border(type="button")
-                  | Click me
-                button.button-wrapper.button-wrapper_border(type="button" disabled)
-                  | Click me
-              div.form-elements-block-ui__row
-                button.button-wrapper.button-wrapper_only-text(type="button")
-                  | Click me
-                button.button-wrapper.button-wrapper_only-text(type="button" disabled)
-                  | Click me
-              div.form-elements-block-ui__row
-                button.button-wrapper.button-wrapper_large(type="button")
-                  | перейти к оплате
+
+            div.inputs-block.inputs-block_row
+              -
+                var options = {
+                  title: "buttons",
+                  button: "click me",
+                }
+
+              +button(options)
+              +button({button: "click me", disabled: true})
+
+            div.inputs-block.inputs-block_row
+
+              +button({button: "click me", mod: "border"})
+              +button({button: "click me", mod: "border", disabled: true})
+
+            div.inputs-block.inputs-block_row
+
+              +button({button: "click me", mod: "only-text"})
+              +button({button: "click me", mod: "only-text", disabled: true})
+
+            div.inputs-block
+              +button({button: "перейти к оплате", mod: "large"})
 
             //- Pagination
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field pagination
-              div.content
-              div.input-wrapper__pagination
+
+            div.inputs-block
+
+              span.inputs-block__header.inputs-block__header_extra-indent Pagination 
+
+              div.pagination
 
             //- Bullet list
-            div.t-form__element.input-wrapper
-              span.input-wrapper__title.input-wrapper__title_no-field Bullet list
-              ul.input-wrapper__bullet-list
-                li.input-wrapper__bullet-item Нельзя с питомцами
-                li.input-wrapper__bullet-item Без вечеринок и мероприятий
-                li.input-wrapper__bullet-item Время прибытия — после 13:00,
-                  br
-                  | а выезд до 12:00
 
-    //- Icon list and comment
+            div.inputs-block
+
+              -
+                var options = {
+                  header: "bullet list",
+                  items: [
+                    {
+                      text: "Нельзя с питомцами"
+                    },
+                    {
+                      text: "Без вечеринок и мероприятий"
+                    },
+                    {
+                      text: ["Время прибытия — после 13:00,", "а выезд до 12:00"]
+                    },
+                  ]
+                }
+              +bullet-list(options)
+
+          //- Icon list and comment
     section.section-ui 
 
       div.icons-comments-block-ui
 
         //- Icon list
-        ul.icon-list 
-          li.icon-list__item 
-            img.icon-list__icon(src="images/svg/smile.svg" alt="smile")
-            div.icon-list__label
-              span.icon-list__heading Комфорт
-              span.icon-list__text Шумопоглащающие стены
-          li.icon-list__item 
-            img.icon-list__icon(src="images/svg/city.svg" alt="smile")
-            div.icon-list__label
-              span.icon-list__heading Удобство
-              span.icon-list__text Окно в каждой из спален
+        -
+          var options ={
+            items: [
+              {
+                title: " Комфорт",
+                icon: "images/svg/smile.svg",
+                text: "Шумопоглащающие стены"
+              },
+              {
+                title: " Комфорт",
+                icon: "images/svg/city.svg",
+                text: "Окно в каждой из спален"
+              }
+            ]
+          }
+        +icons-list(options)
 
         //- Comment
-        ul.comment-list 
-          li.comment 
-            div.comment__header
-              img.comment__avatar(src="images/dist/comments/1.jpg" alt="Murad Sarafanov")
-              div.comment__author
-                span.comment__name Мурад Сарафанов
-                span.comment__date 5 дней назад
-            div.comment__content
-              div.comment__like.input-wrapper
-                div.form-elements-block-ui__row
-                  div.input-wrapper__like-button
-                    span.input-wrapper__like-counter 2
-              p.comment__text Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий.
-                br
-                | И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто
-                br
-                | не жаловался из соседей.
+
+        - 
+          var options = {
+            items: [
+              {
+                author: "Мурад Сарафанов",
+                avatar: "images/dist/comments/1.jpg" ,
+                date: "5 дней назад",
+                text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+              }
+            ]
+          }
+
+        +comments-list(options)
 
   +footer
 

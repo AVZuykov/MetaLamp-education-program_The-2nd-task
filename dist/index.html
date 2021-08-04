@@ -59,8 +59,8 @@
           <li><span class="type-block-ui__h3">H3</span>
             <h3>This is a label or CTA text</h3>
           </li>
-          <li><span class="type-block-ui__t-text">Body</span>
-            <p class="t-text">This is the body text which is used for most of the design, like paragraphs, lists, etc.</p>
+          <li><span class="type-block-ui__text">Body</span>
+            <p class="text">This is the body text which is used for most of the design, like paragraphs, lists, etc.</p>
           </li>
         </ul>
       </div>
@@ -69,212 +69,265 @@
       <h2 id="formElements">Form Elements</h2>
       <div class="form-elements-block-ui"> 
         <div class="form-elements-block-ui__column320">
-          <form class="t-form" type="get">
-            <div class="t-form__element input-wrapper">
-              <label class="input-wrapper__title" for="textField"> TEXT FIELD</label>
-              <input class="input-wrapper__field" type="text" id="textField" name="someText" placeholder="Some text...">
+          <form>
+            <div class="inputs-block"><span class="inputs-block__header">text field</span>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="textField" name="textField" placeholder="Some text field 1..." required="true">
+              </div>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="textField" name="textField" placeholder="Some text field 2..." required="false">
+              </div>
             </div>
-            <div class="t-form__element input-wrapper">
-              <label class="t-form__element input-wrapper__title" for="maskedEmail">TEXT FIELD</label>
-              <input class="input-wrapper__field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email">
-              <input class="input-wrapper__subscribe" type="submit" value="">
+            <div class="inputs-block">
+              <input class="inputs-block__dropdown" type="checkbox" id="inputs-block-dropdown-47306">
+              <label class="inputs-block__dropdown-label" for="inputs-block-dropdown-47306"><span class="inputs-block__header inputs-block__header_extra-indent">expandable text field </span></label>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="textField" name="textField" placeholder="Some text field 1..." required="true">
+              </div>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="textField" name="textField" placeholder="Some text field 2..." required="false">
+              </div>
             </div>
-            <div class="t-form__element input-wrapper">
-              <label class="input-wrapper__title" for="maskedDate">masked text field</label>
-              <input class="input-wrapper__field" type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ">
+            <div class="inputs-block"><span class="inputs-block__header">subscription text field</span>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email" required="false">
+                <input class="text-input__subscribe-button" type="submit" value="">
+              </div>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="maskedEmail" name="maskedEmail" placeholder="Email" required="false">
+              </div>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown</span>
-              <div class="input-wrapper__field input-wrapper__field_drop-down">2 спальни, 2 кровати, 2 ванные комнаты</div>
-              <ul class="input-wrapper__select dropdown-select">  
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="sleepingrooms" value="count"><span class="dropdown-select__title">спальни</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
-                    <button class="dropdown-select__plus dropdown-select__plus_disable" type="button">+</button>
-                  </div>
-                </li>
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="beds" value="count"><span class="dropdown-select__title">кровати</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
-                    <button class="dropdown-select__plus dropdown-select__plus_disable" type="button">+</button>
-                  </div>
-                </li>
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="bathrooms" value="count"><span class="dropdown-select__title">Ванные комнаты</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
-                    <button class="dropdown-select__plus dropdown-select__plus_disable" type="button">+</button>
-                  </div>
-                </li>
-              </ul>
+            <div class="inputs-block"><span class="inputs-block__header">masked text field</span>
+              <div class="text-input">
+                <input class="text-input__entry-field" type="text" id="maskedDate" name="maskedDate" placeholder="ДД.ММ.ГГГГ" required="false">
+              </div>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown with accept button</span>
-              <div class="input-wrapper__field input-wrapper__field_drop-down">Сколько гостей</div>
-              <ul class="input-wrapper__select dropdown-select">  
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="adults" value="count"><span class="dropdown-select__title">Взрослые</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
-                    <button class="dropdown-select__plus dropdown-select__plus_disable" type="button">+</button>
-                  </div>
-                </li>
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="children" value="count"><span class="dropdown-select__title">Дети</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
-                    <button class="dropdown-select__plus dropdown-select__plus_disable" type="button">+</button>
-                  </div>
-                </li>
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="baby" value="count"><span class="dropdown-select__title">Младенцы</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">5</b>
-                    <button class="dropdown-select__plus dropdown-select__plus_disable" type="button">+</button>
-                  </div>
-                </li>
-                <li class="dropdown-select__buttons"> 
-                  <button class="dropdown-select__accept">Применить</button>
-                </li>
-              </ul>
+            <div class="inputs-block"><span class="inputs-block__header" for="dropdown">masked text field</span>
+              <div class="dropdown"></div>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title" for="dropdown">dropdown with accept and clear buttons</span>
-              <div class="input-wrapper__field input-wrapper__field_drop-down">3 гостя</div>
-              <ul class="input-wrapper__select dropdown-select">  
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="adults" value="count"><span class="dropdown-select__title">Взрослые</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">2</b>
-                    <button class="dropdown-select__plus" type="button">+</button>
-                  </div>
+            <div class="inputs-block"><span class="inputs-block__header" for="dropdown">masked text field</span>
+              <div class="dropdown"></div>
+            </div>
+            <div class="inputs-block">
+              <input class="inputs-block__dropdown" type="checkbox" id="inputs-block-dropdown-24277">
+              <label class="inputs-block__dropdown-label" for="inputs-block-dropdown-24277"><span class="inputs-block__header inputs-block__header_extra-indent">expandable checkbox list </span></label>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="breakfast">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Завтрак</span>
+                    </div>
+                  </label>
                 </li>
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="children" value="count"><span class="dropdown-select__title">Дети</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus" type="button">-</button><b class="dropdown-select__count">1</b>
-                    <button class="dropdown-select__plus" type="button">+</button>
-                  </div>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="table" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Письменный стол</span>
+                    </div>
+                  </label>
                 </li>
-                <li class="dropdown-select__option">
-                  <input type="number" hidden name="baby" value="count"><span class="dropdown-select__title">Младенцы</span>
-                  <div class="dropdown-select__counter">
-                    <button class="dropdown-select__minus dropdown-select__plus_disable" type="button">-</button><b class="dropdown-select__count">0</b>
-                    <button class="dropdown-select__plus" type="button">+</button>
-                  </div>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="table" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Стул для кормления</span>
+                    </div>
+                  </label>
                 </li>
-                <li class="dropdown-select__buttons"> 
-                  <button class="dropdown-select__clear">Очистить</button>
-                  <button class="dropdown-select__accept">Применить</button>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="babyBed" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Кроватка</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="tv">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Телевизор</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="Shampoo">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Шампунь</span>
+                    </div>
+                  </label>
                 </li>
               </ul>
             </div>
           </form>
         </div>
         <div class="form-elements-block-ui__column260">
-          <form class="t-form" type="get">
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Checkbox buttons </span>
-              <ul class="input-wrapper__check-list">
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="smoke">
-                    <div class="input-wrapper__checkbox"></div><span class="input-wrapper__text">Можно курить</span>
+          <form>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">checkbox buttons </span>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="smoke">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Можно курить</span>
+                    </div>
                   </label>
                 </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="pets">
-                    <div class="input-wrapper__checkbox"></div><span class="input-wrapper__text">Можно с питомцами</span>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="pets" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Можно с питомцами</span>
+                    </div>
                   </label>
                 </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label"> 
-                    <input type="checkbox" name="party">
-                    <div class="input-wrapper__checkbox"></div><span class="input-wrapper__text">Можно пригласить гостей (до 10 человек)</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Radio Buttons </span>
-              <ul class="input-wrapper__check-list">
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label">
-                    <input type="radio" name="sex">
-                    <div class="input-wrapper__radio"></div><span class="input-wrapper__text">Мужчина</span>
-                  </label>
-                </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label">
-                    <input type="radio" name="sex">
-                    <div class="input-wrapper__radio"></div><span class="input-wrapper__text">Женщина</span>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="party" checked>
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text"> Можно пригласить гостей</span><span class="check-list__item-text"> (до 10 человек)</span>
+                    </div>
                   </label>
                 </li>
               </ul>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">toggle</span>
-              <ul class="input-wrapper__check-list">
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label">
-                    <input type="checkbox" name="privacy">
-                    <div class="input-wrapper__toggle"></div><span class="input-wrapper__text">Можно курить</span>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">checkbox buttons </span>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="radio" name="sex" checked>
+                    <div class="check-list__visible-check-element-radio"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Мужчина</span>
+                    </div>
                   </label>
                 </li>
-                <li class="input-wrapper__check-button">
-                  <label class="input-wrapper__check-label">
-                    <input type="checkbox" name="subscribe">
-                    <div class="input-wrapper__toggle"></div><span class="input-wrapper__text">Можно с питомцами</span>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="radio" name="sex">
+                    <div class="check-list__visible-check-element-radio"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Женщина</span>
+                    </div>
                   </label>
                 </li>
               </ul>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">like button</span>
-              <div class="form-elements-block-ui__row">
-                <div class="input-wrapper__like-button"><span class="input-wrapper__like-counter">2</span></div>
-                <div class="input-wrapper__like-button input-wrapper__like-button_active"><span class="input-wrapper__like-counter">22</span></div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">checkbox buttons </span>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="privacy" checked>
+                    <div class="check-list__visible-check-element-toggle"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Получать спецпредложения</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="pets">
+                    <div class="check-list__visible-check-element-toggle"></div>
+                    <div class="check-list__item-text-wrapper"><span class="check-list__item-text">Согласиться на пытки</span>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">like button</span>
+              <div class="like-button"><span class="like-button__counter">22</span></div>
+            </div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">rate button</span>
+              <div class="rate-button">
+                <div class="rate-button__star"></div>
+                <div class="rate-button__star"></div>
+                <div class="rate-button__star"></div>
+                <div class="rate-button__star"></div>
+                <div class="rate-button__star"></div>
               </div>
             </div>
-            <div class="t-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Rate button</span>
-              <div class="form-elements-block-ui__row">
-                <div class="input-wrapper__rate-button">
-                  <input type="number" hidden value="0">
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="1"></div>
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="2"></div>
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="3"></div>
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="4"></div>
-                  <div class="input-wrapper__rate-star" data-rate="5"></div>
-                </div>
-                <div class="input-wrapper__rate-button">
-                  <input type="number" hidden value="0">
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="1"></div>
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="2"></div>
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="3"></div>
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="4"></div>
-                  <div class="input-wrapper__rate-star input-wrapper__rate-star_active" data-rate="5"></div>
-                </div>
-              </div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">rich Checkbox Buttons </span>
+              <ul class="check-list">
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="hall">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper check-list__item-text-wrapper_rich"><span class="check-list__item-title">Широкий коридор</span><span class="check-list__item-text"> Ширина коридоров в номере</span><span class="check-list__item-text">  не менее 91 см.</span>
+                    </div>
+                  </label>
+                </li>
+                <li class="check-list__item">
+                  <label class="check-list__item-label-wrapper">
+                    <input class="check-list__hidden-check-element" type="checkbox" name="help">
+                    <div class="check-list__visible-check-element-checkbox"></div>
+                    <div class="check-list__item-text-wrapper check-list__item-text-wrapper_rich"><span class="check-list__item-title">Помощник для инвалидов</span><span class="check-list__item-text"> На 1 этаже вас встретит специалист</span><span class="check-list__item-text"> и проводит до номера.</span>
+                    </div>
+                  </label>
+                </li>
+              </ul>
             </div>
           </form>
         </div>
         <div class="form-elements-block-ui__column320">
-          <form class="t-form" type="get">
-            <div class="f-form__element input-wrapper"><span class="input-wrapper__title input-wrapper__title_no-field">Buttons </span>
-              <div class="form-elements-block-ui__row">
-                <button class="button-wrapper" type="button">Click me</button>
-                <button class="button-wrapper" type="button" disabled>Click me</button>
+          <form class="form-ui">
+            <div class="inputs-block">
+              <div class="range-slider">
+                <div class="range-slider__header"><span class="inputs-block__header inputs-block__header_extra-indent">range-slider</span>
+                  <div class="range-slider__range"><span class="range-slider__from"> </span><span class="range-slider__to"> </span></div>
+                </div>
+                <input type="text" data-from="5000" data-to="10000" name="example_name" value="">
               </div>
-              <div class="form-elements-block-ui__row">
-                <button class="button-wrapper button-wrapper_border" type="button">Click me</button>
-                <button class="button-wrapper button-wrapper_border" type="button" disabled>Click me</button>
-              </div>
-              <div class="form-elements-block-ui__row">
-                <button class="button-wrapper button-wrapper_only-text" type="button">Click me</button>
-                <button class="button-wrapper button-wrapper_only-text" type="button" disabled>Click me</button>
-              </div>
-              <div class="form-elements-block-ui__row">
-                <button class="button-wrapper button-wrapper_large" type="button">перейти к оплате</button>
-              </div>
+            </div>
+            <div class="inputs-block inputs-block_row">
+              <button class="button" type="button">click me</button>
+              <button class="button" type="button" disabled>click me</button>
+            </div>
+            <div class="inputs-block inputs-block_row">
+              <button class="button button_border" type="button">click me</button>
+              <button class="button button_border" type="button" disabled>click me</button>
+            </div>
+            <div class="inputs-block inputs-block_row">
+              <button class="button button_only-text" type="button">click me</button>
+              <button class="button button_only-text" type="button" disabled>click me</button>
+            </div>
+            <div class="inputs-block">
+              <button class="button button_large" type="button">перейти к оплате</button>
+            </div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">Pagination </span>
+              <div class="pagination"></div>
+            </div>
+            <div class="inputs-block"><span class="inputs-block__header inputs-block__header_extra-indent">bullet list</span>
+              <ul class="bullet-list">
+                <li class="bullet-list__item"> Нельзя с питомцами</li>
+                <li class="bullet-list__item"> Без вечеринок и мероприятий</li>
+                <li class="bullet-list__item"><span class="bullet-list__text"> Время прибытия — после 13:00,</span><span class="bullet-list__text"> а выезд до 12:00</span>
+                </li>
+              </ul>
             </div>
           </form>
         </div>
+      </div>
+    </section>
+    <section class="section-ui"> 
+      <div class="icons-comments-block-ui">
+        <ul class="icons-list"> 
+          <li class="icons-list__item"> <img class="icons-list__item-icon" src="images/svg/smile.svg" alt="Шумопоглащающие стены">
+            <div class="icons-list__item-context"><span class="icons-list__item-title"> Комфорт</span><span class="icons-list__item-text">Шумопоглащающие стены</span></div>
+          </li>
+          <li class="icons-list__item"> <img class="icons-list__item-icon" src="images/svg/city.svg" alt="Окно в каждой из спален">
+            <div class="icons-list__item-context"><span class="icons-list__item-title"> Комфорт</span><span class="icons-list__item-text">Окно в каждой из спален</span></div>
+          </li>
+        </ul>
+        <ul class="comments-list"> 
+          <li class="comments-list__item"> 
+            <div class="comments-list__item-left"><img class="comments-list__item-avatar" src="images/dist/comments/1.jpg" alt="Мурад Сарафанов">
+              <div class="like-button"><span class="like-button__counter">55</span></div>
+            </div>
+            <div class="comments-list__item-right">
+              <div class="comments-list__item-header"><span class="comments-list__author-name">Мурад Сарафанов</span><span class="comments-list__item-date">5 дней назад</span></div><span class="comments-list__item-text">Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.</span>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
   </main>

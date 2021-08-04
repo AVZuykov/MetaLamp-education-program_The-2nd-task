@@ -1,0 +1,43 @@
+// Like button
+
+.like-button
+  position: relative
+  height: 20px
+  width: 40px
+  border: 1px solid $darkShade25
+  flex-shrink: 0
+  transition: border-color .25s ease-in-out
+  border-radius: 10px
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: all .25s ease-in-out
+  &:hover
+    border-color: $purple
+    cursor: pointer
+
+.like-button__counter
+  font-size: 10px
+  line-height: 0
+  padding-top: 2px
+  color: $darkShade25
+  transform: translateX(50%)
+  transition: all .25s ease-in-out
+  &::before
+    content: ''
+    position: absolute
+    background: url(../images/svg/like-border.svg) no-repeat center center
+    top: -9px
+    left: -20px
+    height: 20px
+    width: 20px
+    transition: all .25s ease-in-out
+
+// like mod
+
+.like-button_active
+  border-color: $purple
+  .like-button__counter
+    color: $purple
+    &::before
+      background: url(../images/svg/like.svg) no-repeat center center

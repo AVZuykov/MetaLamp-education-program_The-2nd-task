@@ -1,0 +1,42 @@
+//- options
+  {
+    header: "Заголовок блока", 
+    dropdown: "true/false", // Флаг для превращения блока в дропдаун
+
+    items: [
+      {
+        id: "maskedEmail",     // id тега input
+        name: "maskedEmail",   // атрибут name тега input
+        placeholder: "Email",  // placeholder тега input
+        subscribe: true/false, // Флаг кнопки отправить
+        required: true/false,  // Флаг обязательного поля
+        class: "customClass"   // Кастомный класс для тега input
+      }
+    ]
+  }
+
+mixin text-input(options)
+
+  //- Миксин для превращения блока в дропдаун
+
+  +inputs-block-dropdown(options)
+
+  if (!options.dropdown && options.header)
+
+    span.inputs-block__header #{options.header}
+
+  each item in options.items
+
+    div.text-input
+      input.text-input__entry-field(
+        class       = item.class
+        type        = "text" 
+        id          = item.id  
+        name        = item.name 
+        placeholder = `${item.placeholder ? item.placeholder : "Some text"}`
+        required    = `${item.required ? true : false}`
+      )
+
+      if (item.subscribe)
+
+        input.text-input__subscribe-button(type="submit" value="")

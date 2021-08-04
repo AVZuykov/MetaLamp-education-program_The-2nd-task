@@ -1,0 +1,76 @@
+//- options
+  {
+    header: "Заголовок блока", 
+    dropdown: true/false,             // Флаг для превращения блока в дропдаун
+    dropdownChecked: true/false       // Флаг для активности дропдауна по умолчанию
+    items: [
+      {
+        type: "checkbox/radio/toggle" // тип тега input 
+        title: "Заголовок элемента"
+        name: "maskedEmail",          // атрибут name тега input
+        required: true/false,         // Флаг обязательного поля
+        check: true/false,            // Флаг активности по умолчанию
+        text: "Сплошной текст"/["Несколько", "строк"]
+      }
+    ]
+  }
+
+mixin check-list(options)
+
+  //- Миксин для превращения блока в дропдаун
+
+  +inputs-block-dropdown(options)
+
+  //- Заголовок 
+
+  if (!options.dropdown && options.header)
+
+    span.inputs-block__header.inputs-block__header_extra-indent #{options.header} 
+
+  ul.check-list
+
+    each item in options.items
+
+      //- Создание списка 
+
+      li.check-list__item
+        label.check-list__item-label-wrapper
+
+          input.check-list__hidden-check-element(
+            type = `${
+              item.type === "checkbox" || item.type === "toggle" 
+                ? "checkbox" 
+                : "radio"
+              }`
+            name     = item.name 
+            checked  = item.check 
+            required = item.required
+          )
+
+          //- Вид элемента checkbox, radio, toggle
+
+          div(class=`check-list__visible-check-element-${item.type}`)
+
+          //- Обертка текста элемента
+
+          div.check-list__item-text-wrapper(class=`${item.title ? "check-list__item-text-wrapper_rich" : ""}`)
+
+            //- Заголовок элемента
+            if (item.title)
+
+              span.check-list__item-title #{item.title}
+
+            //- Проверка наличия нескольких строк
+
+            if (Array.isArray(item.text))
+
+              //- Несколько строк
+
+              each string in item.text
+                span.check-list__item-text  #{string}
+
+            else 
+
+              //- Сплошной текст
+
+              span.check-list__item-text #{item.text}

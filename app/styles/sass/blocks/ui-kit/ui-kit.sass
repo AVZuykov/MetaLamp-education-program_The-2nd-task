@@ -68,7 +68,7 @@
 .type-block-ui__h1,
 .type-block-ui__h2,
 .type-block-ui__h3,
-.type-block-ui__t-text
+.type-block-ui__text
   color: $darkShade25
   text-align: right
   line-height: 1
@@ -83,6 +83,9 @@
   font-size: 12px
 
 // Form Elements
+
+.form-ui
+  position: relative
 
 .form-elements-block-ui
   display: flex
@@ -102,16 +105,16 @@
 .form-elements-block-ui__row
   display: flex
   flex-flow: row wrap
+  align-items: flex-end
+  justify-content: flex-start
   margin-bottom: 40px
-  &:last-child
-    margin-bottom: 0
-  &>div, &>button
-    margin-right: 10px
-    &:last-child
-      margin: 0
+  >div
+    margin-right: 20px
 
 // Icons and comments
 
 .icons-comments-block-ui
   display: flex
-  justify-content: space-between
+  justify-content: space-evenly
+  > ul
+    max-width: 500px

@@ -1,0 +1,27 @@
+mixin comments-list(options)
+
+  ul.comments-list 
+
+    each item in options.items
+
+      li.comments-list__item 
+
+        div.comments-list__item-left
+          img.comments-list__item-avatar(src=item.avatar alt=item.author)
+          +like-button({"default-value": 55})
+        div.comments-list__item-right
+          div.comments-list__item-header
+            span.comments-list__author-name #{item.author}
+            span.comments-list__item-date #{item.date}
+
+          if (Array.isArray(item.text))
+
+            //- Несколько строк
+            each string in item.text
+              span.comments-list__item-text  #{string}
+
+          else 
+
+            //- Сплошной текст
+
+            span.comments-list__item-text #{item.text}

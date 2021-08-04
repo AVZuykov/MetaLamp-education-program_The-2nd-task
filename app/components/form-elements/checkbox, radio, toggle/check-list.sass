@@ -1,0 +1,142 @@
+.check-list
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+// check-item
+
+.check-list__item
+  margin-bottom: 11px
+  &:last-of-type
+    margin-bottom: 0
+
+// Label / wrapper
+
+.check-list__item-label-wrapper
+  color: $darkShade50
+  display: flex
+  flex-flow: row nowrap
+  cursor: pointer
+
+// Visible checkbox, radio, toggle border
+.check-list__visible-check-element
+
+  &-checkbox,
+  &-radio,
+  &-toggle
+    height: 20px
+    width: 20px
+    border: 1px solid $darkShade25
+    flex-shrink: 0
+    margin-right: 10px
+    transition: border-color .25s ease-in-out
+
+  &-checkbox
+    position: relative
+    border-radius: 4px
+    background: url(../images/svg/checkbox-check.svg) no-repeat center center
+    &::before
+      content: ''
+      position: absolute
+      top: 4px
+      bottom: 4px
+      left: 4px
+      right: 4px
+      background-color: rgba(#fff, 1)
+      transition: all .25s ease-in-out
+
+  &-radio
+    position: relative
+    border-radius: 50%
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translateX(-50%) translateY(-50%)
+      width: 0px
+      height: 0px
+      background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+      border-radius: 50%
+      transition: all .25s ease-in-out
+
+  &-toggle
+    position: relative
+    width: 40px
+    border-radius: 10px
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translateX(-125%) translateY(-50%)
+      width: 12px
+      height: 12px
+      border-radius: 50%
+      transition: all .25s ease-in-out
+
+    &::before
+      background: linear-gradient(to bottom, rgba(187,156,255,1) 0%, rgba(139,164,249,1) 100%)
+
+    &::after
+      background: #C7C7CF
+
+.check-list__item-text-wrapper
+  display: flex
+  flex-flow: column
+  .check-list__item-text
+    transition: all .25s ease-in-out
+
+// Check-list rich mod
+
+.check-list__item-text-wrapper_rich
+
+  .check-list__item-title
+    font-size: 14px
+    font-weight: 700
+    color: $darkShade75
+
+  .check-list__item-text
+    font-size: 12px
+
+// dynamic 
+
+.check-list__hidden-check-element
+  position: absolute
+  z-index: -1
+  opacity: 0
+
+  &:checked + .check-list__visible-check-element
+
+    // border color
+
+    &-checkbox,
+    &-radio,
+    &-toggle
+      border-color: $purple
+      & + .check-list__item-text-wrapper
+        .check-list__item-text
+          color: $darkShade75
+
+    // checkbox (check)
+
+    &-checkbox
+      &::before
+        background-color: rgba(#fff, 0)
+
+    // radio (check)
+
+    &-radio
+      &::before
+        width: 12px
+        height: 12px
+
+    // toggle (check)
+
+    &-toggle
+      &::before,
+      &::after
+        transform: translateX(30%) translateY(-50%)
+      &::after
+        opacity: 0

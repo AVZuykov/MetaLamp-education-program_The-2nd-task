@@ -1,0 +1,9 @@
+mixin range-slider(options)
+
+  div.range-slider
+    div.range-slider__header
+      span.inputs-block__header.inputs-block__header_extra-indent #{options.header}
+      div.range-slider__range
+        span.range-slider__from 
+        span.range-slider__to 
+    input(type="text" data-from=options.from data-to=options.to name="example_name" value="")
