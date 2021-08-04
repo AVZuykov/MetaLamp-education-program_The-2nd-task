@@ -91,7 +91,12 @@ export class Dropdown {
     }
 
     if (type === 'field') {
-      this.isOpen ? this.saveAndClose() : this.open()
+      if (this.isOpen) {
+        this.saveAndClose()
+      } else {
+        this.renderControlsButtons()
+        this.open()
+      }
     }
 
   }
@@ -123,6 +128,8 @@ export class Dropdown {
     }
 
     this.renderControlsButtons()
+
+    this.renderField()
   }
 
   // Метод рендора счетчиков и кнопок
@@ -146,19 +153,29 @@ export class Dropdown {
   }
 
   renderControlsButtons() {
-
-    console.log(this.isSame, this.acceptBtn)
     this.isSame ? this.acceptBtn.setAttribute('disabled', '') : this.acceptBtn.removeAttribute('disabled')
     this.isDefault ? this.clearBtn.setAttribute('disabled', '') : this.clearBtn.removeAttribute('disabled')
   }
 
-  saveAndClose(state = this.state.current) {
-    this.state.current = state.map(a => ({ ...a }))
-    this.state.draft = state.map(a => ({ ...a }))
-    this.selectOptions.forEach((option, idx) => {
-      const count = state[idx].value
-      this.renderCount(option, count)
+  renderField() {
+    let text = ''
+    this.state.draft.forEach(el => {
+      text = `${text}${!text ? '' : ','} ${el.value} ${el.title}`
     })
+
+    this.field.innerText = text.length > 31 ? text.toLowerCase().slice(0, 31) + '...' : text.toLowerCase()
+  }
+
+  saveAndClose(state = this.state.current) {
+    if (!this.isSame || state === this.state.default) {
+      this.state.current = state.map(a => ({ ...a }))
+      this.state.draft = state.map(a => ({ ...a }))
+      this.selectOptions.forEach((option, idx) => {
+        const count = state[idx].value
+        this.renderCount(option, count)
+      })
+      this.renderField()
+    }
     this.close()
   }
 
