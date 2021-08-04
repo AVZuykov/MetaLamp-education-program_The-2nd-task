@@ -39,19 +39,22 @@ document.addEventListener('DOMContentLoaded', () => {
       placeholder: 'Сколько гостей',
       items: [
         {
-          title: "взрослые  ",
+          title: 'взрослые',
           min: 1,
           value: 2,
+          titleForms: ['взрослый', 'взрослых', 'взрослых']
         },
         {
-          title: "Дети",
+          title: 'Дети',
           max: 5,
           value: 1,
+          titleForms: ['ребонок', 'ребонка', 'детей']
         },
         {
-          title: "Младенцы",
+          title: 'Младенцы',
           max: 4,
           value: 0,
+          titleForms: ['младенец', 'младенца', 'младенцев']
         }
       ]
     })
